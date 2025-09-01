@@ -12,13 +12,16 @@
     color: #333;
     text-align: center;
     margin-bottom: 10px;
+
 }
 
 .subtitle {
     font-size: 1rem;
-    color: #777;
+    color: #666565;
     text-align: center;
     margin-bottom: 40px;
+    font-style: oblique;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 .accordion {
@@ -31,6 +34,7 @@
     border-radius: 8px;
     margin-bottom: 15px;
     padding: 10px 25px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 .questionButton {
@@ -49,6 +53,7 @@
     font-size: 1.1rem;
     color: #333;
     font-weight: 500;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 .answerPanel {
@@ -59,9 +64,11 @@
 
 .answerPanel p {
     margin: 15px 0 0 0;
-    color: #555;
+    color: #464545;
     line-height: 1.6;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-weight: 450;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 .icon {

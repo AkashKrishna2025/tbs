@@ -1,16 +1,16 @@
 /* src/pages/AboutPage.module.css (पूरा और फ़ाइनल कोड) */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;600&display=swap');
+
 .aboutPage {
     background-color: #fff;
 }
 
 /* --- हीरो बैनर --- */
 .heroBanner {
- height: 510px;
+    height: 510px;
     background-size: cover;
     background-position: center;
-    display: flex
-;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
@@ -19,11 +19,13 @@
     padding-left: 49px;
     padding-top: 111px;
 }
+
 .heroTitle {
     font-family: 'Georgia', 'Times New Roman', serif;
     font-size: 3rem;
     font-weight: 500;
 }
+
 .heroSubtitle {
     font-size: 1.1rem;
     margin-top: 10px;
@@ -37,47 +39,63 @@
     text-align: center;
     padding: 0 20px;
 }
+
 .quoteIcon {
     height: 40px;
     opacity: 0.5;
     margin-bottom: 20px;
 }
+
 .welcomeTitle {
-   font-family: 'Lato';
-  font-weight: 600; /* This corresponds to SemiBold */
-  font-style: normal; /* 'SemiBold' isn't a valid font-style; use font-weight instead */
-  font-size: 20px;
-  line-height: 32px;
-  letter-spacing: 0;
-  text-align: center;
+    font-family: 'Lato';
+    font-weight: 600;
+    /* This corresponds to SemiBold */
+    font-style: normal;
+    /* 'SemiBold' isn't a valid font-style; use font-weight instead */
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #252424;
 
 }
+
 .welcomeText {
-font-family: 'Lato' ;
-  font-weight: 400; /* Regular weight */
-  font-style: normal; /* 'Regular' isn't a valid value, use 'normal' */
-  font-size: 18px;
-  line-height: 32px;
-  letter-spacing: 0;
-  text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    /* Regular weight */
+    font-style: normal;
+    /* 'Regular' isn't a valid value, use 'normal' */
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #2b2a2a;
+
 
 }
+
 .founders {
     margin-top: 5px;
     font-size: 1rem;
-    color: #000000;
+    color: #302f2f;
     font-family: 'Lato';
+    font-family: Arial, Helvetica, sans-serif;
+
 }
+
 .founders p {
     margin: 0;
 }
+
 .founders h4 {
     font-family: 'lato';
     margin: 5px 0 0 0;
-    font-weight: 600;
-    color: #5F8364;
+    font-weight: 500;
+    color: #65a06d;
     font-style: italic;
     font-size: 22px;
+
 }
 
 /* --- मिशन ग्रिड --- */
@@ -98,18 +116,57 @@ font-family: 'Lato' ;
         "image6 image7 card3 card3";
 }
 
+.missionGrid h3 {
+    font-family: 'Playfair Display', serif;
+}
+
 /* ग्रिड आइटम्स को उनके एरिया में सेट करना */
-.card1 { grid-area: card1; }
-.image1 { grid-area: image1; }
-.image2 { grid-area: image2; }
-.logoContainer { grid-area: logo; display: flex; align-items: center; justify-content: center; }
-.card2 { grid-area: card2; }
-.image3 { grid-area: image3; }
-.image4 { grid-area: image4; }
-.image5 { grid-area: image5; }
-.card3 { grid-area: card3; }
-.image6 { grid-area: image6; }
-.image7 { grid-area: image7; }
+.card1 {
+    grid-area: card1;
+}
+
+.image1 {
+    grid-area: image1;
+}
+
+.image2 {
+    grid-area: image2;
+}
+
+.logoContainer {
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card2 {
+    grid-area: card2;
+}
+
+.image3 {
+    grid-area: image3;
+}
+
+.image4 {
+    grid-area: image4;
+}
+
+.image5 {
+    grid-area: image5;
+}
+
+.card3 {
+    grid-area: card3;
+}
+
+.image6 {
+    grid-area: image6;
+}
+
+.image7 {
+    grid-area: image7;
+}
 
 /* कार्ड्स की स्टाइलिंग */
 .missionCard {
@@ -120,20 +177,24 @@ font-family: 'Lato' ;
     flex-direction: column;
     justify-content: center;
 }
+
 .missionCard img {
     height: 40px;
     width: 40px;
     margin-bottom: 15px;
 }
+
 .missionCard h3 {
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 15px;
 }
+
 .missionCard p {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #555;
+    color: #1b1b1b;
+
 }
 
 /* इमेज की स्टाइलिंग */
@@ -142,11 +203,13 @@ font-family: 'Lato' ;
     overflow: hidden;
     height: 100%;
 }
+
 .gridImage img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .logoContainer img {
     max-width: 200px;
 }
@@ -168,13 +231,29 @@ font-family: 'Lato' ;
 }
 
 @media (max-width: 576px) {
-    .heroTitle { font-size: 2.2rem; }
-    .missionGrid {
-        grid-template-columns: 1fr; /* सभी आइटम्स एक कॉलम में */
-        grid-template-areas: initial; /* एरिया को रीसेट करें */
+    .heroTitle {
+        font-size: 2.2rem;
     }
+
+    .missionGrid {
+        grid-template-columns: 1fr;
+        /* सभी आइटम्स एक कॉलम में */
+        grid-template-areas: initial;
+        /* एरिया को रीसेट करें */
+    }
+
     /* सभी आइटम्स को ऑटो एरिया दें */
-    .card1, .image1, .image2, .logoContainer, .card2, .image3, .image4, .image5, .card3, .image6, .image7 {
+    .card1,
+    .image1,
+    .image2,
+    .logoContainer,
+    .card2,
+    .image3,
+    .image4,
+    .image5,
+    .card3,
+    .image6,
+    .image7 {
         grid-area: auto;
     }
 }

@@ -50,11 +50,11 @@ const AboutPage = () => {
           <div className={`${styles.missionCard} ${styles.card1}`}>
             <img src={standOutIcon} alt="How we stand out" />
             <h3>How do we stand out</h3>
-            <p>At our company, we prioritize safety and style in every product we create. Our furniture is made with non-toxic finishes and sturdy construction to ensure the well-being of your little ones. Plus, we go above and beyond industry safety standards to give you peace of mind. But that's not all - our furniture is also customizable to fit your personal taste and needs. 
-Choose from a variety of finishes, colors, and sizes to create the perfect nursery for your little one. And if you need help, our design consultation service is here to provide personalized recommendations and assistance. 
-Upgrade your nursery with our safe and stylish furniture options.</p>
+            <p>At our company, we prioritize safety and style in every product we create. Our furniture is made with non-toxic finishes and sturdy construction to ensure the well-being of your little ones. Plus, we go above and beyond industry safety standards to give you peace of mind. But that's not all - our furniture is also customizable to fit your personal taste and needs.
+              Choose from a variety of finishes, colors, and sizes to create the perfect nursery for your little one. And if you need help, our design consultation service is here to provide personalized recommendations and assistance.
+              Upgrade your nursery with our safe and stylish furniture options.</p>
           </div>
-          
+
           <div className={`${styles.gridImage} ${styles.image1}`}><img src={image1} alt="Nursery setup 1" /></div>
           <div className={`${styles.gridImage} ${styles.image2}`}><img src={image2} alt="Nursery setup 2" /></div>
 
@@ -83,7 +83,7 @@ Upgrade your nursery with our safe and stylish furniture options.</p>
         </section>
       </div>
       <FloatingIcons />
-      <SignatureProjects/>
+      <SignatureProjects />
       <DesignProcess />
       <FaqSection />
     </>

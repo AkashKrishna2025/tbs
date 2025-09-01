@@ -1,52 +1,78 @@
+/* --- Hero Section Styling --- */
 .heroContainer {
   position: relative;
-  line-height: 0;
-  height: 587px;
+  width: 100%;
+  height: 600px;
+  /* Adjust height as needed, could be responsive with aspect-ratio or vw/vh */
+  overflow: hidden;
+  background-color: #e0f2f1;
+  /* Fallback background color */
+  display: flex;
+  /* Use flex to help align content */
+  align-items: flex-start;
+  /* Align content to the start (top) */
+  justify-content: flex-start;
+  /* Align content to the start (left) */
 }
 
 .heroImage {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* Keep image behind content */
 }
 
 .heroContent {
   position: absolute;
-  top: 10%; /* Figma ke according exact position */
+  top: 10%;
+  /* Figma ke according exact position */
   left: 8%;
-  color: #4A4A4A; /* Figma jaise dark gray */
+  color: #4A4A4A;
+  /* Figma jaise dark gray */
   z-index: 2;
   line-height: normal;
-  text-align: center; /* Text ko center align karne ke liye */
+  text-align: center;
+  /* Text ko center align karne ke liye */
+  /* Include padding in width */
 }
 
 .heroContent h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 48px; /* Figma ke according size */
-  font-weight: 400; /* Regular weight */
+  font-size: 48px;
+  /* Figma ke according size */
+  font-weight: 400;
+  /* Regular weight */
   color: #4A4A4A;
-  line-height: 1.1; /* Tight line height */
+  line-height: 1.1;
+  /* Tight line height */
   margin: 0 0 1.5rem 0;
-  letter-spacing: -0.02em; /* Slightly tighter spacing */
+  letter-spacing: -0.02em;
+  /* Slightly tighter spacing */
 }
 
-.heroContent p  {
-    font-size: 24px;
-    color: #000000;
-    line-height: 38px;
-    margin: 0 0 2rem 0;
-    font-weight: 500;
+.heroContent p {
+  font-size: 22px;
+  color: #555555;
+  /* Slightly lighter than heading for hierarchy */
+  line-height: 38px;
+  margin: 0 0 2rem 0;
+  font-weight: 500;
 }
 
 .shopButton {
   background-color: #FFFFFF;
-  border: 1px solid #E0E0E0; /* Subtle border */
-  border-radius: 6px; /* Less rounded, more clean */
-  padding: 0.8rem 2rem; /* Compact padding */
+  border: 1px solid #E0E0E0;
+  border-radius: 6px;
+  padding: 0.8rem 2rem;
   font-size: 0.9rem;
-  font-weight: 500; /* Medium weight */
+  font-weight: 500;
   color: #333333;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.2s ease;
 }
 
@@ -58,7 +84,9 @@
 .floatingActions {
   position: absolute;
   right: 2rem;
-  bottom: 8rem;
+  top: 50%;
+  /* Center vertically with transform */
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -69,104 +97,266 @@
   width: 50px;
   height: 50px;
   cursor: pointer;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-/* Trust Bar Styling */
-.trustBar {
-  background-image: url('../../assets/images/bg-1.png');
- padding: 1rem 1rem 1.5rem 0rem;
-    position: relative;
-    margin-top: -51px;
-    z-index: 5;
-    line-height: 1.5;
+/* Trust Bar Styling - Now integrated visually into the hero */
+/* We will simulate the trust bar as part of the hero section for now.
+   If you want to layer it with CSS, you can use a pseudo-element or
+   another div inside heroContainer. For this example, I'll assume
+   the design implies the background image includes the trust bar graphic.
+   If the trust items need to be laid out over a pre-existing image,
+   we'll need a different approach.
+*/
+
+/* If you want to overlay the trust bar content with CSS,
+   you'd need to bring back the trust features as a separate
+   div inside heroContainer, positioned absolutely at the bottom.
+   Let's create a placeholder for this, assuming you want
+   the content dynamically placed. */
+
+.trustBarOverlay {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: rgba(214, 233, 219, 0.8);
+  /* Semi-transparent light green */
+  padding: 1.5rem 1rem;
+  z-index: 4;
+  /* Above image, below floating actions */
+  box-sizing: border-box;
 }
-
-
-
-
 
 .trustBarContainer {
+  /* Re-using existing styles, but inside trustBarOverlay */
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
+  /* Distribute items more evenly */
   align-items: center;
-  position: relative;
+  gap: 1.1rem;
+  /* Reduced gap slightly */
+  text-align: center;
+  height: 80px;
 }
 
 .trustItem {
   display: flex;
+  margin-bottom: 34px;
+  flex-direction: row;
+  /* Icon aur text ek line me */
   align-items: center;
-  gap: 1rem;
+  /* Vertically center */
+  gap: 0.8rem;
+  /* Icon aur text ke beech space */
+  min-width: 150px;
+  justify-content: center;
+  color: #3d5a49;
 }
 
 .trustItem img {
-  height: 50px;
+  height: 40px;
+  width: auto;
+}
+
+.trustText {
+  text-align: left;
+  /* Text ko icon ke side me align karo */
 }
 
 .trustText h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #5d7a6a;
+  margin: 0;
 }
 
 .trustText p {
   color: #555;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  margin: 0;
 }
 
+
 /* Responsive Design */
+
 @media (max-width: 1200px) {
   .heroContent {
-    max-width: 420px;
+    padding-left: 5%;
   }
-  
+
+  .heroContent h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .heroContainer {
+    height: 550px;
+  }
+
+  .heroContent {
+    padding-top: 5%;
+    padding-left: 5%;
+    max-width: 90%;
+  }
+
   .heroContent h1 {
     font-size: 2.8rem;
+  }
+
+  .heroContent p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .floatingActions {
+    right: 1rem;
+  }
+
+  .trustBarOverlay {
+    padding: 1rem 0.5rem;
+  }
+
+  .trustBarContainer {
+    gap: 1rem;
+  }
+
+  .trustItem {
+    flex: 1 1 calc(33% - 1rem);
+    /* 3 items per row */
+  }
+
+  .trustItem img {
+    height: 40px;
+  }
+
+  .trustText h3 {
+    font-size: 1rem;
+  }
+
+  .trustText p {
+    font-size: 0.7rem;
   }
 }
 
 @media (max-width: 768px) {
-  .heroContent {
-    top: 35%;
-    left: 5%;
-    max-width: 90%;
+  .heroContainer {
+    height: 500px;
   }
-  
+
+  .heroContent {
+    text-align: center;
+    /* Center content on smaller screens */
+    width: 100%;
+    /* Take full width for centering */
+    padding: 10% 2% 0 2%;
+  }
+
   .heroContent h1 {
     font-size: 2.2rem;
   }
-  
+
   .heroContent p {
-    max-width: 100%;
+    font-size: 1rem;
   }
-  
-  .trustBar {
-    margin-top: -40px;
+
+  .shopButton {
+    padding: 0.7rem 1.5rem;
   }
-  
+
+  .floatingActions {
+    top: auto;
+    /* Remove top centering */
+    bottom: 8rem;
+    /* Position above trust bar */
+    right: 0.5rem;
+    transform: none;
+    /* Remove transform */
+  }
+
+  .floatingActions img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .trustBarOverlay {
+    padding: 0.8rem 0.5rem;
+  }
+
   .trustBarContainer {
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-  
-  .trustItem {
-    width: 45%;
     justify-content: center;
+  }
+
+  .trustItem {
+    flex: 1 1 calc(50% - 1rem);
+    /* 2 items per row */
+  }
+
+  .trustItem img {
+    height: 35px;
+  }
+
+  .trustText h3 {
+    font-size: 0.9rem;
+  }
+
+  .trustText p {
+    font-size: 0.65rem;
   }
 }
 
 @media (max-width: 480px) {
-  .heroContent {
-    top: 40%;
-    left: 5%;
+  .heroContainer {
+    height: 450px;
   }
-  
+
   .heroContent h1 {
     font-size: 1.8rem;
+    margin-bottom: 1rem;
   }
-  
+
+  .heroContent p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+  }
+
+  .shopButton {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+
+  .floatingActions {
+    bottom: 6rem;
+  }
+
+  .floatingActions img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .trustBarOverlay {
+    padding: 0.6rem 0.2rem;
+  }
+
+  .trustBarContainer {
+    gap: 0.8rem;
+  }
+
   .trustItem {
-    width: 80%;
+    flex: 1 1 100%;
+    /* 1 item per row */
+    flex-direction: row;
+    /* Icon and text side-by-side */
+    justify-content: flex-start;
+    /* Align left */
+  }
+
+  .trustItem img {
+    height: 30px;
   }
 }

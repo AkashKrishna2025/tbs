@@ -1,7 +1,8 @@
 /* src/pages/CollectionPage.module.css (फाइनल अपडेटेड कोड) */
 
 .collectionPage {
-  background-color: #fff; /* पूरे पेज का बैकग्राउंड सफेद है */
+  background-color: #fff;
+  /* पूरे पेज का बैकग्राउंड सफेद है */
 }
 
 /* --- बैनर सेक्शन (अब इमेज के साथ) --- */
@@ -23,22 +24,27 @@
 }
 
 .banner h1 {
-font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 700;
-  font-style: normal; /* 'Bold' isn't a valid value for font-style */
+  font-style: normal;
+  /* 'Bold' isn't a valid value for font-style */
   font-size: 46px;
-  line-height: 2; /* 100% = 1 in unitless line-height */
+  line-height: 2;
+  /* 100% = 1 in unitless line-height */
   letter-spacing: 0;
   color: black;
+  margin-bottom: 0px;
 
 }
 
 .banner p {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-style: normal; /* 'Regular' isn't valid; use 'normal' */
+  font-style: normal;
+  /* 'Regular' isn't valid; use 'normal' */
   font-size: 22px;
-  line-height: 1; /* 100% = 1 in unitless value */
+  line-height: 1;
+  /* 100% = 1 in unitless value */
   letter-spacing: 0;
   color: black;
 
@@ -46,7 +52,8 @@ font-family: 'Playfair Display', serif;
 
 /* --- मेन कंटेंट कंटेनर --- */
 .container {
-  max-width: 1280px; /* थोड़ा चौड़ा कंटेनर */
+  max-width: 1280px;
+  /* थोड़ा चौड़ा कंटेनर */
   margin: 0 auto;
   padding: 20px;
 }
@@ -65,11 +72,13 @@ font-family: 'Playfair Display', serif;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
-  flex-wrap: wrap; /* मोबाइल पर रैप करने के लिए */
+  flex-wrap: wrap;
+  /* मोबाइल पर रैप करने के लिए */
   gap: 20px;
 }
 
-.leftFilters, .rightSort {
+.leftFilters,
+.rightSort {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -78,7 +87,8 @@ font-family: 'Playfair Display', serif;
 
 .filterBar select {
   padding: 8px 12px;
-  border: 1px solid #c6d1c5; /* Figma जैसा हल्का हरा बॉर्डर */
+  border: 1px solid #c6d1c5;
+  /* Figma जैसा हल्का हरा बॉर्डर */
   border-radius: 5px;
   background-color: #fff;
   font-size: 0.9rem;
@@ -103,10 +113,12 @@ font-family: 'Playfair Display', serif;
   .banner h1 {
     font-size: 2.8rem;
   }
+
   .filterBar {
     flex-direction: column;
     align-items: stretch;
   }
+
   .productGrid {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
@@ -117,7 +129,9 @@ font-family: 'Playfair Display', serif;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
-  .leftFilters, .rightSort {
+
+  .leftFilters,
+  .rightSort {
     justify-content: center;
   }
 }

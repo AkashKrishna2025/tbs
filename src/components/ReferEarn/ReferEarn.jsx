@@ -15,19 +15,19 @@ const ReferEarn = () => {
 
         {/* --- सारा टेक्स्ट कंटेंट --- */}
         <div className={styles.contentOverlay}>
-          
+
           {/* हेडर */}
-        
+
 
           {/* स्टेप्स */}
-         
 
-      
 
-         
-          
+
+
+
+
           {/* फुटर */}
-         
+
         </div>
       </div>
     </div>

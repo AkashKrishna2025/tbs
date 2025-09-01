@@ -16,14 +16,19 @@
     color: #333;
     text-align: center;
 }
+
 .heroTitle {
     font-family: 'Georgia', 'Times New Roman', serif;
     font-size: 3rem;
     font-weight: 500;
 }
+
 .heroSubtitle {
     font-size: 1.1rem;
     margin-top: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    color: #242323;
 }
 
 /* --- मुख्य कंटेंट --- */
@@ -41,46 +46,59 @@
 .getInTouch {
     padding-right: 20px;
 }
+
 .sectionTitle {
     font-family: 'Georgia', 'Times New Roman', serif;
     font-size: 2.5rem;
     font-weight: 500;
     margin-bottom: 20px;
 }
+
 .sectionText {
     color: #555;
     line-height: 1.6;
     margin-bottom: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    color: #1f1e1e;
+    font-size: medium;
 }
+
 .contactInfo {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 .infoItem {
     display: flex;
     align-items: center;
     gap: 20px;
 }
+
 .infoIcon {
     height: 24px;
     width: 24px;
 }
+
 .infoItem p {
     margin: 0;
     line-height: 1.5;
     color: #333;
 }
+
 .divider {
     border: none;
     height: 1px;
     background-color: #eee;
     margin: 0;
 }
+
 .socialIcons {
     display: flex;
     gap: 15px;
 }
+
 .socialIcons a {
     width: 32px;
     height: 32px;
@@ -94,6 +112,7 @@
     font-weight: bold;
     transition: all 0.2s ease-in-out;
 }
+
 .socialIcons a:hover {
     background-color: #8fad88;
     border-color: #8fad88;
@@ -102,24 +121,27 @@
 
 /* --- दाईं ओर का फॉर्म --- */
 .contactFormContainer {
-    background-color: #e3eae2;
+    background-color: #9bb197;
     padding: 40px;
     border-radius: 16px;
 }
+
 .formTitle {
-    font-family: 'Georgia', 'Times New Roman', serif;
+    font-family: 'cormorant Garamond', serif;
     text-align: center;
-    font-size: 2.2rem;
+    font-size: 36px;
     color: #fff;
-    font-weight: 500;
+    font-weight: 400;
     margin-bottom: 30px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
+
 .contactForm .formRow {
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
 }
+
 .contactForm input,
 .contactForm textarea {
     width: 100%;
@@ -129,14 +151,17 @@
     font-size: 1rem;
     background-color: #f4f7f4;
 }
+
 .contactForm input::placeholder,
 .contactForm textarea::placeholder {
     color: #888;
 }
+
 .contactForm textarea {
     resize: vertical;
     margin-bottom: 20px;
 }
+
 .submitButton {
     background-color: #f4f7f4;
     border: none;
@@ -150,6 +175,7 @@
     margin: 0 auto;
     transition: background-color 0.2s ease;
 }
+
 .submitButton:hover {
     background-color: #fff;
 }
@@ -161,7 +187,8 @@
     align-items: center;
     text-align: center;
     color: #fff;
-    height: 100%; /* यह कंटेनर की पूरी ऊंचाई लेगा */
+    height: 100%;
+    /* यह कंटेनर की पूरी ऊंचाई लेगा */
     padding: 20px;
 }
 
@@ -175,20 +202,30 @@
 .successMessage p {
     font-size: 1.1rem;
     line-height: 1.5;
-    max-width: 300px; /* ताकि टेक्स्ट बहुत ज़्यादा न फैले */
+    max-width: 300px;
+    /* ताकि टेक्स्ट बहुत ज़्यादा न फैले */
 }
+
 /* --- रिस्पॉन्सिव डिज़ाइन --- */
 @media (max-width: 992px) {
     .mainContent {
-        grid-template-columns: 1fr; /* टैबलेट पर कॉलम को एक के नीचे एक करें */
+        grid-template-columns: 1fr;
+        /* टैबलेट पर कॉलम को एक के नीचे एक करें */
         gap: 40px;
     }
 }
 
 @media (max-width: 576px) {
-    .heroTitle { font-size: 2.2rem; }
-    .contactFormContainer { padding: 30px 20px; }
+    .heroTitle {
+        font-size: 2.2rem;
+    }
+
+    .contactFormContainer {
+        padding: 30px 20px;
+    }
+
     .contactForm .formRow {
-        flex-direction: column; /* मोबाइल पर नाम और ईमेल को एक के नीचे एक करें */
+        flex-direction: column;
+        /* मोबाइल पर नाम और ईमेल को एक के नीचे एक करें */
     }
 }
