@@ -1,0 +1,44 @@
+/* src/components/CTASection/CTASection.module.css */
+.section {
+  height: 760px;
+  padding: 6rem 2rem;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: white;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45); /* डार्क ओवरले */
+}
+.content {
+  top: 175px;
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.content h2 {
+      font-family: 'Playfair Display', serif;
+    font-size: 41px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+.content p {
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.content button {
+  background-color: #D3D8CB;
+  border: none;
+  color: #333;
+  padding: 0.8rem 2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}

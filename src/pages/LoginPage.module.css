@@ -1,0 +1,38 @@
+/* src/pages/LoginPage.module.css */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+.loginBox {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+.loginBox h2 {
+  margin-bottom: 1rem;
+}
+.loginBox p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+.loginBox input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.loginBox button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #8E9E82;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

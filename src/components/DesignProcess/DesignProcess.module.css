@@ -1,0 +1,178 @@
+/* src/components/DesignProcess/DesignProcess.module.css */
+
+.section {
+  padding: 4rem 2rem;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.header h2 {
+ font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 44px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+
+}
+
+.startButton {
+  background-color: #95B79A;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.startButton:hover {
+  background-color: #337336;
+}
+
+.arrow {
+  font-size: 1.2rem;
+}
+
+.stepsGrid {
+  display: grid;
+  /* Ensure 5 columns on large screens. Adjust minmax based on content and desired card size. */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.5rem;
+}
+
+.stepCard {
+  background-color: #e8f7e9; /* Light green background for the cards */
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem; /* Top padding adjusted for flag, others for content */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  position: relative;
+  min-height: 160px; /* Adjusted min-height to make boxes shorter */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Align content to the bottom */
+}
+
+/* --- Image-based Number Icon Styling --- */
+.stepNumberImageContainer {
+    position: absolute;
+    top: 0;
+    left: 0.5rem;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    top: 27px;
+}
+
+.stepNumberImage {
+  width: 100%; /* Image fills its container */
+  height: 100%; /* Image fills its container */
+  object-fit: contain; /* Ensures the entire image is visible within the container */
+  display: block;
+}
+
+/* --- Content within cards --- */
+.stepTitle {
+  font-size: 1.3rem;
+  color: #333;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.stepDescription {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .section {
+    padding: 3rem 1.5rem;
+  }
+  .header h2 {
+    font-size: 2rem;
+  }
+  .startButton {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  .stepsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust min width for columns */
+    gap: 1rem;
+  }
+  .stepCard {
+    min-height: 140px; /* Adjust min-height for smaller screens */
+    padding: 2rem 1rem 1rem 1rem;
+  }
+  .stepNumberImageContainer {
+    left: 1rem; /* Adjust left position for smaller screens */
+    width: 5rem; /* Adjust image container size for responsiveness */
+    height: 3rem;
+  }
+  .stepTitle {
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 1rem;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+  .header h2 {
+    font-size: 1.8rem;
+  }
+  .startButton {
+    width: fit-content;
+    align-self: flex-start;
+  }
+  .stepsGrid {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+    gap: 1.5rem;
+  }
+  .stepCard {
+    min-height: auto; /* Allow height to adjust based on content on mobile */
+    padding: 3rem 1.5rem 1.5rem 1.5rem; /* Ensure enough top padding for flag */
+  }
+  .stepNumberImageContainer {
+    left: 1.5rem; /* Maintain consistent left position on mobile */
+    width: 5.5rem; /* Original size on mobile */
+    height: 3.5rem;
+  }
+}

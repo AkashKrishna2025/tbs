@@ -1,0 +1,230 @@
+/* src/components/ProductSlider/ProductSlider.module.css */
+
+.section {
+  padding: 80px 0;
+  background-color: #FCFBF9;
+  width: 100%;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: #2C2C2C;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.header p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+  font-style: italic;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 50px;
+}
+
+.filterBtn {
+  background: transparent;
+  border: 1px solid #E0E0E0;
+  border-radius: 25px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.filterBtn:hover {
+  border-color: #8E9E82;
+  color: #8E9E82;
+}
+
+.filterBtn.active {
+  background: #8E9E82;
+  border-color: #8E9E82;
+  color: white;
+}
+
+.sliderWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0 30px;
+  margin: 0 60px;
+  
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;   /* background hata diya */
+  border: none;              /* border hataya */
+  border-radius: 0;          /* circle remove */
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.arrow:hover {
+  background: #8E9E82;
+  color: white;
+  border-color: #8E9E82;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.leftArrow {
+  left: 0;
+}
+
+.rightArrow {
+  right: 0;
+}
+
+.arrowIcon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  .slider {
+    margin: 0 50px;
+    gap: 16px;
+  }
+  
+  .arrow {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 968px) {
+  .section {
+    padding: 60px 0;
+  }
+  
+  .header h2 {
+    font-size: 36px;
+  }
+  
+  .slider {
+    margin: 0 40px;
+    gap: 12px;
+  }
+  
+  .arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+  
+  .filters {
+    margin-bottom: 40px;
+  }
+  
+  .filterBtn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 50px 0;
+  }
+  
+  .header h2 {
+    font-size: 32px;
+  }
+  
+  .header p {
+    font-size: 14px;
+  }
+  
+  .slider {
+    margin: 0 20px;
+  }
+  
+  .arrow {
+    display: none;
+  }
+  
+  .filters {
+    padding: 0 10px;
+    gap: 8px;
+  }
+  
+  .filterBtn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 0;
+  }
+  
+  .container {
+    padding: 0 12px;
+  }
+  
+  .header h2 {
+    font-size: 28px;
+  }
+  
+  .slider {
+    margin: 0 10px;
+    gap: 8px;
+  }
+  
+  .filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 0 10px 10px;
+    margin-bottom: 30px;
+  }
+  
+  .filterBtn {
+    flex-shrink: 0;
+  }
+}

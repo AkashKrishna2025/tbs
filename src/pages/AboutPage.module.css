@@ -1,0 +1,180 @@
+/* src/pages/AboutPage.module.css (पूरा और फ़ाइनल कोड) */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;600&display=swap');
+.aboutPage {
+    background-color: #fff;
+}
+
+/* --- हीरो बैनर --- */
+.heroBanner {
+ height: 510px;
+    background-size: cover;
+    background-position: center;
+    display: flex
+;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    color: #ffffff;
+    text-align: left;
+    padding-left: 49px;
+    padding-top: 111px;
+}
+.heroTitle {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 3rem;
+    font-weight: 500;
+}
+.heroSubtitle {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    color: black;
+    margin-top: 10px;
+}
+
+/* --- वेलकम सेक्शन --- */
+.welcomeSection {
+    margin: 60px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+.quoteIcon {
+    height: 40px;
+    opacity: 0.5;
+    margin-bottom: 20px;
+}
+.welcomeTitle {
+   font-family: 'Lato';
+  font-weight: 600; /* This corresponds to SemiBold */
+  font-style: normal; /* 'SemiBold' isn't a valid font-style; use font-weight instead */
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0;
+  text-align: center;
+
+}
+.welcomeText {
+font-family: 'Lato' ;
+  font-weight: 400; /* Regular weight */
+  font-style: normal; /* 'Regular' isn't a valid value, use 'normal' */
+  font-size: 18px;
+  line-height: 32px;
+  letter-spacing: 0;
+  text-align: center;
+
+}
+.founders {
+    margin-top: 5px;
+    font-size: 1rem;
+    color: #000000;
+    font-family: 'Lato';
+}
+.founders p {
+    margin: 0;
+}
+.founders h4 {
+    font-family: 'lato';
+    margin: 5px 0 0 0;
+    font-weight: 600;
+    color: #5F8364;
+    font-style: italic;
+    font-size: 22px;
+}
+
+/* --- मिशन ग्रिड --- */
+.missionGrid {
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    gap: 20px;
+    /* विज़ुअल लेआउट के लिए ग्रिड एरियाज़ */
+    grid-template-areas:
+        "card1 card1 image1 image2"
+        "image3 logo logo card2"
+        "image3 logo logo card2"
+        "image4 image5 card3 card3"
+        "image6 image7 card3 card3";
+}
+
+/* ग्रिड आइटम्स को उनके एरिया में सेट करना */
+.card1 { grid-area: card1; }
+.image1 { grid-area: image1; }
+.image2 { grid-area: image2; }
+.logoContainer { grid-area: logo; display: flex; align-items: center; justify-content: center; }
+.card2 { grid-area: card2; }
+.image3 { grid-area: image3; }
+.image4 { grid-area: image4; }
+.image5 { grid-area: image5; }
+.card3 { grid-area: card3; }
+.image6 { grid-area: image6; }
+.image7 { grid-area: image7; }
+
+/* कार्ड्स की स्टाइलिंग */
+.missionCard {
+    background-color: #f0f5ef;
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.missionCard img {
+    height: 40px;
+    width: 40px;
+    margin-bottom: 15px;
+}
+.missionCard h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+.missionCard p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* इमेज की स्टाइलिंग */
+.gridImage {
+    border-radius: 16px;
+    overflow: hidden;
+    height: 100%;
+}
+.gridImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.logoContainer img {
+    max-width: 200px;
+}
+
+/* --- रिस्पॉन्सिव डिज़ाइन --- */
+@media (max-width: 992px) {
+    .missionGrid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "card1 card1"
+            "image1 image2"
+            "card2 card2"
+            "image3 image4"
+            "logo logo"
+            "card3 card3"
+            "image5 image6"
+            "image7 .";
+    }
+}
+
+@media (max-width: 576px) {
+    .heroTitle { font-size: 2.2rem; }
+    .missionGrid {
+        grid-template-columns: 1fr; /* सभी आइटम्स एक कॉलम में */
+        grid-template-areas: initial; /* एरिया को रीसेट करें */
+    }
+    /* सभी आइटम्स को ऑटो एरिया दें */
+    .card1, .image1, .image2, .logoContainer, .card2, .image3, .image4, .image5, .card3, .image6, .image7 {
+        grid-area: auto;
+    }
+}

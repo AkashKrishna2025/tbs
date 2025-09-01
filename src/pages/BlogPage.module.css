@@ -1,0 +1,12 @@
+/* src/pages/BlogPage.module.css */
+.blogPage { background-color: #f9f8f6; }
+.heroBanner { height: 400px; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #333; padding: 20px; }
+.heroTitle { font-family: 'Georgia', 'Times New Roman', serif; font-size: 3rem; font-weight: 500; padding-right: 31rem; }
+.heroSubtitle { font-size: 1.1rem; margin-top: 10px; max-width: 500px; margin-right: 31rem;}
+.mainContent { max-width: 1200px; margin: 0 auto; padding: 40px 20px 60px; }
+.filterContainer { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; }
+.filterButton { padding: 10px 25px; border: 1px solid #ccc; border-radius: 20px; background-color: #fff; cursor: pointer; font-size: 1rem; color: #555; transition: all 0.2s ease; }
+.filterButton.active { background-color: #8fad88; color: #fff; border-color: #8fad88; }
+.blogGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+@media (max-width: 768px) { .blogGrid { grid-template-columns: 1fr; } }
+@media (max-width: 576px) { .heroTitle { font-size: 2.2rem; } }

@@ -1,0 +1,143 @@
+/* src/components/Footer/Footer.module.css */
+.footer {
+ border-top: solid;
+    border-color: rgb(226, 225, 222);
+    /* background-color: #F8F5F1; */
+    padding-top: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+.footerMain {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+.contactInfo .logo {
+ margin-left: 32px;
+    height: 59px;
+    margin-bottom: 9px;
+}
+.contactInfo span {
+  font-size: 0.8rem;
+  color: #888;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+.contactList {
+  color: #000000;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  font-style: normal; /* 'Medium' isn't valid in CSS, use 'normal' */
+  font-size: 12px;
+  line-height: 27px;
+  letter-spacing: 0;
+
+}
+.contactList li {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.contactList img {
+  height: 10px;
+  margin-top: 9px;
+}
+.linksColumn h4 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+.linksColumn ul {
+  list-style: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  font-style: normal; /* 'Medium' isn't valid in CSS */
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0;
+
+}
+.linksColumn li a {
+  text-decoration: none;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 2;
+}
+.newsletter h4 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+.newsletter p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+.emailInput {
+  display: flex;
+  border-bottom: 1px solid #8E9E82;
+}
+.emailInput input {
+  border: none;
+  background: transparent;
+  flex-grow: 1;
+  padding: 0.5rem 0;
+}
+.emailInput input:focus {
+  outline: none;
+}
+.emailInput button {
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #555;
+}
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.socialIcons img {
+  height: 24px;
+}
+.footerWatermark {
+    position: absolute;
+    bottom: 37px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    user-select: none;
+    pointer-events: none;
+    max-width: 95vw;
+    height: auto;
+  opacity: 0.8; /* Optional: adjust visibility */
+}
+
+.footerBottom {
+  background-color: #8E9E82;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  margin-top: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.successMessage {
+  margin-top: 10px;
+  color: green;
+  font-weight: bold;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

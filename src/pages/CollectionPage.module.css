@@ -1,0 +1,123 @@
+/* src/pages/CollectionPage.module.css (फाइनल अपडेटेड कोड) */
+
+.collectionPage {
+  background-color: #fff; /* पूरे पेज का बैकग्राउंड सफेद है */
+}
+
+/* --- बैनर सेक्शन (अब इमेज के साथ) --- */
+.banner {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  color: #3a3a3a;
+
+  /* बैकग्राउंड इमेज की स्टाइलिंग */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.banner h1 {
+font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-style: normal; /* 'Bold' isn't a valid value for font-style */
+  font-size: 46px;
+  line-height: 2; /* 100% = 1 in unitless line-height */
+  letter-spacing: 0;
+  color: black;
+
+}
+
+.banner p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-style: normal; /* 'Regular' isn't valid; use 'normal' */
+  font-size: 22px;
+  line-height: 1; /* 100% = 1 in unitless value */
+  letter-spacing: 0;
+  color: black;
+
+}
+
+/* --- मेन कंटेंट कंटेनर --- */
+.container {
+  max-width: 1280px; /* थोड़ा चौड़ा कंटेनर */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* --- ब्रेडक्रम्ब --- */
+.breadcrumbs {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 25px;
+  padding-left: 5px;
+}
+
+/* --- नया फ़िल्टर/सॉर्ट बार --- */
+.filterBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap; /* मोबाइल पर रैप करने के लिए */
+  gap: 20px;
+}
+
+.leftFilters, .rightSort {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.filterBar select {
+  padding: 8px 12px;
+  border: 1px solid #c6d1c5; /* Figma जैसा हल्का हरा बॉर्डर */
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.productCount {
+  font-size: 0.95rem;
+  color: #333;
+  margin-right: 10px;
+}
+
+/* --- प्रोडक्ट ग्रिड सेक्शन --- */
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* --- रिस्पॉन्सिवनेस --- */
+@media (max-width: 768px) {
+  .banner h1 {
+    font-size: 2.8rem;
+  }
+  .filterBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .productGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .leftFilters, .rightSort {
+    justify-content: center;
+  }
+}

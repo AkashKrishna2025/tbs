@@ -1,0 +1,228 @@
+.section {
+  padding: 4rem 0;
+  background-color: #FCFBF9;
+}
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.header h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 44px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+}
+.header p {
+  color: #777;
+   font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 50px;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.sliderWrapper { /* स्लाइडर के लिए Wrapper, अब बिना एरो के */
+  max-width: 1300px; /* कुल स्लाइडर सेक्शन की अधिकतम चौड़ाई */
+  margin: 0 auto;
+  padding: 0 2rem; /* स्लाइडर के किनारों पर कंसिस्टेंट पैडिंग */
+}
+
+.slider {
+  display: flex;
+  gap: 1.5rem; /* कार्ड्स के बीच का गैप */
+  overflow-x: auto; /* हॉरिजॉन्टल स्क्रोलिंग सक्षम करें */
+  scrollbar-width: none; /* फ़ायरफ़ॉक्स के लिए स्क्रोलबार छिपाएँ */
+  -ms-overflow-style: none; /* IE/Edge के लिए स्क्रोलबार छिपाएँ */
+  scroll-snap-type: x mandatory; /* स्क्रोलिंग को कार्ड्स पर स्नैप करें */
+  padding-bottom: 1rem; /* संभावित स्क्रोलबार के लिए या सिर्फ विज़ुअल पैडिंग */
+}
+.slider::-webkit-scrollbar {
+  display: none; /* वेबकिट ब्राउज़र के लिए स्क्रोलबार छिपाएँ */
+}
+.storyCard {
+  /* डिफ़ॉल्ट: बड़े स्क्रीन पर 4 कार्ड गैप के साथ */
+  flex: 0 0 calc((100% - (3 * 1.5rem)) / 4); /* 4 कार्ड, 3 गैप के साथ */
+  height: 450px; /* कार्ड की फिक्स्ड ऊँचाई */
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  scroll-snap-align: start; /* कार्ड को स्क्रोल के शुरुआत में स्नैप करें */
+  background-color: #fff; /* वीडियो लोड न होने पर बैकग्राउंड */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* हल्का शैडो */
+  display: flex; /* वीडियो और बटन को सही ढंग से अलाइन करने के लिए */
+  flex-direction: column;
+}
+.storyVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* वीडियो को कार्ड के भीतर पूरी तरह से फिट करें */
+  display: block; /* इमेज/वीडियो के नीचे अतिरिक्त जगह हटाएँ */
+}
+
+.videoTitleOverlay { /* वीडियो टाइटल के लिए नया स्टाइल */
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  color: white; /* टाइटल कलर */
+  font-family: 'Playfair Display', serif; /* हेडर फ़ॉन्ट या उपयुक्त फ़ॉन्ट से मेल खाता है */
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* वीडियो पर पठनीयता के लिए */
+  z-index: 2;
+  line-height: 1.3;
+}
+
+.viewButton {
+    position: absolute;
+    bottom: 0rem;
+    left: 1rem;
+    display: flex
+;
+    align-items: center;
+    gap: 0.5rem;
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    /* backdrop-filter: blur(5px); */
+    -webkit-backdrop-filter: blur(5px);
+    /* padding: 0.5rem 1rem; */
+    /* border-radius: 20px; */
+    /* text-decoration: none; */
+    color: #333;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    z-index: 2;
+}
+.viewButton:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* होवर पर थोड़ा और ओपेक */
+}
+.viewButton img {
+  height: 22px; /* प्ले आइकन का साइज़ */
+  pointer-events: none; /* सुनिश्चित करें कि क्लिक बटन पर काम करे, इमेज पर नहीं */
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+.dot {
+  width: 10px; /* निष्क्रिय डॉट की चौड़ाई */
+  height: 10px; /* निष्क्रिय डॉट की ऊँचाई */
+  background-color: #D3D8CB; /* निष्क्रिय डॉट का रंग (हल्का हरा/ग्रे) */
+  border-radius: 50%; /* इसे एक सर्कल बनाएँ */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.dot.active {
+  background-color: #8E9E82; /* सक्रिय डॉट का ब्रांड रंग (हरा) */
+  width: 25px; /* सक्रिय डॉट की चौड़ी चौड़ाई */
+  border-radius: 5px; /* सक्रिय डॉट के लिए गोल आयत */
+}
+
+/* --- मीडिया क्वेरीज़: रेस्पोंसिवनेस के लिए --- */
+
+/* 1200px तक की स्क्रीन (जैसे बड़े टैबलेट, छोटे डेस्कटॉप) */
+@media (max-width: 1200px) {
+  .sliderWrapper {
+    padding: 0 1.5rem;
+  }
+  .storyCard {
+    flex: 0 0 calc((100% - (2 * 1.5rem)) / 3); /* 3 कार्ड, 2 गैप के साथ */
+  }
+}
+
+/* 992px तक की स्क्रीन (जैसे टैबलेट) */
+@media (max-width: 992px) {
+  .section {
+    padding: 3rem 0;
+  }
+  .header h2 {
+    font-size: 38px;
+  }
+  .header p {
+    font-size: 17px;
+    line-height: 1.4;
+  }
+  .sliderWrapper {
+    padding: 0 1rem;
+  }
+  .storyCard {
+    flex: 0 0 calc((100% - (1 * 1.5rem)) / 2); /* 2 कार्ड, 1 गैप के साथ */
+    height: 400px;
+  }
+  .videoTitleOverlay {
+    font-size: 1.1rem;
+  }
+  .viewButton {
+    bottom: 0.8rem;
+    left: 0.8rem;
+    padding: 0.45rem 0.9rem;
+    font-size: 15px;
+  }
+  .viewButton img {
+    height: 20px;
+  }
+}
+
+/* 768px तक की स्क्रीन (जैसे छोटे टैबलेट, बड़े फ़ोन) */
+@media (max-width: 768px) {
+  .storyCard {
+    flex: 0 0 100%; /* 1 कार्ड (पूरी चौड़ाई) */
+    height: 350px;
+  }
+  .sliderWrapper {
+    padding: 0 0.5rem;
+  }
+  .videoTitleOverlay {
+    font-size: 1rem;
+  }
+  .viewButton {
+    bottom: 0.75rem;
+    left: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 15px;
+  }
+  .viewButton img {
+    height: 20px;
+  }
+}
+
+/* 480px तक की स्क्रीन (जैसे मोबाइल फ़ोन) */
+@media (max-width: 480px) {
+  .section {
+    padding: 2rem 0;
+  }
+  .header h2 {
+    font-size: 32px;
+  }
+  .header p {
+    font-size: 15px;
+    line-height: 1.3;
+  }
+  .storyCard {
+    height: 300px;
+  }
+  .sliderWrapper {
+    padding: 0; /* स्लाइडर पर कोई पैडिंग नहीं, गैप स्पेसिंग को हैंडल करें */
+  }
+  .videoTitleOverlay {
+    font-size: 0.9rem;
+    left: 0.75rem;
+    right: 0.75rem;
+  }
+  .viewButton {
+    bottom: 0.5rem;
+    left: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 14px;
+  }
+  .viewButton img {
+    height: 18px;
+  }
+}

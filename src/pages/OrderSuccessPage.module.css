@@ -1,0 +1,38 @@
+/* src/pages/OrderSuccessPage.module.css */
+.successContainer {
+    max-width: 700px;
+    margin: 4rem auto;
+    padding: 3rem;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.successContainer h2 {
+    font-family: 'Libre Baskerville', serif;
+    color: #8fad88;
+    margin-bottom: 1rem;
+}
+
+.successContainer p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.arrival {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    color: #333;
+}
+
+.actionButton {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    background-color: #8fad88;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+}   

@@ -1,0 +1,57 @@
+/* src/pages/CheckoutPage.module.css */
+.checkoutContainer {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.addressForm, .paymentSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.addressForm h2, .paymentSection h2 {
+    font-family: 'Libre Baskerville', serif;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.addressForm input {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.addressForm button, .paymentButtons button {
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #8fad88;
+    color: white;
+}
+
+.orderSummary {
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.paymentButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.codButton {
+    background-color: #fff;
+    color: #8fad88;
+    border: 1px solid #8fad88;
+}

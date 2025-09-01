@@ -1,0 +1,151 @@
+/* src/components/TestimonialSection/TestimonialSection.module.css (New Pixel-Perfect Code) */
+
+.section {
+  padding: 4rem 2rem;
+
+  overflow: hidden; /* Important for the slider */
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.header h2 {
+font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 44px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+
+}
+.header p { 
+  color: #777; 
+   font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 50px;
+  letter-spacing: 0;
+  text-align: center;
+
+}
+
+/* --- Slider Styles --- */
+.sliderWrapper {
+  max-width: 877px;
+  margin: 0 auto;
+  overflow: hidden; /* Hides the other slides */
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Smooth slide animation */
+}
+
+.slide {
+  flex: 0 0 100%; /* Each slide takes up the full width */
+  display: flex;
+  gap: 1rem;
+
+}
+
+.imageContainer {
+  flex: 1;
+}
+.imageContainer img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* --- Testimonial Card Styling --- */
+.testimonialCard {
+  flex: 1;
+  background-color: #F1F3EE;
+  border-radius: 16px;
+  padding: 3rem;
+  text-align: center;
+  position: relative; /* Crucial for pseudo-elements */
+  overflow: hidden; /* Hides parts of the pseudo-elements */
+}
+
+/* The large faded quotation mark icon */
+.quoteIcon {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 80px;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+/* Create the top background shape */
+
+
+/* Create the bottom background shape */
+
+/* Ensure all content appears above the background shapes */
+.stars, .quoteText, .author {
+  position: relative;
+  z-index: 2;
+}
+.testimonialCard {
+  background-image: url('../../assets/images/test-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* existing styles */
+}
+
+
+.stars {
+  top: 23px;
+  color: #8E9E82; /* Figma 
+  uses green stars */
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.quoteText {
+  font-size: 1.3rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+.author {
+  margin-top: 1rem;
+}
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 0.5rem auto;
+}
+.author h4 {
+  font-weight: bold;
+}
+.author span {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* --- Pagination Styles --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #D3D8CB;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.dot.active {
+  background-color: #8E9E82;
+  width: 30px;
+  border-radius: 5px;
+}
