@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './DesignProcess.module.css';
 
 // Import number images from your local system
-// Make sure these paths are correct according to your project structure
 import number01 from '../../assets/icons/01.png';
 import number02 from '../../assets/icons/02.png';
 import number03 from '../../assets/icons/03.png';
@@ -12,7 +11,7 @@ import number05 from '../../assets/icons/05.png';
 const designSteps = [
   {
     number: '01',
-    image: number01, // Referencing the imported image
+    image: number01,
     title: 'Consultation',
     description: 'Understand your style & needs',
   },
@@ -57,7 +56,10 @@ const DesignProcess = () => {
         {/* Grid for the five design process steps */}
         <div className={styles.stepsGrid}>
           {designSteps.map((step, index) => (
-            <div key={index} className={styles.stepCard}>
+            <div
+              key={index}
+              className={`${styles.stepCard} ${index === designSteps.length - 1 ? styles.lastStepCard : ''}`}
+            >
               {/* Image container for the number icon */}
               <div className={styles.stepNumberImageContainer}>
                 <img src={step.image} alt={`Step ${step.number}`} className={styles.stepNumberImage} />

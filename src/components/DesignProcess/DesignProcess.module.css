@@ -31,7 +31,8 @@
   font-style: normal;
   font-size: 44px;
   line-height: 1.2;
-  text-align: center;
+  text-align: left;
+  /* Changed to left for better alignment */
 }
 
 .startButton {
@@ -57,63 +58,58 @@
 }
 
 .stepsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
-  gap: 1.8rem;
+  display: flex;
+  /* Changed to flexbox */
+  gap: 0.9rem;
+  overflow-x: auto;
+  /* Enable horizontal scrolling */
+  scroll-snap-type: x mandatory;
+  /* Optional: for smoother scrolling */
+  padding-bottom: 1rem;
+  /* Add some padding for scrollbar if visible */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
+
+.stepsGrid::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
 
 .stepCard {
   background-color: #e8f7e9;
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 1rem;
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   position: relative;
   min-height: 160px;
+  right: 0;
+  /* Adjusted to 0, margin will handle off-screen */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  border: 1px solid #7fb685;
-
-
-  /* Desktop pe thoda bahar niklega */
+  border: 1px solid #bee2c1;
+  height: 140px;
+  flex-shrink: 0;
+  /* Prevent cards from shrinking */
+  width: 230px;
+  /* Set a fixed width for cards */
+  scroll-snap-align: start;
+  /* Optional: for smoother scrolling */
 }
 
-/* Sirf 5th card ko bahar dhakelo */
-.stepsGrid .stepCard:nth-child(5) {
+/* Style for the last step card to make it go off-screen */
+.stepCard.lastStepCard {
   margin-right: -40px;
-  /* Desktop pe bahar niklega */
+  /* Adjust this value to control how much it goes off-screen */
 }
 
-/* Tablet (≤1024px): thoda kam bahar */
-@media (max-width: 1024px) {
-  .stepsGrid .stepCard:nth-child(5) {
-    margin-right: -20px;
-  }
+.stepDescription {
+  color: rgb(83, 85, 83);
 }
-
-/* Mobile (≤768px): safe center */
-@media (max-width: 768px) {
-  .stepsGrid .stepCard:nth-child(5) {
-    margin-right: 0;
-  }
-}
-
-/* Tablet पर थोड़ा कम बाहर */
-/* Tablet (≤1024px) */
-@media (max-width: 1024px) {
-  .stepCard {
-    margin-right: -20px;
-    /* thoda kam bahar */
-  }
-}
-
-/* Mobile (≤768px) */
-@media (max-width: 768px) {
-  .stepCard {
-    margin-right: 0;
-    /* center aligned, safe */
-  }
-}
-
 
 .stepNumberImageContainer {
   position: absolute;
@@ -126,6 +122,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .stepNumberImage {
@@ -135,20 +132,22 @@
 }
 
 .stepTitle {
-  font-size: 1rem;
-  color: #3f3e3e;
-  margin-top: 1.5rem;
+  color: #383838;
+  margin-top: 1.3rem;
   margin-bottom: 0.5rem;
   font-weight: 500;
   font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.1rem;
+
 }
 
 .stepDescription {
   font-size: 0.95rem;
-  color: #3f3e3e;
-  line-height: 1.5;
+  color: #2e2d2d;
+  line-height: 1.2;
   margin-bottom: 0;
   font-weight: 500;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 /* ===============================
@@ -165,13 +164,16 @@
     font-size: 2rem;
   }
 
-  .stepsGrid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
   .stepCard {
     min-height: 140px;
     padding: 2rem 1rem 1rem 3rem;
+    width: 200px;
+    /* Adjusted width for tablets */
+  }
+
+  .stepCard.lastStepCard {
+    margin-right: -20px;
+    /* Less off-screen for tablets */
   }
 
   .stepNumberImageContainer {
@@ -203,13 +205,23 @@
   }
 
   .stepsGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    /* For mobile, you might want a single column or just keep the flex with scrolling */
+    /* If you want a single column, uncomment the next two lines and remove overflow-x from stepsGrid */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    gap: 1rem;
   }
 
   .stepCard {
     min-height: auto;
     padding: 2.5rem 1rem 1.2rem 3rem;
+    width: 250px;
+    /* Adjusted width for mobile */
+  }
+
+  .stepCard.lastStepCard {
+    margin-right: 0;
+    /* Fully visible on smaller screens */
   }
 
   .stepNumberImageContainer {
@@ -230,6 +242,8 @@
 
   .stepCard {
     padding: 2rem 0.8rem 1rem 2.5rem;
+    width: 200px;
+    /* Adjusted width for small mobile */
   }
 
   .stepNumberImageContainer {

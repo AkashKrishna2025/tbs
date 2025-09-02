@@ -96,6 +96,7 @@ const ProductDetailPage = () => {
           </div>
 
           {/* Right Side: Product Details */}
+
           <div className={styles.productDetails}>
             <div className={styles.reviewInfo}>
               <span className={styles.stars}>★★★★★</span>
@@ -124,6 +125,7 @@ const ProductDetailPage = () => {
               <div className={styles.featureItem}>ISO<br />Certified</div>
               <div className={styles.divider}></div>
               <div className={styles.featureItem}>Quick<br />Delivery</div>
+              <div className={styles.divider}></div>
               <div className={styles.featureItem}>Customization<br />Available</div>
             </div>
 
