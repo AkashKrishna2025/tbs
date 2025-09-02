@@ -95,7 +95,7 @@
   height: 140px;
   flex-shrink: 0;
   /* Prevent cards from shrinking */
-  width: 230px;
+  width: 240px;
   /* Set a fixed width for cards */
   scroll-snap-align: start;
   /* Optional: for smoother scrolling */
