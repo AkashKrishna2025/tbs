@@ -19,7 +19,7 @@ const ContactPage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
@@ -43,16 +43,24 @@ const ContactPage = () => {
             <div className={styles.contactInfo}>
               <div className={styles.infoItem}>
                 <img src={phoneIcon} alt="Phone" className={styles.infoIcon} />
-                <p>(+91) 9811130502, 8929385402,<br/>011-45509254</p>
+                <p>(+91) 9811130502, 8929385402,<br />011-45509254</p>
               </div>
+
               <hr className={styles.divider} />
+
               <div className={styles.infoItem}>
                 <img src={emailIcon} alt="Email" className={styles.infoIcon} />
                 <p>admin@tbs.studio</p>
               </div>
+
               <hr className={styles.divider} />
+
+              {/* ✅ Social Media section alag banaya */}
               <div className={styles.infoItem}>
                 <img src={socialIcon} alt="Social Media" className={styles.infoIcon} />
+                <p>Social Media</p>
+              </div>
+              <div className={styles.infoItem}>
                 <div className={styles.socialIcons}>
                   <a href="#" aria-label="LinkedIn">
                     <img src={linkedinIcon} alt="LinkedIn" className={styles.socialIcon} />
@@ -72,8 +80,10 @@ const ContactPage = () => {
                 </div>
               </div>
             </div>
+
+
           </div>
-          
+
           <div className={styles.contactFormContainer}>
             {isSubmitted ? (
               <div className={styles.successMessage}>

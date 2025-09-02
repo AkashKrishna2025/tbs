@@ -6,16 +6,20 @@
 
 .productCard {
   background: #FFFFFF;
-  font-family: 'Poppins', sans-serif; /* पूरे कार्ड के लिए डिफ़ॉल्ट फॉन्ट */
-      display: flex;
-      justify-content: space-between;
+  font-family: 'Poppins', sans-serif;
+  /* पूरे कार्ड के लिए डिफ़ॉल्ट फॉन्ट */
+  display: flex;
+  justify-content: space-between;
   flex-direction: column;
-  width: 280px; /* आपकी इमेज के अनुसार चौड़ाई */
+  width: 280px;
+  /* आपकी इमेज के अनुसार चौड़ाई */
   min-width: 280px;
   flex-shrink: 0;
   /* बॉर्डर और शैडो हटा दिए गए हैं ताकि यह इमेज जैसा दिखे */
-  border-radius: 8px; /* हल्का सा रेडियस */
-  overflow: hidden; /* यह सुनिश्चित करता है कि सब कुछ कार्ड के अंदर रहे */
+  border-radius: 8px;
+  /* हल्का सा रेडियस */
+  overflow: hidden;
+  /* यह सुनिश्चित करता है कि सब कुछ कार्ड के अंदर रहे */
 }
 
 .productLink {
@@ -28,7 +32,8 @@
 .imageContainer {
   /* इमेज के अनुसार बैकग्राउंड और पैडिंग हटा दी गई है */
   width: 100%;
-  aspect-ratio: 1 / 1; /* इमेज को स्क्वायर रखता है */
+  aspect-ratio: 1 / 1;
+  /* इमेज को स्क्वायर रखता है */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,13 +42,15 @@
 .productImage {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 'contain' की जगह 'cover' ताकि यह स्पेस भर दे */
+  object-fit: cover;
+  /* 'contain' की जगह 'cover' ताकि यह स्पेस भर दे */
 }
 
 /* होवर इफेक्ट्स हटा दिए गए हैं */
 
 .productInfo {
-  padding: 16px; /* चारों तरफ एक समान पैडिंग */
+  padding: 16px;
+  /* चारों तरफ एक समान पैडिंग */
   text-align: left;
 }
 
@@ -53,14 +60,16 @@
   font-size: 11px;
   color: #555;
   margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
 }
+
 .buttonContainer {
   /* Add to Cart बटन की ऊंचाई के बराबर min-height दें */
-  min-height: 49px; 
+  min-height: 49px;
   display: flex;
   align-items: center;
   justify-content: center;
-} 
+}
 
 .quantitySelector {
   display: flex;
@@ -68,7 +77,8 @@
   align-items: center;
   width: 100%;
   height: 49px;
-  background-color: #A9BC95; /* बटन जैसा ही रंग */
+  background-color: #84ff00;
+  /* बटन जैसा ही रंग */
   color: white;
 }
 
@@ -76,7 +86,8 @@
   background: none;
   border: none;
   color: white;
-  font-size: 1.8rem; /* +/- का साइज़ */
+  font-size: 1.8rem;
+  /* +/- का साइज़ */
   font-weight: 300;
   cursor: pointer;
   padding: 0 20px;
@@ -92,8 +103,10 @@
   font-size: 1.1rem;
   font-weight: 700;
 }
+
 .ratingStars {
-  color: #ffc107; /* स्टार के लिए पीला रंग */
+  color: #ffc107;
+  /* स्टार के लिए पीला रंग */
   font-weight: 600;
   margin-right: 4px;
 }
@@ -110,9 +123,10 @@
 
 .productName {
   /* इमेज में दिए गए फॉन्ट जैसा दिखने के लिए serif फॉन्ट */
-  font-family: 'Libre Baskerville', serif; 
+  font-family: 'Libre Baskerville', serif;
   font-size: 20px;
-  font-weight: 400; /* Regular weight */
+  font-weight: 400;
+  /* Regular weight */
   color: #222;
   margin: 0 0 10px 0;
   line-height: 1.4;
@@ -131,32 +145,40 @@
   font-weight: 400;
 }
 
-.currentPrice  {
+.currentPrice {
   font-family: 'Lato', sans-serif;
-  font-weight: 600;        /* SemiBold weight */
+  font-weight: 600;
+  /* SemiBold weight */
   font-size: 22px;
-  font-style: normal;      /* SemiBold ka alag font-style nahi hota */
-  line-height: 100%;       /* ya 1 bhi likh sakte ho */
-  letter-spacing: 0;       /* 0% ka matlab 0px */
+  font-style: normal;
+  /* SemiBold ka alag font-style nahi hota */
+  line-height: 100%;
+  /* ya 1 bhi likh sakte ho */
+  letter-spacing: 0;
+  /* 0% ka matlab 0px */
   text-transform: uppercase;
 }
 
 .addToCartBtn {
-  background: #A9BC95; /* इमेज से मिलता-जुलता हरा रंग */
+  background: #7FB685;
+  /* इमेज से मिलता-जुलता हरा रंग */
   color: #FFFFFF;
   border: none;
   padding: 14px 20px;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  width: 100%; /* पूरी चौड़ाई का बटन */
-  margin-top: auto; /* यह बटन को नीचे धकेलता है */
+  width: 100%;
+  /* पूरी चौड़ाई का बटन */
+  margin-top: auto;
+  /* यह बटन को नीचे धकेलता है */
   transition: background-color 0.2s ease;
   /* borderRadius हटा दिया गया है क्योंकि यह कार्ड के नीचे है */
 }
 
 .addToCartBtn:hover {
-  background: #98aa84; /* होवर पर थोड़ा गहरा रंग */
+  background: #98aa84;
+  /* होवर पर थोड़ा गहरा रंग */
 }
 
 /* Responsive Design (Optional, but recommended) */

@@ -28,23 +28,23 @@ const MobileMenuOverlay = ({ isOpen, onClose, categories, onConsultationClick, o
         <ul>
           {categories.map((category) => (
             <li key={category.id}>
-              <Link to={`/collection/${category.id}`} onClick={() => {onClose(); onNavigate(`/collection/${category.id}`);}}>
+              <Link to={`/collection/${category.id}`} onClick={() => { onClose(); onNavigate(`/collection/${category.id}`); }}>
                 {category.name}
               </Link>
             </li>
           ))}
           {/* Add other main links here if needed */}
           <li>
-            <Link to="/my-orders" onClick={() => {onClose(); onNavigate('/my-orders');}}>My Last Order</Link>
+            <Link to="/my-orders" onClick={() => { onClose(); onNavigate('/my-orders'); }}>My Last Order</Link>
           </li>
           <li>
-            <Link to="/login" onClick={() => {onClose(); onNavigate('/login');}}>Login / Register</Link>
+            <Link to="/login" onClick={() => { onClose(); onNavigate('/login'); }}>Login / Register</Link>
           </li>
         </ul>
-        <Link 
-          to="/contact" 
+        <Link
+          to="/contact"
           className={styles.consultationButtonMobile}
-          onClick={() => {onClose(); onConsultationClick();}}
+          onClick={() => { onClose(); onConsultationClick(); }}
         >
           Book Consultation
         </Link>
@@ -140,7 +140,7 @@ const Navbar = () => {
     >
       {/* Top Bar */}
       <div className={styles.topBar}>
-        <p><span>FREE SHIPPING </span>ONLY FOR PREPAID ORDERS ABOVE 999/- INR</p>
+        <p><span><u>FREE SHIPPING</u> </span>ONLY FOR PREPAID ORDERS ABOVE 999/- INR</p>
       </div>
 
       {/* Main Navigation */}
@@ -154,7 +154,7 @@ const Navbar = () => {
 
         <Link to="/" className={styles.logoContainer}>
           <img src={logo} alt="TBS Studio Logo" className={styles.logo} />
-             </Link>
+        </Link>
 
         <div className={styles.icons}>
           {/* Search */}

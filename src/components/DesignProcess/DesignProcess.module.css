@@ -1,10 +1,9 @@
 /* src/components/DesignProcess/DesignProcess.module.css */
 
 .section {
-  padding: 4rem 2rem;
+  padding: 4rem 2.5rem;
   background-color: #FFFFFF;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
@@ -12,12 +11,15 @@
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
+  position: relative;
+  text-align: start;
+  padding: 1rem;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 3rem;
   flex-wrap: wrap;
   gap: 1.5rem;
@@ -28,10 +30,8 @@
   font-weight: 400;
   font-style: normal;
   font-size: 44px;
-  line-height: 100%;
-  letter-spacing: 0;
+  line-height: 1.2;
   text-align: center;
-
 }
 
 .startButton {
@@ -58,32 +58,67 @@
 
 .stepsGrid {
   display: grid;
-  /* Ensure 5 columns on large screens. Adjust minmax based on content and desired card size. */
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+  gap: 1.8rem;
 }
 
 .stepCard {
   background-color: #e8f7e9;
-  /* Light green background for the cards */
-  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
-  /* Top padding adjusted for flag, others for content */
+  padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   position: relative;
   min-height: 160px;
-  /* Adjusted min-height to make boxes shorter */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  /* Align content to the bottom */
+  border: 1px solid #7fb685;
+
+
+  /* Desktop pe thoda bahar niklega */
 }
 
-/* --- Image-based Number Icon Styling --- */
+/* Sirf 5th card ko bahar dhakelo */
+.stepsGrid .stepCard:nth-child(5) {
+  margin-right: -40px;
+  /* Desktop pe bahar niklega */
+}
+
+/* Tablet (≤1024px): thoda kam bahar */
+@media (max-width: 1024px) {
+  .stepsGrid .stepCard:nth-child(5) {
+    margin-right: -20px;
+  }
+}
+
+/* Mobile (≤768px): safe center */
+@media (max-width: 768px) {
+  .stepsGrid .stepCard:nth-child(5) {
+    margin-right: 0;
+  }
+}
+
+/* Tablet पर थोड़ा कम बाहर */
+/* Tablet (≤1024px) */
+@media (max-width: 1024px) {
+  .stepCard {
+    margin-right: -20px;
+    /* thoda kam bahar */
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .stepCard {
+    margin-right: 0;
+    /* center aligned, safe */
+  }
+}
+
+
 .stepNumberImageContainer {
   position: absolute;
-  top: 0;
-  left: 0.5rem;
+  top: 27px;
+  left: 1rem;
   transform: translateY(-50%);
   z-index: 2;
   width: 3.5rem;
@@ -91,22 +126,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 27px;
 }
 
 .stepNumberImage {
   width: 100%;
-  /* Image fills its container */
   height: 100%;
-  /* Image fills its container */
   object-fit: contain;
-  /* Ensures the entire image is visible within the container */
-  display: block;
 }
 
-/* --- Content within cards --- */
 .stepTitle {
-  font-size: 1 rem;
+  font-size: 1rem;
   color: #3f3e3e;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
@@ -122,7 +151,11 @@
   font-weight: 500;
 }
 
-/* Responsive Design */
+/* ===============================
+   Responsive Design
+   =============================== */
+
+/* Tablets (≤1024px) */
 @media (max-width: 1024px) {
   .section {
     padding: 3rem 1.5rem;
@@ -132,40 +165,29 @@
     font-size: 2rem;
   }
 
-  .startButton {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.9rem;
-  }
-
   .stepsGrid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    /* Adjust min width for columns */
-    gap: 1rem;
   }
 
   .stepCard {
     min-height: 140px;
-    /* Adjust min-height for smaller screens */
-    padding: 2rem 1rem 1rem 1rem;
+    padding: 2rem 1rem 1rem 3rem;
   }
 
   .stepNumberImageContainer {
-    left: 1rem;
-    /* Adjust left position for smaller screens */
-    width: 5rem;
-    /* Adjust image container size for responsiveness */
+    width: 3rem;
     height: 3rem;
   }
 
   .stepTitle {
-    font-size: 1.2rem;
-    margin-top: 1.2rem;
+    font-size: 1.1rem;
   }
 }
 
+/* Mobile (≤768px) */
 @media (max-width: 768px) {
   .section {
-    padding: 2rem 1rem;
+    padding: 2.5rem 1rem;
   }
 
   .header {
@@ -177,31 +199,49 @@
 
   .header h2 {
     font-size: 1.8rem;
-  }
-
-  .startButton {
-    width: fit-content;
-    align-self: flex-start;
+    text-align: left;
   }
 
   .stepsGrid {
     grid-template-columns: 1fr;
-    /* Single column on very small screens */
     gap: 1.5rem;
   }
 
   .stepCard {
     min-height: auto;
-    /* Allow height to adjust based on content on mobile */
-    padding: 3rem 1.5rem 1.5rem 1.5rem;
-    /* Ensure enough top padding for flag */
+    padding: 2.5rem 1rem 1.2rem 3rem;
   }
 
   .stepNumberImageContainer {
-    left: 1.5rem;
-    /* Maintain consistent left position on mobile */
-    width: 5.5rem;
-    /* Original size on mobile */
-    height: 3.5rem;
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+}
+
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+  .section {
+    padding: 2rem 0.8rem;
+  }
+
+  .header h2 {
+    font-size: 1.5rem;
+  }
+
+  .stepCard {
+    padding: 2rem 0.8rem 1rem 2.5rem;
+  }
+
+  .stepNumberImageContainer {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .stepTitle {
+    font-size: 1rem;
+  }
+
+  .stepDescription {
+    font-size: 0.85rem;
   }
 }

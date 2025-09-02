@@ -1,59 +1,54 @@
-/* src/components/TestimonialSection/TestimonialSection.module.css (New Pixel-Perfect Code) */
+/* src/components/TestimonialSection/TestimonialSection.module.css */
 
 .section {
   padding: 4rem 2rem;
-
-  overflow: hidden; /* Important for the slider */
+  overflow: hidden;
+  /* Important for the slider */
 }
 
 .header {
   text-align: center;
   margin-bottom: 2.5rem;
 }
+
 .header h2 {
-font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 400;
-  font-style: normal;
   font-size: 44px;
   line-height: 100%;
-  letter-spacing: 0;
-  text-align: center;
-
 }
-.header p { 
-  color: #777; 
-   font-family: 'Lato', sans-serif;
+
+.header p {
+  color: #777;
+  font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-style: italic;
   font-size: 18px;
   line-height: 50px;
-  letter-spacing: 0;
-  text-align: center;
-
 }
 
 /* --- Slider Styles --- */
 .sliderWrapper {
   max-width: 877px;
   margin: 0 auto;
-  overflow: hidden; /* Hides the other slides */
+  overflow: hidden;
 }
 
 .slider {
   display: flex;
-  transition: transform 0.5s ease-in-out; /* Smooth slide animation */
+  transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-  flex: 0 0 100%; /* Each slide takes up the full width */
+  flex: 0 0 100%;
   display: flex;
   gap: 1rem;
-
 }
 
 .imageContainer {
   flex: 1;
 }
+
 .imageContainer img {
   width: 100%;
   border-radius: 16px;
@@ -66,11 +61,14 @@ font-family: 'Playfair Display', serif;
   border-radius: 16px;
   padding: 3rem;
   text-align: center;
-  position: relative; /* Crucial for pseudo-elements */
-  overflow: hidden; /* Hides parts of the pseudo-elements */
+  position: relative;
+  overflow: hidden;
+  background-image: url('../../assets/images/test-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* The large faded quotation mark icon */
 .quoteIcon {
   position: absolute;
   top: 1rem;
@@ -81,49 +79,44 @@ font-family: 'Playfair Display', serif;
   z-index: 1;
 }
 
-/* Create the top background shape */
-
-
-/* Create the bottom background shape */
-
-/* Ensure all content appears above the background shapes */
-.stars, .quoteText, .author {
+.stars,
+.quoteText,
+.author {
   position: relative;
   z-index: 2;
 }
-.testimonialCard {
-  background-image: url('../../assets/images/test-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  /* existing styles */
-}
-
 
 .stars {
   top: 23px;
-  color: #8E9E82; /* Figma 
-  uses green stars */
+  color: #8E9E82;
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
+
 .quoteText {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-style: italic;
   margin-bottom: 2rem;
+  color: rgb(104, 99, 99);
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
 }
+
 .author {
   margin-top: 1rem;
 }
+
 .avatar {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   margin: 0 auto 0.5rem auto;
 }
+
 .author h4 {
   font-weight: bold;
 }
+
 .author span {
   color: #777;
   font-size: 0.9rem;
@@ -136,6 +129,7 @@ font-family: 'Playfair Display', serif;
   gap: 0.5rem;
   margin-top: 2.5rem;
 }
+
 .dot {
   width: 10px;
   height: 10px;
@@ -144,8 +138,125 @@ font-family: 'Playfair Display', serif;
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .dot.active {
   background-color: #8E9E82;
   width: 30px;
   border-radius: 5px;
+}
+
+/* =============================
+   RESPONSIVE STYLES
+   ============================= */
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .header h2 {
+    font-size: 36px;
+  }
+
+  .header p {
+    font-size: 16px;
+    line-height: 36px;
+  }
+
+  .slide {
+    gap: 1rem;
+  }
+
+  .testimonialCard {
+    padding: 2rem;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1.5rem;
+  }
+
+  .header h2 {
+    font-size: 28px;
+  }
+
+  .header p {
+    font-size: 15px;
+    line-height: 28px;
+  }
+
+  .slide {
+    flex-direction: column;
+    /* Stack image + card */
+    align-items: center;
+    text-align: center;
+  }
+
+  .imageContainer {
+    flex: none;
+    width: 80%;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonialCard {
+    padding: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .quoteText {
+    font-size: 1rem;
+  }
+
+  .author h4 {
+    font-size: 1rem;
+  }
+
+  .author span {
+    font-size: 0.8rem;
+  }
+}
+
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .header h2 {
+    font-size: 22px;
+  }
+
+  .header p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .imageContainer {
+    width: 100%;
+  }
+
+  .testimonialCard {
+    padding: 1rem;
+  }
+
+  .quoteText {
+    font-size: 0.9rem;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .pagination {
+    margin-top: 1.5rem;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .dot.active {
+    width: 20px;
+  }
 }

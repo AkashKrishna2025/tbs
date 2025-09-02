@@ -1,11 +1,11 @@
-/* src/pages/AboutPage.module.css (पूरा और फ़ाइनल कोड) */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;600&display=swap');
+/* src/pages/AboutPage.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Playfair+Display:wght@400;700&display=swap');
 
 .aboutPage {
     background-color: #fff;
 }
 
-/* --- हीरो बैनर --- */
+/* --- Hero Banner --- */
 .heroBanner {
     height: 510px;
     background-size: cover;
@@ -33,227 +33,436 @@
     margin-top: 10px;
 }
 
-/* --- वेलकम सेक्शन --- */
+/* --- Welcome Section --- */
 .welcomeSection {
-    margin: 60px auto;
+    margin: 40px auto;
+    /* Slightly less margin */
+    max-width: 900px;
+    /* Constrained width */
     text-align: center;
     padding: 0 20px;
 }
 
 .quoteIcon {
-    height: 40px;
-    opacity: 0.5;
-    margin-bottom: 20px;
+    height: 35px;
+    /* Slightly smaller */
+    opacity: 0.6;
+    margin-bottom: 15px;
+    /* Reduced margin */
 }
 
 .welcomeTitle {
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif;
     font-weight: 600;
-    /* This corresponds to SemiBold */
-    font-style: normal;
-    /* 'SemiBold' isn't a valid font-style; use font-weight instead */
-    font-size: 20px;
-    line-height: 32px;
-    letter-spacing: 0;
-    text-align: center;
+    font-size: 22px;
+    /* Slightly larger */
+    line-height: 1.4;
     color: #252424;
-
+    margin-bottom: 15px;
 }
 
 .welcomeText {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Lato', sans-serif;
+    /* Changed to Lato */
     font-weight: 300;
-    /* Regular weight */
-    font-style: normal;
-    /* 'Regular' isn't a valid value, use 'normal' */
-    font-size: 18px;
-    line-height: 32px;
-    letter-spacing: 0;
-    text-align: center;
-    color: #2b2a2a;
-
-
+    font-size: 16px;
+    /* Slightly smaller for readability */
+    line-height: 1.7;
+    /* Improved line height */
+    color: #4a4a4a;
+    /* Softer dark color */
+    margin-bottom: 20px;
 }
 
 .founders {
-    margin-top: 5px;
+    margin-top: 10px;
+    /* Adjusted margin */
     font-size: 1rem;
     color: #302f2f;
-    font-family: 'Lato';
-    font-family: Arial, Helvetica, sans-serif;
-
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
 }
 
 .founders p {
-    margin: 0;
+    margin-bottom: 5px;
+    /* Added margin for separation */
+    font-weight: 400;
+    color: #666;
+    font-size: 15px;
 }
 
 .founders h4 {
-    font-family: 'lato';
-    margin: 5px 0 0 0;
+    font-family: 'Lato', sans-serif;
+    margin-top: 0;
     font-weight: 500;
     color: #65a06d;
     font-style: italic;
-    font-size: 22px;
-
+    font-size: 19px;
+    /* Slightly smaller */
 }
 
-/* --- मिशन ग्रिड --- */
-.missionGrid {
+/* ===== Welcome ke niche mosaic section ===== */
+.missionMosaic {
     max-width: 1200px;
-    margin: 0 auto 60px auto;
+    margin: 40px auto 70px;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(100px, auto);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    /* विज़ुअल लेआउट के लिए ग्रिड एरियाज़ */
+    /* Consistent gap */
+    /* EXACT layout like screenshot */
     grid-template-areas:
-        "card1 card1 image1 image2"
-        "image3 logo logo card2"
-        "image3 logo logo card2"
-        "image4 image5 card3 card3"
-        "image6 image7 card3 card3";
+        "card1 img1 img2"
+        "img3 logo card2"
+        "img4 img5 card3"
+        "img6 img7 ."
+        /* Adjusted to align the last two images */
+    ;
 }
 
-.missionGrid h3 {
+/* --- common tiles --- */
+.tile,
+.card,
+.logoTile {
+    border-radius: 10px;
+    /* Softer rounded corners */
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow */
+}
+
+.tile {
+    aspect-ratio: 1 / 1;
+    /* Made tiles square for a more consistent look, adjust if needed */
+}
+
+.tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- green cards --- */
+.card {
+    background: #eef5ec;
+    /* light pastel green */
+    padding: 25px;
+    /* Slightly more padding */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+    height: 500px;
+}
+
+.cardIcon {
+    width: 30px;
+    /* Slightly larger icon */
+    height: 30px;
+    margin-bottom: 12px;
+    object-fit: contain;
+    opacity: 0.8;
+    /* Slightly more prominent icon */
+}
+
+.card h3 {
     font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #2b2b2b;
+    margin: 0 0 10px;
+    line-height: 1.9;
 }
 
-/* ग्रिड आइटम्स को उनके एरिया में सेट करना */
-.card1 {
-    grid-area: card1;
+.card p {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    /* Slightly smaller for longer text */
+    line-height: 1.8;
+    /* Improved line height */
+    color: #4a4a4a;
+    /* Softer dark color */
 }
 
-.image1 {
-    grid-area: image1;
-}
-
-.image2 {
-    grid-area: image2;
-}
-
-.logoContainer {
+/* --- center logo tile --- */
+.logoTile {
     grid-area: logo;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* background-color: #fff; */
+    /* White background for the logo tile */
+    aspect-ratio: 1 / 1;
+    position: relative;
+    top: -120px;
+    /* Square aspect ratio */
 }
 
-.card2 {
+.logoTile img {
+    max-width: 70%;
+    /* Increased max-width for the logo */
+    height: auto;
+    object-fit: contain;
+}
+
+/* --- area mapping (exact placement) --- */
+.areaCard1 {
+    grid-area: card1;
+}
+
+.areaImg1 {
+    grid-area: img1;
+    height: 300px;
+    width: 400px;
+}
+
+.areaImg2 {
+    grid-area: img2;
+    height: 300px;
+    width: 400px;
+}
+
+.areaImg3 {
+    grid-area: img3;
+    height: 300px;
+    width: 500px;
+
+}
+
+.areaCard2 {
     grid-area: card2;
+
 }
 
-.image3 {
-    grid-area: image3;
+.areaImg4 {
+    grid-area: img4;
+
 }
 
-.image4 {
-    grid-area: image4;
-}
-
-.image5 {
-    grid-area: image5;
-}
-
-.card3 {
+.areaCard3 {
     grid-area: card3;
-}
-
-.image6 {
-    grid-area: image6;
-}
-
-.image7 {
-    grid-area: image7;
-}
-
-/* कार्ड्स की स्टाइलिंग */
-.missionCard {
-    background-color: #f0f5ef;
-    border-radius: 16px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.missionCard img {
-    height: 40px;
-    width: 40px;
-    margin-bottom: 15px;
-}
-
-.missionCard h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.missionCard p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #1b1b1b;
 
 }
 
-/* इमेज की स्टाइलिंग */
-.gridImage {
-    border-radius: 16px;
-    overflow: hidden;
-    height: 100%;
+.areaImg5 {
+    grid-area: img5;
+    height: 300px;
+    width: 400px;
 }
 
-.gridImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.areaImg6 {
+    grid-area: img6;
+
+
 }
 
-.logoContainer img {
-    max-width: 200px;
+.areaImg7 {
+    grid-area: img7;
+    height: 300px;
+    width: 890px;
+
 }
 
-/* --- रिस्पॉन्सिव डिज़ाइन --- */
+
+/* Position adjustments for exact screenshot match */
+/* These are highly specific and may need fine-tuning based on actual content */
+.areaCard1 {
+    position: relative;
+    top: 0px;
+}
+
+.areaImg1 {
+    position: relative;
+    top: 0px;
+}
+
+.areaImg2 {
+    position: relative;
+    top: 0px;
+    width: 380px;
+}
+
+.areaImg3 {
+    position: relative;
+    top: -20px;
+    width: 390px;
+    /* Adjusted based on visual alignment */
+}
+
+.logoTile {
+    position: relative;
+    top: -290px;
+    /* Adjusted to align with img3 and card2 */
+}
+
+.areaCard2 {
+    position: relative;
+    top: -210px;
+    width: 350px;
+
+    /* Adjusted based on visual alignment */
+}
+
+.areaImg4 {
+    position: relative;
+    top: -230px;
+    width: 400px;
+    height: 200px;
+    /* Adjusted */
+}
+
+.areaImg5 {
+    position: relative;
+    top: -540px;
+
+    /* Adjusted */
+}
+
+.areaCard3 {
+    position: relative;
+    top: -230px;
+    right: 420px;
+    width: 400px;
+    height: 400px;
+
+
+
+
+
+    /* Adjusted */
+}
+
+.areaImg6 {
+    position: relative;
+    top: -440px;
+    width: 400px;
+    height: 200px;
+    /* Adjusted */
+}
+
+.areaImg7 {
+    position: relative;
+    top: -640px;
+    height: 400px;
+    width: 300px;
+    left: 440px;
+
+    /* Adjusted */
+}
+
+
+/* wide card spans two columns (center + right) like screenshot */
+/* This will need to be re-evaluated if the layout is strictly 3-column with a gap */
+.cardWide {
+    /* If a card truly needs to span 2 columns, this needs explicit grid-column-span property */
+    /* grid-column: span 2; */
+    /* For the given screenshot, card3 seems to be in a single grid cell */
+}
+
+/* ===== Responsive ===== */
+/* ===== Responsive ===== */
+
+/* Tablet view */
 @media (max-width: 992px) {
-    .missionGrid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas:
-            "card1 card1"
-            "image1 image2"
-            "card2 card2"
-            "image3 image4"
-            "logo logo"
-            "card3 card3"
-            "image5 image6"
-            "image7 .";
-    }
-}
-
-@media (max-width: 576px) {
     .heroTitle {
         font-size: 2.2rem;
     }
 
-    .missionGrid {
-        grid-template-columns: 1fr;
-        /* सभी आइटम्स एक कॉलम में */
-        grid-template-areas: initial;
-        /* एरिया को रीसेट करें */
+    .heroSubtitle {
+        font-size: 1rem;
     }
 
-    /* सभी आइटम्स को ऑटो एरिया दें */
-    .card1,
-    .image1,
-    .image2,
-    .logoContainer,
-    .card2,
-    .image3,
-    .image4,
-    .image5,
-    .card3,
-    .image6,
-    .image7 {
-        grid-area: auto;
+    .missionMosaic {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "card1 img1"
+            "img2 card2"
+            "img3 logo"
+            "img4 card3"
+            "img5 img6"
+            "img7 img7";
+        /* full width */
+        gap: 15px;
+    }
+
+    .cardWide {
+        grid-column: auto;
+    }
+
+    /* Reset manual positioning for tablet */
+    .missionMosaic>div {
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .tile,
+    .logoTile {
+        aspect-ratio: 16/11;
+    }
+}
+
+/* Mobile view */
+@media (max-width: 576px) {
+    .heroBanner {
+        height: 220px;
+        padding-left: 5%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .heroTitle {
+        font-size: 1.8rem;
+    }
+
+    .heroSubtitle {
+        font-size: 0.9rem;
+    }
+
+    .welcomeSection {
+        margin: 25px auto;
+        padding: 0 15px;
+    }
+
+    .welcomeTitle {
+        font-size: 18px;
+    }
+
+    .welcomeText {
+        font-size: 14px;
+    }
+
+    .missionMosaic {
+        grid-template-columns: 1fr;
+        grid-template-areas: none;
+        /* Flow top-to-bottom */
+        gap: 12px;
+        margin: 25px auto 40px;
+    }
+
+    .missionMosaic>div {
+        grid-area: auto !important;
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .card h3 {
+        font-size: 18px;
+    }
+
+    .card p {
+        font-size: 13px;
+    }
+
+    .logoTile img {
+        max-width: 65%;
     }
 }
