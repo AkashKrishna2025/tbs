@@ -155,7 +155,7 @@ export const PRODUCTS = [
     categoryId: 'cots-cradles', 
     images: [cotImage1, cotImage2, cotImage3, cotImage1], // इमेज गैलरी के लिए images का ऐरे
     rating: '4.8', 
-    reviews: '10,000+ Happy Cusotmer', 
+    reviews: '10,000+', 
     unitsSold: 700,
     name: 'Nightingale Cot', 
     originalPrice: '60,200.00', 

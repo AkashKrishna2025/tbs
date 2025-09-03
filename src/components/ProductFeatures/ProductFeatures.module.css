@@ -23,20 +23,26 @@
 }
 
 .featureCard {
-    background-color: #f0f5ef; /* हल्का हरा रंग */
-    border: 1px solid #e0e8de;
-    border-radius: 16px;
-    padding: 30px 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+background: 
+    linear-gradient(#f0f5ef, #f0f5ef) padding-box, /* inner background */
+    linear-gradient(45deg, #95B79A, #FEB623) border-box; /* gradient border */
+  border: 2px solid transparent;
+  border-radius: 20px;
+  font-family: 'Lato';
+  padding: 14px 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
 }
 
 /* Figma डिज़ाइन के अनुसार दूसरे और चौथे कार्ड पर पीला बॉर्डर */
 .featureCard:nth-child(even) {
-    border-left: 2px solid #f0e1a1; /* पीला बॉर्डर */
-    border-right: 2px solid #f0e1a1; /* पीला बॉर्डर */
+    border-left: 2px solid #f0e1a1;
+    /* पीला बॉर्डर */
+    border-right: 2px solid #f0e1a1;
+    /* पीला बॉर्डर */
     border-top: 1px solid #e0e8de;
     border-bottom: 1px solid #e0e8de;
 }
@@ -49,8 +55,10 @@
 .title {
     font-size: 1.25rem;
     font-weight: 500;
-    color: #6a8a69; /* गहरा हरा रंग */
+    color: #6a8a69;
+    /* गहरा हरा रंग */
     margin-bottom: 15px;
+    font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .description {
@@ -62,14 +70,17 @@
 /* --- रिस्पॉन्सिव डिज़ाइन --- */
 @media (max-width: 992px) {
     .featuresGrid {
-        grid-template-columns: repeat(2, 1fr); /* टैबलेट पर 2 कॉलम */
+        grid-template-columns: repeat(2, 1fr);
+        /* टैबलेट पर 2 कॉलम */
     }
 }
 
 @media (max-width: 576px) {
     .featuresGrid {
-        grid-template-columns: 1fr; /* मोबाइल पर 1 कॉलम */
+        grid-template-columns: 1fr;
+        /* मोबाइल पर 1 कॉलम */
     }
+
     .sectionTitle {
         font-size: 2rem;
     }

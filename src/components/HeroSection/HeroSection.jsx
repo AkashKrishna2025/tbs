@@ -21,38 +21,37 @@ const HeroSection = () => {
 
   return (
     <section>
-      {/* Main Hero Area */}
       <div className={styles.heroContainer}>
         <img src={heroBackground} alt="Nursery with furniture" className={styles.heroImage} />
-        
+
         <div className={styles.heroContent}>
           <h1>From Sketch to Storybook Spaces</h1>
-          <p>
+          <p className={styles.herosection}>
             Luxury furniture and bespoke nursery interiors,<br />
             crafted for your little one's world.
           </p>
           <button className={styles.shopButton}>Shop Now</button>
         </div>
-        
+
+        {/* NEW: Trust Bar Overlay */}
+        <div className={styles.trustBarOverlay}>
+          <div className={styles.trustBarContainer}>
+            {trustFeatures.map((feature, index) => (
+              <div key={index} className={styles.trustItem}>
+                <img src={feature.icon} alt={feature.text} />
+                <div className={styles.trustText}>
+                  <h3>{feature.title}</h3>
+                  <p>{feature.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Floating Action Buttons */}
         <div className={styles.floatingActions}>
           <a href="#"><img src={giftIcon} alt="Gifts" /></a>
           <a href="#"><img src={whatsappIcon} alt="WhatsApp" /></a>
-        </div>
-      </div>
-
-      {/* Trust Bar */}
-      <div className={styles.trustBar}>
-        <div className={styles.trustBarContainer}>
-          {trustFeatures.map((feature, index) => (
-            <div key={index} className={styles.trustItem}>
-              <img src={feature.icon} alt={feature.text} />
-              <div className={styles.trustText}>
-                <h3>{feature.title}</h3>
-                <p>{feature.text}</p>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>

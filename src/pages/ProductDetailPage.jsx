@@ -43,9 +43,9 @@ const ProductDetailPage = () => {
   const thumbnailListRef = useRef(null);
 
   const product = PRODUCTS.find(p => p.id === productId);
-  
+
   if (!product) { return <div>Product not found!</div>; }
-  
+
   const category = CATEGORIES.find(c => c.id === product.categoryId);
 
   const originalPriceNum = product.originalPrice ? parseFloat(product.originalPrice.replace(/,/g, '')) : 0;
@@ -67,8 +67,8 @@ const ProductDetailPage = () => {
     <>
       <div className={styles.pageContainer}>
         <div className={styles.breadcrumbs}>
-          <Link to="/">Home</Link> &gt; 
-          {category && <Link to={`/collection/${category.id}`}>{category.name}</Link>} &gt; 
+          <Link to="/">Home</Link> &gt;
+          {category && <Link to={`/collection/${category.id}`}>{category.name}</Link>} &gt;
           <span>{product.name}</span>
         </div>
 
@@ -96,34 +96,37 @@ const ProductDetailPage = () => {
           </div>
 
           {/* Right Side: Product Details */}
+
           <div className={styles.productDetails}>
             <div className={styles.reviewInfo}>
               <span className={styles.stars}>★★★★★</span>
-              <span>{product.reviews}</span> |
+              <span>{product.reviews} Happy Customer</span> |
               <span>{product.unitsSold} Units Sold</span>
             </div>
-            
+
             <h1 className={styles.productTitle}>{product.name}</h1>
-            
+
             <div className={styles.priceInfo}>
               <span className={styles.specialPrice}>Special Price: ₹{product.discountedPrice}</span>
               {product.originalPrice && <span className={styles.mrp}>MRP ₹{product.originalPrice}</span>}
             </div>
 
-            {youSave > 0 && 
-              <p className={styles.savings}>
-                You save: ₹{youSave.toLocaleString()} ({discountPercentage}% off)
+            {youSave > 0 &&
+              <span> You save: ₹ <p className={styles.savings}>
+                {youSave.toLocaleString()} ({discountPercentage}% off)
               </p>
+              </span>
             }
 
             {/* Features Section */}
             <div className={styles.featuresSection}>
-              <div className={styles.featureItem}>Non<br/>Toxic</div>
+              <div className={styles.featureItem}>Non<br />Toxic</div>
               <div className={styles.divider}></div>
-              <div className={styles.featureItem}>ISO<br/>Certified</div>
+              <div className={styles.featureItem}>ISO<br />Certified</div>
               <div className={styles.divider}></div>
-              <div className={styles.featureItem}>Quick<br/>Delivery</div>
-              <div className={styles.featureItem}>Customization<br/>Available</div>
+              <div className={styles.featureItem}>Quick<br />Delivery</div>
+              <div className={styles.divider}></div>
+              <div className={styles.featureItem}>Customization<br />Available</div>
             </div>
 
             <div className={styles.optionsContainer}>
@@ -136,8 +139,8 @@ const ProductDetailPage = () => {
                 <span className={styles.optionTag}>Non Toxic & child friendly finish</span>
               </div>
             </div>
-            
-            {product.availableColors && 
+
+            {product.availableColors &&
               <div className={styles.colorSelector}>
                 <label>Colors</label>
                 <div className={styles.colorSwatches}>
@@ -168,7 +171,7 @@ const ProductDetailPage = () => {
               <button className={styles.addToCartBtn}>Add to Cart</button>
               <button className={styles.customizationBtn}>For customization click here</button>
             </div>
-            
+
             {/* Payment Section */}
             <div className={styles.secureCheckout}>
               <p>100% Secure Checkout</p>
@@ -184,20 +187,20 @@ const ProductDetailPage = () => {
         </div>
 
         <div className={styles.productInfoTabs}>
-            {product.description && <AccordionItem title="Product Description" content={product.description} />}
-            {product.specifications && <AccordionItem title="Technical Specifications" content={product.specifications} />}
-            {product.specialFeatures && <AccordionItem title="Special Features" content={product.specialFeatures} />}
-            {product.deliveryDetails && <AccordionItem title="Delivery Details" content={product.deliveryDetails} />}
-            {product.warrantyTerms && <AccordionItem title="Warranty Terms" content={product.warrantyTerms} />}
+          {product.description && <AccordionItem title="Product Description" content={product.description} />}
+          {product.specifications && <AccordionItem title="Technical Specifications" content={product.specifications} />}
+          {product.specialFeatures && <AccordionItem title="Special Features" content={product.specialFeatures} />}
+          {product.deliveryDetails && <AccordionItem title="Delivery Details" content={product.deliveryDetails} />}
+          {product.warrantyTerms && <AccordionItem title="Warranty Terms" content={product.warrantyTerms} />}
         </div>
       </div>
       <FloatingIcons />
-      <ProductFeatures/>
-      <RealStories/>
+      <ProductFeatures />
+      <RealStories />
       <FaqSection />
-      <SignatureProjects/>
-      <DesignProcess/>
-      <TestimonialSection/>
+      <SignatureProjects />
+      <DesignProcess />
+      <TestimonialSection />
     </>
   );
 };

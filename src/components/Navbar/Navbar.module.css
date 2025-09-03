@@ -13,12 +13,14 @@
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 1001; /* Ensure it stays above other content */
+  z-index: 1001;
+  /* Ensure it stays above other content */
 }
 
 .container {
   margin: 0 auto;
-  padding: 0 2rem; /* Default padding for larger screens */
+  padding: 0 2rem;
+  /* Default padding for larger screens */
 }
 
 .topBar {
@@ -28,23 +30,30 @@
   padding: 0.6rem 0;
   font-size: 0.8rem;
   font-weight: 500;
-  white-space: nowrap; /* Prevents text from wrapping on small screens */
-  overflow: hidden; /* Hide overflow if text is too long */
-  text-overflow: ellipsis; /* Add ellipsis if text is cut */
+  white-space: nowrap;
+  /* Prevents text from wrapping on small screens */
+  overflow: hidden;
+  /* Hide overflow if text is too long */
+  text-overflow: ellipsis;
+  /* Add ellipsis if text is cut */
 }
+
 .topBar p {
   margin: 0;
-  padding: 0 1rem; /* Add padding to prevent text from touching edges */
+  padding: 0 1rem;
+  /* Add padding to prevent text from touching edges */
 }
 
 
 .mainNav {
   display: flex;
- justify-content: space-around;
+  justify-content: space-around;
   align-items: center;
-  padding: 1rem 2rem; /* Default padding */
+  padding: 1rem 2rem;
+  /* Default padding */
   background-color: #E8F4E5;
-  position: relative; /* Needed for logo absolute positioning */
+  position: relative;
+  /* Needed for logo absolute positioning */
 }
 
 .consultationButton {
@@ -55,7 +64,8 @@
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
-  white-space: nowrap; /* Prevent text wrapping */
+  white-space: nowrap;
+  /* Prevent text wrapping */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -74,8 +84,8 @@
 }
 
 .logo {
-    height: 33px;
-    margin-bottom: -7px;
+  height: 33px;
+  margin-bottom: -7px;
 }
 
 .icons {
@@ -100,8 +110,10 @@
   gap: 2rem;
   align-items: center;
   justify-content: center;
-  margin: 0; /* Remove default ul margin */
-  padding: 0; /* Remove default ul padding */
+  margin: 0;
+  /* Remove default ul margin */
+  padding: 0;
+  /* Remove default ul padding */
 }
 
 .categoryList li {
@@ -110,9 +122,9 @@
 
 .categoryList li a {
   text-decoration: none;
-  color: #444;
+  color: #333333;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 1rem;
   padding: 1rem 0;
   display: inline-block;
   transition: color 0.3s ease;
@@ -124,11 +136,11 @@
 
 /* --- NEW BADGE ICON STYLES --- */
 .newBadge {
-    position: absolute;
-    top: 3px;
-    right: 87px;
-    height: 18px;
-    width: auto;
+  position: absolute;
+  top: 3px;
+  right: 87px;
+  height: 18px;
+  width: auto;
 }
 
 
@@ -143,7 +155,8 @@
   display: flex;
   gap: 3rem;
   padding: 3rem 5%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Added shadow for better separation */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  /* Added shadow for better separation */
 }
 
 .decorativeStars {
@@ -157,7 +170,8 @@
 
 /* --- Sub-Category List --- */
 .subCategoryList {
-  flex: 0 0 25%; /* Fixed width for sub-category list */
+  flex: 0 0 25%;
+  /* Fixed width for sub-category list */
   padding-left: 5%;
   position: relative;
   z-index: 2;
@@ -173,8 +187,10 @@
 
 .subCategoryList ul {
   list-style: none;
-  margin: 0; /* Remove default ul margin */
-  padding: 0; /* Remove default ul padding */
+  margin: 0;
+  /* Remove default ul margin */
+  padding: 0;
+  /* Remove default ul padding */
 }
 
 .subCategoryList li a {
@@ -183,7 +199,8 @@
   text-decoration: none;
   color: #333;
   line-height: 2.2;
-  white-space: nowrap; /* Prevents text from breaking */
+  white-space: nowrap;
+  /* Prevents text from breaking */
   transition: color 0.3s ease;
 }
 
@@ -195,7 +212,8 @@
 }
 
 .subCategoryList ul li a:hover {
-  color:#c0392b; /* Your hover color here */
+  color: #c0392b;
+  /* Your hover color here */
 }
 
 .featuredProducts {
@@ -212,7 +230,7 @@
   background-color: white;
   border-radius: 16px;
   border: 1px solid #EAE5DD;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -232,7 +250,8 @@
   max-height: 100%;
   width: auto;
   height: auto;
-  object-fit: contain; /* Ensures the entire image is visible without cropping */
+  object-fit: contain;
+  /* Ensures the entire image is visible without cropping */
 }
 
 /* Search Dropdown */
@@ -243,7 +262,8 @@
 .searchDropdown {
   position: absolute;
   top: calc(100% + 15px);
-  right: 0; /* Align to the right */
+  right: 0;
+  /* Align to the right */
   width: 350px;
   max-height: 80vh;
   background-color: white;
@@ -266,7 +286,8 @@
 
 .searchResultsList {
   margin-top: 1rem;
-  max-height: calc(80vh - 40px - 1rem); /* Adjust based on input/padding */
+  max-height: calc(80vh - 40px - 1rem);
+  /* Adjust based on input/padding */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -384,13 +405,16 @@
 }
 
 .hamburger {
-  display: none; /* Hidden by default */
+  display: none;
+  /* Hidden by default */
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  order: -1; /* Puts it to the far left in flex order */
+  order: -1;
+  /* Puts it to the far left in flex order */
   padding: 5px;
-  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+  -webkit-tap-highlight-color: transparent;
+  /* Remove tap highlight on mobile */
 }
 
 .hamburger div {
@@ -404,9 +428,11 @@
 .hamburger.open div:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
+
 .hamburger.open div:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger.open div:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
@@ -419,9 +445,11 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1002; /* Above header */
+  z-index: 1002;
+  /* Above header */
   display: flex;
-  justify-content: flex-end; /* Pushes menu to the right */
+  justify-content: flex-end;
+  /* Pushes menu to the right */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -433,22 +461,28 @@
 }
 
 .mobileMenu {
-  width: 80%; /* Takes 80% of screen width */
-  max-width: 350px; /* Max width for larger screens */
+  width: 80%;
+  /* Takes 80% of screen width */
+  max-width: 350px;
+  /* Max width for larger screens */
   background-color: #FFFFFF;
   height: 100%;
   padding: 2rem 1.5rem;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-  transform: translateX(100%); /* Start off-screen */
+  transform: translateX(100%);
+  /* Start off-screen */
   transition: transform 0.3s ease-out;
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* Allow scrolling for long menus */
-  position: relative; /* For positioning close button */
+  overflow-y: auto;
+  /* Allow scrolling for long menus */
+  position: relative;
+  /* For positioning close button */
 }
 
 .mobileMenuOverlay.open .mobileMenu {
-  transform: translateX(0); /* Slide in */
+  transform: translateX(0);
+  /* Slide in */
 }
 
 .mobileMenuClose {
@@ -458,7 +492,8 @@
   font-size: 2rem;
   cursor: pointer;
   color: #333;
-  z-index: 10; /* Ensure it's above other content in the menu */
+  z-index: 10;
+  /* Ensure it's above other content in the menu */
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -468,7 +503,8 @@
   color: #5d7a6a;
   margin-bottom: 1.5rem;
   text-align: center;
-  margin-top: 0; /* Remove default h3 top margin */
+  margin-top: 0;
+  /* Remove default h3 top margin */
 }
 
 .mobileMenu ul {
@@ -478,7 +514,8 @@
 }
 
 .mobileMenu ul li {
-  margin-bottom: 0.5rem; /* Reduced margin for more items */
+  margin-bottom: 0.5rem;
+  /* Reduced margin for more items */
 }
 
 .mobileMenu ul li a {
@@ -487,7 +524,8 @@
   font-size: 1.1rem;
   font-weight: 500;
   display: block;
-  padding: 0.8rem 0.5rem; /* Added horizontal padding */
+  padding: 0.8rem 0.5rem;
+  /* Added horizontal padding */
   border-bottom: 1px solid #eee;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -496,6 +534,7 @@
   background-color: #f5f5f5;
   color: #5d7a6a;
 }
+
 /* No border on the last item for a cleaner look */
 .mobileMenu ul li:last-child a {
   border-bottom: none;
@@ -515,7 +554,8 @@
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  text-decoration: none; /* For the Link component */
+  text-decoration: none;
+  /* For the Link component */
   transition: background-color 0.3s ease;
 }
 
@@ -527,7 +567,9 @@
 
 /* Extra Large Desktops (e.g., 1400px and up, if container max-width is less) */
 @media (min-width: 1401px) {
-  .mainNav, .categoryBar .categoryList {
+
+  .mainNav,
+  .categoryBar .categoryList {
     padding-left: 0;
     padding-right: 0;
   }
@@ -538,15 +580,19 @@
   .container {
     padding: 0 1.5rem;
   }
+
   .mainNav {
     padding: 1rem 1.5rem;
   }
+
   .categoryList {
     gap: 1.5rem;
   }
+
   .megaMenu {
     padding: 2.5rem 4%;
   }
+
   .subCategoryList {
     padding-left: 3%;
   }
@@ -554,46 +600,66 @@
 
 /* Tablets Landscape and Laptops (992px - 1024px) */
 @media (max-width: 1024px) {
+
   .consultationButton,
   .categoryList {
-    display: none; /* Hide desktop specific elements */
+    display: none;
+    /* Hide desktop specific elements */
   }
+
   .megaMenu {
-    display: none; /* Hide mega menu on smaller screens */
+    display: none;
+    /* Hide mega menu on smaller screens */
   }
+
   .hamburger {
-    display: flex; /* Show hamburger */
+    display: flex;
+    /* Show hamburger */
   }
+
   .mainNav {
-    justify-content: space-between; /* Space out items */
-    padding: 0.8rem 1.5rem; /* Adjusted padding */
+    justify-content: space-between;
+    /* Space out items */
+    padding: 0.8rem 1.5rem;
+    /* Adjusted padding */
   }
+
   .logoContainer {
-    position: absolute; /* Allows hamburger and icons to be at edges */
+    position: absolute;
+    /* Allows hamburger and icons to be at edges */
     left: 50%;
     transform: translateX(-50%);
   }
+
   .topBar {
     font-size: 0.75rem;
     padding: 0.5rem 0;
   }
+
   .topBar p {
     padding: 0 0.8rem;
   }
+
   .logo {
     height: 22px;
   }
+
   .logoContainer span {
     font-size: 0.75rem;
   }
+
   .icons {
     gap: 1.2rem;
   }
+
   .icon {
     height: 18px;
   }
-  .searchDropdown, .profileMenu {
-    top: calc(100% + 10px); /* Adjust dropdown position */
+
+  .searchDropdown,
+  .profileMenu {
+    top: calc(100% + 10px);
+    /* Adjust dropdown position */
   }
 }
 
@@ -602,25 +668,32 @@
   .mainNav {
     padding: 0.8rem 1.2rem;
   }
+
   .container {
     padding: 0 1.2rem;
   }
+
   .logo {
     height: 20px;
   }
+
   .logoContainer span {
     font-size: 0.7rem;
   }
+
   .icons {
     gap: 1rem;
   }
+
   .icon {
     height: 17px;
   }
+
   .searchDropdown {
     width: 300px;
     right: -10px;
   }
+
   .profileMenu {
     width: 160px;
   }
@@ -631,32 +704,41 @@
   .mainNav {
     padding: 0.7rem 1rem;
   }
+
   .container {
     padding: 0 1rem;
   }
+
   .logo {
     height: 18px;
   }
+
   .logoContainer span {
     font-size: 0.65rem;
   }
+
   .icons {
     gap: 0.8rem;
   }
+
   .icon {
     height: 16px;
   }
+
   .topBar {
     font-size: 0.7rem;
     padding: 0.4rem 0;
   }
+
   .topBar p {
     padding: 0 0.6rem;
   }
+
   .searchDropdown {
     width: 280px;
     right: -5px;
   }
+
   .profileMenu {
     width: 150px;
   }
@@ -667,63 +749,83 @@
   .mainNav {
     padding: 0.6rem 0.8rem;
   }
+
   .container {
     padding: 0 0.8rem;
   }
+
   .logo {
     height: 16px;
     margin-bottom: 2px;
   }
+
   .logoContainer span {
     font-size: 0.6rem;
   }
+
   .icons {
     gap: 0.6rem;
   }
+
   .icon {
     height: 15px;
   }
+
   .hamburger {
     gap: 4px;
   }
+
   .hamburger div {
     width: 22px;
     height: 2.5px;
   }
+
   .topBar {
-    font-size: 0.6rem; /* Even smaller for very tiny screens */
+    font-size: 0.6rem;
+    /* Even smaller for very tiny screens */
     padding: 0.3rem 0;
   }
+
   .topBar p {
     padding: 0 0.5rem;
   }
+
   .searchDropdown {
-    width: 90vw; /* Take most of the viewport width */
+    width: 90vw;
+    /* Take most of the viewport width */
     left: 50%;
     transform: translateX(-50%);
-    right: auto; /* Override right alignment */
+    right: auto;
+    /* Override right alignment */
     top: calc(100% + 8px);
     padding: 0.8rem;
   }
+
   .searchDropdown input {
     padding: 0.7rem;
     font-size: 0.9rem;
   }
+
   .searchResultItem {
     padding: 0.6rem;
     font-size: 0.9rem;
   }
-  .searchResultItem img, .searchResultPlaceholder {
+
+  .searchResultItem img,
+  .searchResultPlaceholder {
     width: 40px;
     height: 40px;
   }
+
   .profileMenu {
     width: 140px;
     right: 0;
     top: calc(100% + 8px);
     padding: 0.4rem;
   }
-  .profileMenu a, .profileMenu button {
+
+  .profileMenu a,
+  .profileMenu button {
     padding: 0.6rem 0.8rem;
     font-size: 0.9rem;
   }
@@ -732,11 +834,14 @@
 /* Specific adjustment for very small screens (e.g., 320px or less) to prevent icons overlapping */
 @media (max-width: 360px) {
   .icons {
-    gap: 0.4rem; /* Even smaller gap for icons */
+    gap: 0.4rem;
+    /* Even smaller gap for icons */
   }
+
   .icon {
     height: 14px;
   }
+
   .cartCount {
     right: -8px;
     top: -4px;
@@ -744,6 +849,7 @@
     font-size: 0.6rem;
     min-width: 16px;
   }
+
   .logoContainer {
     /* If logo still pushes, consider making it smaller or hiding text */
   }

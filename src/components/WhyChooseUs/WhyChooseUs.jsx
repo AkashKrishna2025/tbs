@@ -9,7 +9,8 @@ const WhyChooseUs = () => {
       <div className={styles.overlay}></div>
       <div className={styles.content}>
         <h2>Why Choose tbs.studio</h2>
-        <p>At tbs.studio, we prioritize safety and style in every product we create. Our furniture is made with non-toxic finishes and sturdy construction to ensure the well-being of your little ones.</p>
+        <p>At tbs.tudio, we prioritize safety and style in every product we create.
+Our furniture is made with non-toxic finishes and sturdy construction to ensure the well-being of your little ones.</p>
         <button>Visit Studio Now</button>
       </div>
       {/* Figma की ग्लोइंग लाइनें SVG के रूप में डालना सबसे अच्छा रहेगा */}
