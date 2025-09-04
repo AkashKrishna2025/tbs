@@ -84,7 +84,7 @@
 }
 
 .logo {
-  height: 33px;
+    height: 45px;
   margin-bottom: -7px;
 }
 
@@ -136,11 +136,11 @@
 
 /* --- NEW BADGE ICON STYLES --- */
 .newBadge {
-  position: absolute;
-  top: 3px;
-  right: 87px;
-  height: 18px;
-  width: auto;
+ position: absolute;
+    top: -10px;
+    right: 111px;
+    height: 27px;
+    width: auto;
 }
 
 
