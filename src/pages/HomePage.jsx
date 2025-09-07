@@ -11,6 +11,7 @@ import GiftSection from '../components/GiftSection/GiftSection';
 import TestimonialSection from '../components/TestimonialSection/TestimonialSection';
 
 
+
 const HomePage = () => {
   return (
     <div>
@@ -23,8 +24,9 @@ const HomePage = () => {
        <RealStories />
       <CTASection />
         <GiftSection/>
+    
       <TestimonialSection/>
-  
+
      
     </div>
   );

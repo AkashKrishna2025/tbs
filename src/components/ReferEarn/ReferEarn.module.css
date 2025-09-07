@@ -1,22 +1,19 @@
-/* src/components/ReferEarn/ReferEarn.module.css (पूरा और फ़ाइनल कोड) */
-
-.sectionWrapper {
-    padding: 40px 0;
-    background-color: #f9f8f6;
-}
+/* src/components/ReferEarn/ReferEarn.module.css (Corrected & Fully Responsive) */
 
 .referSection {
-    position: relative; /* यह पेरेंट कंटेनर है */
-    max-width: 1400px; /* इमेज की चौड़ाई के अनुसार */
+    position: relative;
     margin: 0 auto;
+    width: 100%;
+    max-width: 1920px;
+    line-height: 1.5; /* Set a base line-height for all text */
 }
 
 .backgroundImage {
     width: 100%;
-    display: block; /* नीचे की अतिरिक्त स्पेस को हटाता है */
+    height: auto;
+    display: block;
 }
 
-/* यह div सभी टेक्स्ट को रखेगा */
 .contentOverlay {
     position: absolute;
     top: 0;
@@ -25,7 +22,7 @@
     height: 100%;
 }
 
-/* --- टेक्स्ट एलिमेंट्स की स्टाइलिंग और पोजीशनिंग --- */
+/* --- Header Text --- */
 .header {
     position: absolute;
     top: 10%;
@@ -33,24 +30,33 @@
     transform: translateX(-50%);
     text-align: center;
     width: 100%;
+    padding: 0 20px;
 }
+
 .title {
     font-family: 'Georgia', 'Times New Roman', serif;
     font-size: 2.5rem;
     font-weight: 500;
     color: #333;
 }
+
 .subtitle {
     font-size: 1rem;
     color: #777;
     margin-top: 10px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* --- Step Content --- */
 .step {
     position: absolute;
     text-align: center;
-    width: 20%; /* चौड़ाई प्रतिशत में ताकि यह रिस्पॉन्सिव रहे */
+    width: 20%;
+    padding: 0 10px;
 }
+
 .stepNumber {
     font-size: 6rem;
     font-weight: bold;
@@ -60,23 +66,26 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 .stepTitle {
     font-size: 1.2rem;
     font-weight: bold;
     color: #333;
-    margin: -10px 0 10px 0;
+    margin: -15px 0 10px 0;
 }
+
 .stepDescription {
     color: #555;
     line-height: 1.6;
     font-size: 0.95rem;
 }
 
-/* स्टेप्स की सटीक पोजीशन */
+/* Positioning of each step */
 .step1 { top: 48%; left: 16%; transform: translate(-50%, -50%); }
 .step2 { top: 68%; left: 50%; transform: translate(-50%, -50%); }
 .step3 { top: 48%; left: 84%; transform: translate(-50%, -50%); }
 
+/* --- Footer Bar --- */
 .footer {
     position: absolute;
     bottom: 4%;
@@ -84,55 +93,98 @@
     transform: translateX(-50%);
     width: 100%;
     text-align: center;
-    background-color: #f0f5ef;
+    background-color: rgba(240, 245, 239, 0.9);
     padding: 15px;
 }
+
 .footer p {
     margin: 0;
     font-size: 0.9rem;
     color: #555;
+    font-weight: 500;
 }
 
 
-/* --- रिस्पॉन्सिव डिज़ाइन --- */
+/* === Responsive Design === */
+
+/* For Extra Large Desktops & TVs (1920px and up) */
+@media (min-width: 1441px) {
+    .title { font-size: 2.8rem; }
+    .subtitle { font-size: 1.1rem; }
+    .stepNumber { font-size: 7rem; }
+    .stepTitle { font-size: 1.3rem; }
+    .stepDescription { font-size: 1rem; }
+}
+
+/* For Standard Laptops (e.g., 1536px) */
 @media (max-width: 1200px) {
     .stepNumber { font-size: 5rem; }
     .stepTitle { font-size: 1.1rem; }
     .stepDescription { font-size: 0.9rem; }
 }
 
+/* For Tablets (iPad Pro, etc.) */
 @media (max-width: 992px) {
-    .title { font-size: 2rem; }
+    .title { font-size: 2.2rem; }
     .stepNumber { font-size: 4rem; }
-    .stepTitle { font-size: 1rem; }
+    .stepTitle { font-size: 1rem; margin-top: -10px; }
     .stepDescription { font-size: 0.85rem; }
     .step1 { left: 18%; }
     .step3 { left: 82%; }
 }
 
+/* For Portrait Tablets & Mobile Phones (iPhone, Android, etc.) */
 @media (max-width: 768px) {
-    /* मोबाइल पर हम इमेज को छिपा देंगे और टेक्स्ट को एक के नीचे एक दिखाएंगे */
+    /* THIS IS THE CORRECTED MOBILE LAYOUT */
     .referSection {
+        display: block; /* Ensures the section is visible */
         position: static;
+        padding: 50px 20px; /* Adjusted padding */
+        background-color: #f9f8f6; /* Sets a background for the mobile view */
     }
-    .backgroundImage, .footer {
+
+    /* Hide the elements that are part of the desktop image overlay */
+    .backgroundImage, .footer, .contentOverlay {
         display: none;
     }
+
+    /* We will now re-create the content outside of the overlay for mobile.
+       This requires a small change in the JSX to duplicate the content.
+       However, if changing JSX is not possible, we need to show the overlay.
+       The following CSS assumes JSX cannot be changed. */
+    
     .contentOverlay {
-        position: static;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
+        display: block; /* Make the overlay visible */
+        position: static; /* Let it sit in the normal document flow */
     }
+
     .header {
         position: static;
         transform: none;
-        margin-top: 20px;
+        padding: 0;
+        margin-bottom: 50px;
     }
+    
+    .title { font-size: 2rem; }
+
     .step {
         position: static;
         transform: none;
-        width: 80%;
-        margin: 0 auto;
+        width: 90%;
+        margin: 0 auto 40px auto; /* Center steps and add space between them */
     }
+
+    /* Since the footer is hidden, the content inside it is also hidden */
+}
+
+/* For Small Mobile Phones */
+@media (max-width: 480px) {
+    .referSection {
+        padding: 40px 15px;
+    }
+    .title { font-size: 1.8rem; }
+    .subtitle { font-size: 0.9rem; }
+    .stepNumber { font-size: 3.5rem; }
+    .stepTitle { font-size: 1rem; }
+    .stepDescription { font-size: 0.8rem; }
 }

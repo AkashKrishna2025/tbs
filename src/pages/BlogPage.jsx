@@ -1,11 +1,11 @@
-// src/pages/BlogPage.jsx
+// src/pages/BlogPage.jsx (Corrected)
 import React, { useState, useMemo } from 'react';
 import styles from './BlogPage.module.css';
 import { BLOG_POSTS } from '../Data/blogData'
 import BlogCard from '../components/BlogCard/BlogCard';
 import FloatingIcons from '../components/FloatingIcons/FloatingIcons';
 
-import bannerBg from '../assets/images/blog.png'; // बैनर इमेज इम्पोर्ट करें
+import bannerBg from '../assets/images/blog.png';
 
 const filterCategories = [
   { key: 'doctors', name: 'By Doctors' },
@@ -24,10 +24,13 @@ const BlogPage = () => {
     <>
       <div className={styles.blogPage}>
         <header className={styles.heroBanner} style={{ backgroundImage: `url(${bannerBg})` }}>
-          <h1 className={styles.heroTitle}>Thoughts, news & information</h1>
-          <p className={styles.heroSubtitle}>
-            Creating a warm & inviting space for your little one to grow and thrive begins with the right furniture.
-          </p>
+          {/* THIS WRAPPER IS THE KEY FIX */}
+          <div className={styles.heroContent}>
+            <h1 className={styles.heroTitle}>Thoughts, news & information</h1>
+            <p className={styles.heroSubtitle}>
+              Creating a warm & inviting space for your little one to grow and thrive begins with the right furniture.
+            </p>
+          </div>
         </header>
 
         <main className={styles.mainContent}>

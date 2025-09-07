@@ -1,6 +1,9 @@
+/* src/components/SignAbout/SignProjects.module.css */
+
+/* Base styles for larger screens (e.g., Desktops, Large Laptops, LCD & LED panels) */
+/* This covers resolutions like 1920 * 1080, 1920 * 958, 1536 * 864 and larger Mac Computer displays */
 .section {
   padding: 4rem 2rem;
-  background-color: #FCFBF9;
 }
 
 .header {
@@ -64,7 +67,6 @@
 
 .projectImage {
   width: 100%;
-  /* इमेज के लिए एक निश्चित अनुपात सेट करें */
   aspect-ratio: 16 / 9; /* उदाहरण: 16:9 आस्पेक्ट रेश्यो। इसे अपनी पसंद के अनुसार बदल सकते हैं। */
   object-fit: cover; /* इमेज को कंटेनर को पूरी तरह से कवर करने के लिए */
   display: block;
@@ -88,10 +90,12 @@
   border: none;
   cursor: pointer;
   z-index: 10;
+  padding: 0.5rem; /* Increased clickable area for better UX */
 }
 
 .arrow img {
   height: 20px; /* एरो इमेज का साइज़ */
+  width: auto; /* Ensure image scales correctly */
 }
 
 .leftArrow {
@@ -101,36 +105,215 @@
   right: 1rem;
 }
 
-/* मीडिया क्वेरीज़: छोटे डिवाइस के लिए रेस्पोंसिवनेस */
-@media (max-width: 768px) {
-  .sliderContainer {
-    padding: 0 2rem; /* छोटे स्क्रीन पर एरो के लिए कम जगह */
-  }
+/* -- Media Queries for Responsiveness -- */
 
-  .projectCard {
-    flex: 0 0 100%; /* छोटे स्क्रीन पर एक बार में एक कार्ड */
-  }
+/* Extra Large Desktops & Wide Screens (e.g., 1441px and up) */
+/* Base styles already handle these larger screens well, no specific adjustments needed beyond base */
 
-  .slider {
-    gap: 1rem; /* छोटे स्क्रीन पर कार्ड्स के बीच गैप कम करें */
-  }
+/* Large Laptops & Desktops (e.g., Mac Computer Display, 1536*864, 1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .section {
+        padding: 3.5rem 1.8rem;
+    }
+    .header h2 {
+        font-size: 40px;
+    }
+    .header p {
+        font-size: 17px;
+        line-height: 58px;
+    }
+    .sliderContainer {
+        max-width: 1000px; /* Adjust max-width */
+        padding: 0 3.5rem; /* Adjust padding for arrows */
+    }
+    .slider {
+        gap: 1.8rem;
+    }
+    .projectCard {
+        /* Still 2 cards per view, slightly adjusting for narrower container */
+        flex: 0 0 calc(50% - 0.9rem); /* (100% - 1.8rem gap) / 2 */
+        border-radius: 14px;
+    }
+    .cardCaption {
+        padding: 1.3rem;
+        font-size: 0.95rem; /* Slight reduction for text */
+    }
+    .arrow {
+        transform: translateY(-50%) scale(0.95); /* Slightly smaller arrows */
+    }
+    .leftArrow { left: 0.8rem; }
+    .rightArrow { right: 0.8rem; }
 }
 
-@media (max-width: 480px) {
-  .sliderContainer {
-    padding: 0 1rem; /* और भी छोटे स्क्रीन पर एरो के लिए कम जगह */
-  }
-  .leftArrow { left: 0.5rem; }
-  .rightArrow { right: 0.5rem; }
-  .section {
-    padding: 2rem 1rem;
-  }
-  .header h2 {
-    font-size: 36px;
-  }
-  .header p {
-    font-size: 16px;
-    line-height: 1.5; /* Reduce line height for better readability */
-  }
+/* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, smaller Mac displays, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .section {
+        padding: 3rem 1.5rem;
+    }
+    .header {
+        margin-bottom: 2rem;
+    }
+    .header h2 {
+        font-size: 38px;
+    }
+    .header p {
+        font-size: 16px;
+        line-height: 50px;
+    }
+    .sliderContainer {
+        max-width: 90%; /* Fluid width */
+        padding: 0 2.5rem;
+    }
+    .slider {
+        gap: 1.5rem;
+    }
+    .projectCard {
+        /* Still 2 cards per view */
+        flex: 0 0 calc(50% - 0.75rem); /* (100% - 1.5rem gap) / 2 */
+        border-radius: 12px;
+    }
+    .projectImage {
+        aspect-ratio: 4 / 3; /* Slightly taller aspect ratio for images */
+    }
+    .cardCaption {
+        padding: 1.2rem;
+        font-size: 0.9rem;
+    }
+    .arrow {
+        transform: translateY(-50%) scale(0.85);
+        padding: 0.4rem;
+    }
+    .leftArrow { left: 0.5rem; }
+    .rightArrow { right: 0.5rem; }
 }
 
+/* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .section {
+        padding: 2.5rem 1rem;
+    }
+    .header {
+        margin-bottom: 1.8rem;
+    }
+    .header h2 {
+        font-size: 32px;
+    }
+    .header p {
+        font-size: 15px;
+        line-height: 40px;
+    }
+    .sliderContainer {
+        max-width: 95%; /* More fluid width */
+        padding: 0 1.5rem; /* Adjusted for smaller screens */
+    }
+    .slider {
+        gap: 1.2rem;
+        padding: 0.8rem; /* Reduced padding for shadow */
+    }
+    .projectCard {
+        /* Single card view with a slight peek of the next card */
+        flex: 0 0 calc(100% - 1.5rem); /* To show part of the next card with 1.2rem gap */
+        border-radius: 10px;
+    }
+    .projectImage {
+        aspect-ratio: 16 / 9; /* Back to wider images */
+    }
+    .cardCaption {
+        padding: 1rem;
+        font-size: 0.88rem;
+    }
+    .arrow {
+        transform: translateY(-50%) scale(0.75);
+        padding: 0.3rem;
+    }
+    .arrow img {
+        height: 18px;
+    }
+    .leftArrow { left: 0.3rem; }
+    .rightArrow { right: 0.3rem; }
+}
+
+/* Small Phones (e.g., iPhone normal/small, 401px to 576px) */
+@media (min-width: 401px) and (max-width: 576px) {
+    .section {
+        padding: 2rem 0.8rem;
+    }
+    .header {
+        margin-bottom: 1.5rem;
+    }
+    .header h2 {
+        font-size: 28px;
+    }
+    .header p {
+        font-size: 14px;
+        line-height: 30px;
+    }
+    .sliderContainer {
+        padding: 0 1rem;
+    }
+    .slider {
+        gap: 1rem;
+        padding: 0.6rem; /* Reduced padding for shadow */
+    }
+    .projectCard {
+        flex: 0 0 100%; /* Full width for single card view */
+        border-radius: 8px;
+    }
+    .cardCaption {
+        padding: 0.8rem;
+        font-size: 0.8rem;
+    }
+    .arrow {
+        transform: translateY(-50%) scale(0.65);
+        padding: 0.2rem;
+    }
+    .arrow img {
+        height: 16px;
+    }
+    .leftArrow { left: 0.2rem; }
+    .rightArrow { right: 0.2rem; }
+}
+
+/* Extra Small Phones (e.g., older or very small devices, up to 400px) */
+@media (max-width: 400px) {
+    .section {
+        padding: 1.5rem 0.5rem;
+    }
+    .header {
+        margin-bottom: 1rem;
+    }
+    .header h2 {
+        font-size: 24px;
+    }
+    .header p {
+        font-size: 13px;
+        line-height: 25px;
+    }
+    .sliderContainer {
+        padding: 0 0.8rem;
+    }
+    .slider {
+        gap: 0.8rem;
+        padding: 0.4rem; /* Even less padding for shadow */
+    }
+    .projectCard {
+        flex: 0 0 100%; /* Full width */
+        border-radius: 6px;
+    }
+    .projectImage {
+        aspect-ratio: 16 / 10; /* Slightly taller on very small screens */
+    }
+    .cardCaption {
+        padding: 0.7rem;
+        font-size: 0.75rem;
+    }
+    .arrow {
+        transform: translateY(-50%) scale(0.55);
+        padding: 0.1rem;
+    }
+    .arrow img {
+        height: 14px;
+    }
+    .leftArrow { left: 0.1rem; }
+    .rightArrow { right: 0.1rem; }
+}

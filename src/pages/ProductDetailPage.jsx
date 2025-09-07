@@ -6,7 +6,7 @@ import FloatingIcons from '../components/FloatingIcons/FloatingIcons';
 import ProductFeatures from '../components/ProductFeatures/ProductFeatures';
 import FaqSection from '../components/FaqSection/FaqSection';
 
-// --- पेमेंट आइकन्स इम्पोर्ट करें ---
+// --- Payment Icons ---
 import paytmIcon from '../assets/icons/paytm.png';
 import applePayIcon from '../assets/icons/ipay.png';
 import mastercardIcon from '../assets/icons/mastercard.png';
@@ -17,23 +17,34 @@ import SignatureProjects from '../components/SignatureProjects/SignatureProjects
 import DesignProcess from '../components/DesignProcess/DesignProcess';
 import TestimonialSection from '../components/TestimonialSection/TestimonialSection';
 
-// --- नया: ऊपर वाला तीर (up arrow) आइकन इम्पोर्ट करें ---
-import upArrowIcon from '../assets/icons/up.png'; // Make sure this path is correct!
+// --- Up arrow icon ---
+import upArrowIcon from '../assets/icons/up.png';
 
-
-// Accordion कंपोनेंट
+// Accordion Component
 const AccordionItem = ({ title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
+  // Simple check to prevent rendering empty content
+  if (!content) return null;
   return (
     <div className={styles.accordionItem}>
-      <button className={styles.accordionHeader} onClick={() => setIsOpen(!isOpen)}>
+      <button 
+        className={styles.accordionHeader} 
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+      >
         {title}
         <span className={styles.accordionIcon}>{isOpen ? '−' : '+'}</span>
       </button>
-      {isOpen && <div className={styles.accordionContent}><p>{content}</p></div>}
+      {isOpen && (
+        <div className={styles.accordionContent}>
+          {/* Using pre-wrap to respect newlines in the data */}
+          <p style={{ whiteSpace: 'pre-wrap' }}>{content}</p>
+        </div>
+      )}
     </div>
   );
 };
+
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
@@ -53,11 +64,10 @@ const ProductDetailPage = () => {
   const youSave = originalPriceNum - discountedPriceNum;
   const discountPercentage = originalPriceNum > 0 ? Math.round((youSave / originalPriceNum) * 100) : 0;
 
-  // Thumbnail list को स्क्रॉल करने के लिए फ़ंक्शंस
   const scrollThumbnails = (direction) => {
     if (thumbnailListRef.current) {
       thumbnailListRef.current.scrollBy({
-        top: direction * 90, // Adjusted scroll amount (thumbnail height + gap + border)
+        top: direction * 90,
         behavior: 'smooth',
       });
     }
@@ -66,17 +76,10 @@ const ProductDetailPage = () => {
   return (
     <>
       <div className={styles.pageContainer}>
-        <div className={styles.breadcrumbs}>
-          <Link to="/">Home</Link> &gt;
-          {category && <Link to={`/collection/${category.id}`}>{category.name}</Link>} &gt;
-          <span>{product.name}</span>
-        </div>
-
         <div className={styles.productLayout}>
           {/* Left Side: Image Gallery */}
           <div className={styles.imageGallery}>
             <div className={styles.thumbnailWrapper}>
-              {/* Updated: Up arrow now uses an image icon */}
               <button className={`${styles.scrollArrow} ${styles.upArrow}`} onClick={() => scrollThumbnails(-1)}>
                 <img src={upArrowIcon} alt="Scroll Up" className={styles.scrollArrowIcon} />
               </button>
@@ -87,7 +90,6 @@ const ProductDetailPage = () => {
                   </div>
                 ))}
               </div>
-              {/* Down arrow is still text-based. You can change it similarly if you have a down arrow image. */}
               <button className={`${styles.scrollArrow} ${styles.downArrow}`} onClick={() => scrollThumbnails(1)}>▼</button>
             </div>
             <div className={styles.mainImage}>
@@ -96,8 +98,14 @@ const ProductDetailPage = () => {
           </div>
 
           {/* Right Side: Product Details */}
-
           <div className={styles.productDetails}>
+            {/* --- BREADCRUMBS MOVED HERE --- */}
+            <div className={styles.breadcrumbs}>
+              <Link to="/">Home</Link> &gt;
+              {category && <Link to={`/collection/${category.id}`}>{category.name}</Link>} &gt;
+              <span>{product.name}</span>
+            </div>
+            
             <div className={styles.reviewInfo}>
               <span className={styles.stars}>★★★★★</span>
               <span>{product.reviews} Happy Customer</span> |
@@ -118,7 +126,6 @@ const ProductDetailPage = () => {
               </span>
             }
 
-            {/* Features Section */}
             <div className={styles.featuresSection}>
               <div className={styles.featureItem}>Non<br />Toxic</div>
               <div className={styles.divider}></div>
@@ -172,7 +179,6 @@ const ProductDetailPage = () => {
               <button className={styles.customizationBtn}>For customization click here</button>
             </div>
 
-            {/* Payment Section */}
             <div className={styles.secureCheckout}>
               <p>100% Secure Checkout</p>
               <div className={styles.paymentIcons}>
@@ -183,17 +189,23 @@ const ProductDetailPage = () => {
                 <img src={amexIcon} alt="American Express" />
               </div>
             </div>
-          </div>
-        </div>
+            
+            {/* --- ACCORDION / FAQ SECTION MOVED HERE --- */}
+            {/* This is the key change. It's now inside the right-hand column. */}
+            <div className={styles.productInfoTabs}>
+              <AccordionItem title="Product Description" content={product.description} />
+              <AccordionItem title="Technical Specifications" content={product.specifications} />
+              <AccordionItem title="Special Features" content={product.specialFeatures} />
+              <AccordionItem title="Delivery Details" content={product.deliveryDetails} />
+              <AccordionItem title="Warranty Terms" content={product.warrantyTerms} />
+            </div>
 
-        <div className={styles.productInfoTabs}>
-          {product.description && <AccordionItem title="Product Description" content={product.description} />}
-          {product.specifications && <AccordionItem title="Technical Specifications" content={product.specifications} />}
-          {product.specialFeatures && <AccordionItem title="Special Features" content={product.specialFeatures} />}
-          {product.deliveryDetails && <AccordionItem title="Delivery Details" content={product.deliveryDetails} />}
-          {product.warrantyTerms && <AccordionItem title="Warranty Terms" content={product.warrantyTerms} />}
-        </div>
-      </div>
+          </div> {/* End of productDetails */}
+        </div> {/* End of productLayout */}
+
+      </div> {/* End of pageContainer */}
+      
+      {/* These components are outside the main product layout */}
       <FloatingIcons />
       <ProductFeatures />
       <RealStories />

@@ -1,7 +1,10 @@
+/* src/components/SignAbout/SignProjects.module.css */
+
+/* Base styles for larger screens (e.g., Desktops, Large Laptops, LCD & LED panels) */
+/* This covers resolutions like 1920 * 1080, 1920 * 958, 1536 * 864 and larger Mac Computer displays */
 .section {
-    margin-top: -29rem;
-  padding: 4rem 2rem;
-  background-color: #FCFBF9;
+    margin-top: 4rem; /* FIX: Changed from -29rem to a positive margin to prevent overlap */
+    padding: 4rem 2rem;
 }
 
 .header {
@@ -31,9 +34,9 @@
 
 .sliderContainer {
   position: relative;
-  max-width: 1200px;
+  max-width: 1200px; /* Base max-width */
   margin: 0 auto;
-  padding: 0 4rem; /* एरो के लिए साइड में जगह */
+  padding: 0 4rem; /* Space for arrows */
 }
 
 .slider {
@@ -43,8 +46,8 @@
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  scroll-snap-type: x mandatory; /* ब्राउज़र को स्नैप करने में मदद करता है */
-  padding: 1rem; /* शैडो दिखने के लिए थोड़ी पैडिंग */
+  scroll-snap-type: x mandatory;
+  padding: 1rem; /* Padding for shadow visibility */
 }
 
 .slider::-webkit-scrollbar {
@@ -52,22 +55,21 @@
 }
 
 .projectCard {
-  flex: 0 0 calc(50% - 1rem); /* 2 कार्ड्स और गैप के लिए सही चौड़ाई */
+  flex: 0 0 calc(50% - 1rem); /* Base: 2 cards with 2rem gap. (100% - 2rem) / 2 = 50% - 1rem */
   border: 1px solid #EAE5DD;
   border-radius: 16px;
   overflow: hidden;
-  scroll-snap-align: center; /* कार्ड्स को स्क्रॉल पर सेंटर में स्नैप करें */
+  scroll-snap-align: start; /* Changed from 'center' to 'start' for consistent snapping */
   background-color: white;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  display: flex; /* इमेज और कैप्शन को स्टैक करने के लिए */
+  display: flex;
   flex-direction: column;
 }
 
 .projectImage {
   width: 100%;
-  /* इमेज के लिए एक निश्चित अनुपात सेट करें */
-  aspect-ratio: 16 / 9; /* उदाहरण: 16:9 आस्पेक्ट रेश्यो। इसे अपनी पसंद के अनुसार बदल सकते हैं। */
-  object-fit: cover; /* इमेज को कंटेनर को पूरी तरह से कवर करने के लिए */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   display: block;
 }
 
@@ -78,7 +80,7 @@
   color: #333;
   font-weight: 500;
   border-top: 1px solid #EAE5DD;
-  margin-top: auto; /* कैप्शन को हमेशा नीचे रखने के लिए */
+  margin-top: auto;
 }
 
 .arrow {
@@ -89,10 +91,12 @@
   border: none;
   cursor: pointer;
   z-index: 10;
+  padding: 0.5rem; /* Increased clickable area for better UX */
 }
 
 .arrow img {
-  height: 20px; /* एरो इमेज का साइज़ */
+  height: 20px;
+  width: auto; /* Ensure image scales correctly */
 }
 
 .leftArrow {
@@ -102,36 +106,213 @@
   right: 1rem;
 }
 
-/* मीडिया क्वेरीज़: छोटे डिवाइस के लिए रेस्पोंसिवनेस */
-@media (max-width: 768px) {
-  .sliderContainer {
-    padding: 0 2rem; /* छोटे स्क्रीन पर एरो के लिए कम जगह */
-  }
+/* -- Media Queries for Responsiveness -- */
 
-  .projectCard {
-    flex: 0 0 100%; /* छोटे स्क्रीन पर एक बार में एक कार्ड */
-  }
-
-  .slider {
-    gap: 1rem; /* छोटे स्क्रीन पर कार्ड्स के बीच गैप कम करें */
-  }
+/* Large Laptops & Desktops (e.g., 1025px to 1440px, 1536*864, smaller Mac displays) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .section {
+        padding: 3.5rem 1.5rem;
+        margin-top: 3.5rem;
+    }
+    .header h2 {
+        font-size: 40px;
+    }
+    .header p {
+        font-size: 17px;
+        line-height: 58px;
+    }
+    .sliderContainer {
+        max-width: 1000px; /* Adjust max-width */
+        padding: 0 3rem;
+    }
+    .slider {
+        gap: 1.8rem;
+    }
+    .projectCard {
+        /* Still 2 cards per view, slightly adjusting for narrower container */
+        flex: 0 0 calc(50% - 0.9rem); /* (100% - 1.8rem) / 2 */
+        border-radius: 14px;
+    }
+    .cardCaption {
+        padding: 1.3rem;
+    }
+    .arrow {
+        transform: translateY(-50%) scale(0.9); /* Slightly smaller arrows */
+    }
+    .leftArrow { left: 0.8rem; }
+    .rightArrow { right: 0.8rem; }
 }
 
-@media (max-width: 480px) {
-  .sliderContainer {
-    padding: 0 1rem; /* और भी छोटे स्क्रीन पर एरो के लिए कम जगह */
-  }
-  .leftArrow { left: 0.5rem; }
-  .rightArrow { right: 0.5rem; }
-  .section {
-    padding: 2rem 1rem;
-  }
-  .header h2 {
-    font-size: 36px;
-  }
-  .header p {
-    font-size: 16px;
-    line-height: 1.5; /* Reduce line height for better readability */
-  }
+/* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .section {
+        padding: 3rem 1rem;
+        margin-top: 3rem;
+    }
+    .header {
+        margin-bottom: 2rem;
+    }
+    .header h2 {
+        font-size: 38px;
+    }
+    .header p {
+        font-size: 16px;
+        line-height: 50px;
+    }
+    .sliderContainer {
+        max-width: 90%; /* Fluid width */
+        padding: 0 2.5rem;
+    }
+    .slider {
+        gap: 1.5rem;
+    }
+    .projectCard {
+        /* Still 2 cards per view */
+        flex: 0 0 calc(50% - 0.75rem); /* (100% - 1.5rem) / 2 */
+        border-radius: 12px;
+    }
+    .projectImage {
+        aspect-ratio: 4 / 3; /* Slightly taller aspect ratio for images */
+    }
+    .cardCaption {
+        padding: 1.2rem;
+        font-size: 0.95rem;
+    }
+    .arrow {
+        transform: translateY(-50%) scale(0.8);
+        padding: 0.4rem;
+    }
+    .leftArrow { left: 0.5rem; }
+    .rightArrow { right: 0.5rem; }
 }
 
+/* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .section {
+        padding: 2.5rem 0.8rem;
+        margin-top: 2.5rem;
+    }
+    .header {
+        margin-bottom: 1.8rem;
+    }
+    .header h2 {
+        font-size: 32px;
+    }
+    .header p {
+        font-size: 15px;
+        line-height: 40px;
+    }
+    .sliderContainer {
+        max-width: 95%; /* More fluid width */
+        padding: 0 2rem; /* Adjusted for smaller screens */
+    }
+    .slider {
+        gap: 1.2rem;
+    }
+    .projectCard {
+        flex: 0 0 calc(100% - 0.5rem); /* Adjusted for 1 card per view with some overflow indication */
+        border-radius: 10px;
+    }
+    .projectImage {
+        aspect-ratio: 16 / 9; /* Back to wider images */
+    }
+    .cardCaption {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    .arrow {
+        transform: translateY(-50%) scale(0.7);
+        padding: 0.3rem;
+    }
+    .arrow img {
+        height: 18px;
+    }
+    .leftArrow { left: 0.3rem; }
+    .rightArrow { right: 0.3rem; }
+}
+
+/* Small Phones (e.g., iPhone normal/small, 401px to 576px) */
+@media (min-width: 401px) and (max-width: 576px) {
+    .section {
+        padding: 2rem 0.5rem;
+        margin-top: 2rem;
+    }
+    .header {
+        margin-bottom: 1.5rem;
+    }
+    .header h2 {
+        font-size: 28px;
+    }
+    .header p {
+        font-size: 14px;
+        line-height: 30px;
+    }
+    .sliderContainer {
+        padding: 0 1.5rem;
+    }
+    .slider {
+        gap: 1rem;
+    }
+    .projectCard {
+        flex: 0 0 100%; /* Full width for single card view */
+        border-radius: 8px;
+    }
+    .cardCaption {
+        padding: 0.8rem;
+        font-size: 0.85rem;
+    }
+    .arrow {
+        transform: translateY(-50%) scale(0.6);
+        padding: 0.2rem;
+    }
+    .arrow img {
+        height: 16px;
+    }
+    .leftArrow { left: 0.2rem; }
+    .rightArrow { right: 0.2rem; }
+}
+
+/* Extra Small Phones (e.g., older or very small devices, up to 400px) */
+@media (max-width: 400px) {
+    .section {
+        padding: 1.5rem 0.2rem;
+        margin-top: 1.5rem;
+    }
+    .header {
+        margin-bottom: 1rem;
+    }
+    .header h2 {
+        font-size: 24px;
+    }
+    .header p {
+        font-size: 13px;
+        line-height: 25px;
+    }
+    .sliderContainer {
+        padding: 0 1rem;
+    }
+    .slider {
+        gap: 0.8rem;
+        padding: 0.5rem; /* Less padding for shadow */
+    }
+    .projectCard {
+        flex: 0 0 100%;
+        border-radius: 6px;
+    }
+    .projectImage {
+        aspect-ratio: 16 / 10; /* Slightly taller on very small screens */
+    }
+    .cardCaption {
+        padding: 0.7rem;
+        font-size: 0.8rem;
+    }
+    .arrow {
+        transform: translateY(-50%) scale(0.5);
+        padding: 0.1rem;
+    }
+    .arrow img {
+        height: 14px;
+    }
+    .leftArrow { left: 0.1rem; }
+    .rightArrow { right: 0.1rem; }
+}

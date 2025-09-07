@@ -1,15 +1,15 @@
-// src/components/TestimonialSection/TestimonialSection.jsx (New and Functional Code)
+// src/components/TestimonialSection/TestimonialSection.jsx (UPDATED)
 
-import React, { useState } from 'react'; // Import useState
+import React, { useState } from 'react';
 import styles from './TestimonialSection.module.css';
 
 // Import assets
 import testimonialImage1 from '../../assets/images/partner.png';
 import authorAvatar1 from '../../assets/images/avtar.png';
 import quoteIcon from '../../assets/icons/q-icon.png';
-import testImage from '../../assets/images/test-bg.jpg'
+import testImage from '../../assets/images/test-bg.jpg';
 
-// Create a dummy data array for the slider
+// Dummy data remains the same
 const testimonials = [
   {
     id: 1,
@@ -21,17 +21,17 @@ const testimonials = [
   },
   {
     id: 2,
-    image: testimonialImage1, // Using the same image for dummy data
+    image: testimonialImage1,
     quote: "The quality and design exceeded all our expectations. Highly recommended!",
-    avatar: authorAvatar1, // Using the same avatar
+    avatar: authorAvatar1,
     name: "Jane Doe",
     title: "(Happy Parent)"
   },
   {
     id: 3,
-    image: testimonialImage1, // Using the same image for dummy data
+    image: testimonialImage1,
     quote: "A perfect blend of style and safety for our little one's room.",
-    avatar: authorAvatar1, // Using the same avatar
+    avatar: authorAvatar1,
     name: "John Smith",
     title: "(Interior Designer)"
   }
@@ -47,20 +47,19 @@ const TestimonialSection = () => {
         <p>We can create one of a kind piece of baby furniture suited to your needs.</p>
       </div>
 
-      {/* Slider Wrapper */}
       <div className={styles.sliderWrapper}>
         <div className={styles.slider} style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-          {/* Map over the testimonials array */}
           {testimonials.map(testimonial => (
             <div key={testimonial.id} className={styles.slide}>
               <div className={styles.imageContainer}>
                 <img src={testimonial.image} alt="Parent with child and cot" />
               </div>
               <div
-  className={styles.testimonialCard}>
- 
-
-
+                className={styles.testimonialCard}
+                style={{ backgroundImage: `url(${testImage})` }}
+              >
+                {/* --- THIS LINE IS NOW UNCOMMENTED --- */}
+                <img src={quoteIcon} alt="Quote icon" className={styles.quoteIcon} />
                 
                 <div className={styles.stars}>★★★★★</div>
                 <p className={styles.quoteText}>{testimonial.quote}</p>
@@ -75,7 +74,6 @@ const TestimonialSection = () => {
         </div>
       </div>
       
-      {/* Pagination */}
       <div className={styles.pagination}>
         {testimonials.map((_, index) => (
           <span

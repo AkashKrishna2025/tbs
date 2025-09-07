@@ -1,4 +1,4 @@
-/* GiftSection.module.css (Updated with comprehensive responsive media queries) */
+/* GiftContact.module.css (Updated with complete responsive media queries) */
 
 .section {
   padding: clamp(2rem, 6vw, 4rem) 0;
@@ -17,18 +17,16 @@
 
 /* Left side - Image part */
 .giftImageSide {
-  width: 52%; /* Slightly increased width */
+  width: 52%;
   background-size: cover;
-  background-position: center; /* Ensure background image is centered */
+  background-position: right; /* Ensures the right part of the image is always visible */
   position: relative;
-  z-index: 2; /* Keeps it above the right side for the cut edge effect */
-  /* If a clip-path were present for the "cut edge", it would be defined here.
-     Not added as per instructions to not change existing design/looks. */
+  z-index: 2;
 }
 
 /* Right side - Content part */
 .giftContentSide {
-  width: 52%; /* Also increased width to allow overlap */
+  width: 52%; /* Also set to 52% to allow for the intentional overlap/gap */
   background-size: cover; /* Assuming a background image for the content side too */
   background-position: center;
   display: flex;
@@ -37,8 +35,9 @@
   padding: clamp(1.5rem, 5vw, 4rem);
   box-sizing: border-box;
   position: relative;
-  z-index: 1; /* Keeps it below the left image */
-  margin-left: -7%; /* Overlap effect */
+  z-index: 1;
+  /* Negative margin is reduced to create a small gap (less overlap) */
+  margin-left: -4.5%;
 }
 
 .contentWrapper {
@@ -103,6 +102,9 @@
 /* The default styles and fluid 'clamp' values handle these resolutions well. */
 @media (min-width: 1401px) {
   /* No specific adjustments needed as max-width: 1400px and clamp handle scaling */
+  .giftContentSide {
+    margin-left: -4.5%; /* Maintain the base gap */
+  }
 }
 
 /* Large Laptops / Desktops (1025px - 1400px), including 1536x864 */
@@ -112,7 +114,7 @@
   }
 
   .giftContentSide {
-    margin-left: -6%; /* Slightly reduce overlap for a balanced look */
+    margin-left: -4%; /* Adjust negative margin slightly to maintain visual gap proportion */
     padding: clamp(1.2rem, 4.5vw, 3.5rem); /* Adjust padding range */
   }
 
@@ -129,13 +131,13 @@
     min-height: 380px; /* Further reduce min-height */
   }
 
-  .giftImageSide {
-    width: 55%; /* Give image a bit more space relative to content */
+  .giftImageSide,
+  .giftContentSide {
+    width: 55%; /* Adjust widths to give more definition on smaller landscape */
   }
 
   .giftContentSide {
-    width: 55%; /* Ensures combined width with image side is 110% for overlap */
-    margin-left: -8%; /* Adjust overlap to maintain visual connection */
+    margin-left: -4%; /* Adjust negative margin to maintain visual gap */
     padding: clamp(1rem, 4vw, 3rem); /* More compact padding */
   }
 
@@ -160,13 +162,12 @@
   .giftContentSide {
     width: 100%; /* Full width for both sections */
     margin-left: 0; /* Reset negative margin for columnar layout */
-    clip-path: none; /* If a clip-path were used, this would remove it */
   }
 
   .giftImageSide {
     min-height: 280px; /* Adjusted min-height for tablet portrait */
     background-size: cover;
-    background-position: center;
+    background-position: center; /* Center image on mobile */
   }
 
   .giftContentSide {

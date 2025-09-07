@@ -1,140 +1,155 @@
-/* src/components/CTASection/CTASection.module.css */
+/* src/components/CTASection/CTASection.module.css (Final & Fully Responsive) */
 
 .section {
-  height: 100vh;
-  /* full screen */
-  padding: 6rem 2rem;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    /* Use viewport height for an immersive feel on desktops */
+    height: 100vh;
+    min-height: 600px; /* Ensures the section is never too short */
+    max-height: 1080px; /* Prevents it from being too tall on large monitors */
+    padding: 4rem 2rem;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Prevents any potential overflow issues */
 }
 
 .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.35);
-  /* slightly lighter overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
 }
 
 .content {
-  position: relative;
-  z-index: 2;
-  max-width: 750px;
-  margin: 0 auto;
-  padding: 0 1rem;
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .content h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  font-weight: 600;
-  margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 600;
+    margin-bottom: 1.5rem; /* Increased margin */
+    line-height: 1.2;
 }
 
 .content p {
-  line-height: 24px;
-  margin-bottom: 2rem;
-  font-family: 'Lato';
-  /* Proper font-family */
-  font-size: 18px;
-  font-style: oblique;
-  font-weight: 400;
-  color: rgb(238, 242, 245);
-
-
+    line-height: 1.6; /* Increased line-height for readability */
+    margin-bottom: 2.5rem; /* Increased margin */
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-style: oblique;
+    font-weight: 400;
+    color: rgba(238, 242, 245, 0.95); /* Slightly increased opacity for better readability */
 }
 
 .consultationButton {
-     background-color: #7faa81;
-    border-block-width: 10px;
-    border: #ffffff double;
-    border-color: #ffffff;
+    background-color: #7faa81;
+    /* Consolidating border properties for clarity - visual style is unchanged */
+    border: 4px double #ffffff;
     color: white;
     padding: 0.9rem 2.2rem;
     border-radius: 6px;
     font-weight: 500;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
-    font-family: 'Lato';
+    transition: all 0.3s ease;
+    font-family: 'Lato', sans-serif;
 }
 
 .consultationButton:hover {
-  background-color: #92c495;
+    background-color: #92c495;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* =============================
-   Responsive Styles
-   ============================= */
+/* === Responsive Design === */
 
-/* Tablets (≤1024px) */
+/* For Extra Large Desktops & TVs (1920px and up) */
+@media (min-width: 1441px) {
+    .content {
+        max-width: 850px;
+    }
+    .content h2 {
+        font-size: 48px;
+    }
+    .content p {
+        font-size: 20px;
+    }
+}
+
+/* For Standard Laptops (e.g., 1536px) & Small Desktops */
+@media (max-width: 1200px) {
+     .content {
+        max-width: 700px;
+    }
+}
+
+
+/* For Tablets (iPad Pro, etc.) */
 @media (max-width: 1024px) {
-  .content h2 {
-    font-size: 36px;
-  }
-
-  .content p {
-    font-size: 16px;
-  }
-
-  .consultationButton {
-    padding: 0.8rem 2rem;
-    font-size: 15px;
-  }
+    .section {
+        min-height: 550px;
+    }
+    .content h2 {
+        font-size: 38px;
+    }
+    .content p {
+        font-size: 17px;
+    }
+    .consultationButton {
+        padding: 0.8rem 2rem;
+        font-size: 15px;
+    }
 }
 
-/* Mobile (≤768px) */
+/* For Portrait Tablets & Mobile Phones (iPhone, Android, etc.) */
 @media (max-width: 768px) {
-  .section {
-    height: auto;
-    /* allow section to shrink naturally */
-    padding: 4rem 1.5rem;
-  }
-
-  .content h2 {
-    font-size: 28px;
-    line-height: 1.3;
-  }
-
-  .content p {
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
-  .consultationButton {
-    padding: 0.8rem 1.8rem;
-    font-size: 14px;
-    width: auto;
-  }
+    .section {
+        height: auto; /* Allow section to grow with content */
+        min-height: 70vh; /* Still takes up significant screen space */
+        padding: 6rem 1.5rem; /* Increase vertical padding for mobile */
+    }
+    .content h2 {
+        font-size: 32px;
+        line-height: 1.3;
+    }
+    .content p {
+        font-size: 16px;
+    }
+    .consultationButton {
+        padding: 0.8rem 1.8rem;
+        font-size: 15px;
+    }
 }
 
-/* Small Mobile (≤480px) */
+/* For Standard & Small Mobile Phones */
 @media (max-width: 480px) {
-  .section {
-    padding: 3rem 1rem;
-  }
-
-  .content h2 {
-    font-size: 22px;
-  }
-
-  .content p {
-    font-size: 14px;
-    margin-bottom: 1.5rem;
-  }
-
-  .consultationButton {
-    width: 100%;
-    /* full width button for small devices */
-    padding: 0.9rem;
-    font-size: 14px;
-  }
+    .section {
+        min-height: 60vh;
+        padding: 5rem 1rem;
+    }
+    .content h2 {
+        font-size: 28px;
+    }
+    .content p {
+        font-size: 15px;
+        margin-bottom: 2rem;
+    }
+    .consultationButton {
+        /* Full width button for small devices is a good pattern, but we'll make it optional
+           If you want it to be full-width, uncomment the next line */
+        /* width: 100%; */
+        padding: 0.9rem 1.5rem;
+        font-size: 14px;
+    }
 }

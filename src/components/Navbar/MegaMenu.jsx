@@ -8,7 +8,7 @@ const MegaMenu = ({ category }) => {
   return (
     <div className={styles.megaMenu}>
       <div className={styles.container}>
-        {/* Left Section - Category Navigation */}
+        {/* Left Section - No Changes Here */}
         <div className={styles.leftSection}>
           <div className={styles.categorySection}>
             <h3 className={styles.categoryTitle}>
@@ -29,34 +29,22 @@ const MegaMenu = ({ category }) => {
           </div>
         </div>
 
-        {/* Right Section - Featured Products */}
+        {/* Right Section - Updated Product Mapping */}
         <div className={styles.rightSection}>
           <div className={styles.featuredProducts}>
             {category.featuredProducts?.slice(0, 3).map(product => (
-              <div key={product.id} className={styles.featuredProduct}>
-                <Link to={`/product/${product.id}`}>
-                  <div className={styles.productImageContainer}>
-                    <img src={product.image} alt={product.name} />
-                  </div>
-                  <div className={styles.productOverlay}>
-                    <button className={styles.viewProductBtn}>View Product</button>
-                  </div>
-                </Link>
-              </div>
+              // The <Link> is now our main product card container
+              <Link to={`/product/${product.id}`} key={product.id} className={styles.featuredProduct}>
+                <div className={styles.productImageContainer}>
+                  <img src={product.image} alt={product.name} />
+                </div>
+                {/* The button is positioned relative to the Link container */}
+                <div className={styles.viewProductBtn}>
+                  View Product
+                </div>
+              </Link>
             ))}
           </div>
-          
-          {/* Promotional Banner (if uncommented in JSX) */}
-          {/* You can uncomment and add your promo banner content here if you have one */}
-          {/* <div className={styles.promoBanner}>
-            <div className={styles.promoContent}>
-              <p className={styles.promoText}>Exclusive Offer!</p>
-              <h4 className={styles.promoHighlight}>Get 10% Off Your First Order</h4>
-            </div>
-            <div className={styles.promoImage}>
-              <img src="/path/to/promo-image.png" alt="Promo" />
-            </div>
-          </div> */}
         </div>
       </div>
     </div>

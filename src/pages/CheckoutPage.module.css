@@ -1,11 +1,14 @@
-/* src/pages/CheckoutPage.module.css */
+/* src/pages/CheckoutPage.module.css (Final & Fully Responsive) */
+
+/* --- Base Styles (for Desktops and Laptops) --- */
 .checkoutContainer {
     max-width: 600px;
     margin: 3rem auto;
-    padding: 2rem;
+    padding: 2.5rem; /* Increased padding for more whitespace on larger screens */
     border: 1px solid #eee;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    background-color: #fff; /* Added for consistency */
 }
 
 .addressForm, .paymentSection {
@@ -18,13 +21,24 @@
     font-family: 'Libre Baskerville', serif;
     text-align: center;
     margin-bottom: 1rem;
+    font-size: 1.8rem; /* Slightly larger base font size */
+    color: #333;
 }
 
 .addressForm input {
-    padding: 0.8rem;
+    width: 100%;
+    padding: 0.8rem 1rem;
     font-size: 1rem;
+    font-family: inherit; /* Ensures consistent font */
     border: 1px solid #ccc;
     border-radius: 4px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.addressForm input:focus {
+    outline: none;
+    border-color: #8fad88;
+    box-shadow: 0 0 0 3px rgba(143, 173, 136, 0.25);
 }
 
 .addressForm button, .paymentButtons button {
@@ -36,12 +50,37 @@
     cursor: pointer;
     background-color: #8fad88;
     color: white;
+    transition: background-color 0.2s ease;
+}
+
+.addressForm button:hover, .paymentButtons button:hover {
+    background-color: #7a9a72;
 }
 
 .orderSummary {
     padding: 1.5rem;
     background-color: #f9f9f9;
+    border: 1px solid #eee; /* Added a subtle border */
     border-radius: 8px;
+}
+
+.orderSummary h3 {
+    font-family: 'Libre Baskerville', serif;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.orderSummary p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.orderSummary .total {
+    font-weight: bold;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
 }
 
 .paymentButtons {
@@ -54,4 +93,65 @@
     background-color: #fff;
     color: #8fad88;
     border: 1px solid #8fad88;
+}
+
+.codButton:hover {
+    background-color: #f8fbf7;
+}
+
+
+/* === Responsive Design === */
+
+/* For Tablets (iPad, etc.) */
+@media (max-width: 768px) {
+    .checkoutContainer {
+        margin: 2rem auto;
+        padding: 2rem;
+    }
+
+    .addressForm h2, .paymentSection h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* For Mobile Phones (iPhone, Android, etc.) */
+@media (max-width: 576px) {
+    .checkoutContainer {
+        /* On mobile, make it full width and remove box model for a native feel */
+        margin: 0;
+        padding: 2rem 1.5rem; /* Reduce horizontal padding */
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 100vh; /* Ensure it takes up full screen height */
+    }
+
+    .addressForm h2, .paymentSection h2 {
+        font-size: 1.5rem;
+    }
+
+    .addressForm button, .paymentButtons button {
+        padding: 0.9rem;
+        font-size: 1rem;
+    }
+}
+
+/* For Small Mobile Phones */
+@media (max-width: 480px) {
+    .checkoutContainer {
+        padding: 1.5rem 1rem; /* Further reduce padding */
+    }
+
+    .addressForm, .paymentSection {
+        gap: 1.2rem; /* Reduce gap between elements */
+    }
+
+    .addressForm h2, .paymentSection h2 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .addressForm input {
+        padding: 0.7rem 0.8rem;
+    }
 }

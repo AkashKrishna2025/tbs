@@ -1,87 +1,262 @@
 /* src/components/ProductFeatures/ProductFeatures.module.css (पूरा और फ़ाइनल कोड) */
 
 .featuresSection {
-    padding: 60px 20px;
+    padding: 60px 20px; /* Base padding */
     background-color: #fff;
     text-align: center;
 }
 
 .sectionTitle {
     font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Base font size */
     font-weight: 500;
     color: #333;
-    margin-bottom: 40px;
+    margin-bottom: 40px; /* Base margin */
 }
 
 .featuresGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    max-width: 1200px;
+    grid-template-columns: repeat(4, 1fr); /* Base: 4 columns */
+    gap: 30px; /* Base gap */
+    max-width: 1200px; /* Base max-width */
     margin: 0 auto;
 }
 
 .featureCard {
-background: 
-    linear-gradient(#f0f5ef, #f0f5ef) padding-box, /* inner background */
-    linear-gradient(45deg, #95B79A, #FEB623) border-box; /* gradient border */
-  border: 2px solid transparent;
-  border-radius: 20px;
-  font-family: 'Lato';
-  padding: 14px 2px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
+    background: 
+        linear-gradient(#f0f5ef, #f0f5ef) padding-box, /* inner background */
+        linear-gradient(45deg, #95B79A, #FEB623) border-box; /* gradient border */
+    border: 2px solid transparent;
+    border-radius: 20px; /* Base border-radius */
+    font-family: 'Lato';
+    padding: 14px 2px; /* Base padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Added subtle shadow for depth */
 }
 
 /* Figma डिज़ाइन के अनुसार दूसरे और चौथे कार्ड पर पीला बॉर्डर */
 .featureCard:nth-child(even) {
     border-left: 2px solid #f0e1a1;
-    /* पीला बॉर्डर */
     border-right: 2px solid #f0e1a1;
-    /* पीला बॉर्डर */
     border-top: 1px solid #e0e8de;
     border-bottom: 1px solid #e0e8de;
 }
 
 .icon {
-    height: 50px;
-    margin-bottom: 20px;
+    height: 50px; /* Base icon height */
+    margin-bottom: 20px; /* Base margin */
 }
 
 .title {
-    font-size: 1.25rem;
+    font-size: 1.25rem; /* Base title font size */
     font-weight: 500;
     color: #6a8a69;
-    /* गहरा हरा रंग */
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Base margin */
     font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .description {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Base description font size */
     color: #555;
     line-height: 1.6;
+    padding: 0 10px; /* Added slight horizontal padding for better readability on narrow cards */
 }
 
 /* --- रिस्पॉन्सिव डिज़ाइन --- */
-@media (max-width: 992px) {
+
+/* Extra Large Desktops & Wide Screens (e.g., 1920*1080, 1920*958, large LCD/LED panels) */
+@media (min-width: 1441px) {
+    .featuresSection {
+        padding: 70px 30px;
+    }
+    .sectionTitle {
+        font-size: 2.8rem;
+        margin-bottom: 50px;
+    }
     .featuresGrid {
-        grid-template-columns: repeat(2, 1fr);
-        /* टैबलेट पर 2 कॉलम */
+        max-width: 1300px; /* Allow grid to be slightly wider */
+        gap: 35px; /* Increased gap */
+    }
+    .featureCard {
+        padding: 16px 5px;
+        border-radius: 22px;
+    }
+    .icon {
+        height: 55px;
+        margin-bottom: 25px;
+    }
+    .title {
+        font-size: 1.35rem;
+        margin-bottom: 18px;
+    }
+    .description {
+        font-size: 0.95rem;
+        padding: 0 12px;
     }
 }
 
-@media (max-width: 576px) {
+/* Large Laptops & Standard Desktops (e.g., Mac Computer Display, 1536*864, 1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .featuresSection {
+        padding: 60px 25px;
+    }
+    .sectionTitle {
+        font-size: 2.3rem;
+        margin-bottom: 35px;
+    }
+    .featuresGrid {
+        max-width: 1100px;
+        gap: 25px;
+    }
+    .featureCard {
+        padding: 12px 0px;
+        border-radius: 18px;
+    }
+    .icon {
+        height: 48px;
+        margin-bottom: 18px;
+    }
+    .title {
+        font-size: 1.15rem;
+        margin-bottom: 12px;
+    }
+    .description {
+        font-size: 0.88rem;
+        padding: 0 8px;
+    }
+}
+
+
+/* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, smaller Mac displays, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .featuresSection {
+        padding: 50px 20px;
+    }
+    .sectionTitle {
+        font-size: 2.1rem;
+        margin-bottom: 30px;
+    }
+    .featuresGrid {
+        grid-template-columns: repeat(2, 1fr); /* Tablet Landscape: 2 columns */
+        max-width: 90%; /* Fluid width */
+        gap: 25px;
+    }
+    .featureCard {
+        padding: 18px 10px; /* More padding as cards are wider */
+        border-radius: 16px;
+    }
+    .icon {
+        height: 45px;
+        margin-bottom: 15px;
+    }
+    .title {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    .description {
+        font-size: 0.85rem;
+        padding: 0 10px;
+    }
+}
+
+
+/* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .featuresSection {
+        padding: 40px 15px;
+    }
+    .sectionTitle {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    .featuresGrid {
+        grid-template-columns: repeat(2, 1fr); /* Still 2 columns */
+        max-width: 95%;
+        gap: 20px;
+    }
+    .featureCard {
+        padding: 15px 8px;
+        border-radius: 14px;
+    }
+    .icon {
+        height: 40px;
+        margin-bottom: 12px;
+    }
+    .title {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    .description {
+        font-size: 0.8rem;
+        padding: 0 8px;
+    }
+}
+
+
+/* Small Phones (e.g., iPhone normal/small, 401px to 576px) */
+@media (min-width: 401px) and (max-width: 576px) {
+    .featuresSection {
+        padding: 30px 10px;
+    }
+    .sectionTitle {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    .featuresGrid {
+        grid-template-columns: 1fr; /* Mobile: 1 column */
+        max-width: 90%;
+        gap: 15px;
+    }
+    .featureCard {
+        padding: 15px 10px;
+        border-radius: 12px;
+    }
+    .icon {
+        height: 35px;
+        margin-bottom: 10px;
+    }
+    .title {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+    }
+    .description {
+        font-size: 0.78rem;
+        padding: 0 10px;
+    }
+}
+
+
+/* Extra Small Phones (e.g., older or very small devices, up to 400px) */
+@media (max-width: 400px) {
+    .featuresSection {
+        padding: 25px 8px;
+    }
+    .sectionTitle {
+        font-size: 1.4rem;
+        margin-bottom: 18px;
+    }
     .featuresGrid {
         grid-template-columns: 1fr;
-        /* मोबाइल पर 1 कॉलम */
+        max-width: 95%;
+        gap: 12px;
     }
-
-    .sectionTitle {
-        font-size: 2rem;
+    .featureCard {
+        padding: 12px 8px;
+        border-radius: 10px;
+    }
+    .icon {
+        height: 30px;
+        margin-bottom: 8px;
+    }
+    .title {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+    .description {
+        font-size: 0.75rem;
+        padding: 0 8px;
     }
 }

@@ -1,51 +1,59 @@
-/* src/pages/BlogPage.module.css */
+/* src/pages/BlogPage.module.css (Final, matches Figma design) */
+
 .blogPage {
     background-color: #f9f8f6;
+    overflow-x: hidden; /* Prevents accidental horizontal scroll */
 }
 
+/* --- Hero Section --- */
 .heroBanner {
     height: 400px;
     background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #333;
     padding: 20px;
+    /* This flexbox setup is to vertically center the .heroContent div */
+    display: flex;
+    align-items: center;
+}
+
+/* This is the container for your text. It has a max-width and is centered,
+   which creates the inset, left-aligned look from your Figma design. */
+.heroContent {
+    max-width: 1200px; /* Must match .mainContent max-width */
+    width: 100%;
+    margin: 0 auto; /* Centers the container */
+    padding: 0 20px; /* Aligns with .mainContent padding */
 }
 
 .heroTitle {
-    font-family: 'Playfair Display';
+    font-family: 'Playfair Display', serif;
     font-size: 46px;
     font-weight: bold;
-    padding-right: 31rem;
-
-
-
+    color: #333;
 }
 
 .heroSubtitle {
- font-size: 1.1rem;
-    margin-top: 9px;
-    max-width: 600px;
-    margin-right: 31rem;
+    font-size: 1.1rem;
+    margin-top: 15px; /* Space between title and subtitle */
+    max-width: 500px; /* Prevents the line from being too long */
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     color: #424141;
-
+    line-height: 1.5;
 }
 
+
+/* --- Main Content --- */
 .mainContent {
-    max-width: 1200px;
+    max-width: 1200px; /* Must match .heroContent max-width */
     margin: 0 auto;
-    padding: 40px 20px 60px;
+    padding: 40px 20px 60px; /* Must match .heroContent padding */
 }
 
 .filterContainer {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 40px;
 }
@@ -56,9 +64,14 @@
     border-radius: 20px;
     background-color: #fff;
     cursor: pointer;
+    font-family: 'Lato', sans-serif;
     font-size: 1rem;
     color: #555;
     transition: all 0.2s ease;
+}
+
+.filterButton:hover {
+    border-color: #aaa;
 }
 
 .filterButton.active {
@@ -70,17 +83,94 @@
 .blogGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 40px;
 }
 
+/* === Responsive Design === */
+
+/* For Extra Large Desktops & TVs (1920px and up) */
+@media (min-width: 1441px) {
+    .mainContent, .heroContent {
+        max-width: 1400px;
+    }
+    .heroTitle {
+        font-size: 52px;
+    }
+}
+
+/* For Standard Laptops (e.g., 1536px) */
+@media (max-width: 1200px) {
+    .mainContent, .heroContent {
+        max-width: 992px;
+    }
+}
+
+/* For Tablets (iPad Pro, etc.) */
+@media (max-width: 992px) {
+    .heroBanner {
+        height: 350px;
+    }
+    .heroTitle {
+        font-size: 40px;
+    }
+    .heroSubtitle {
+        font-size: 1rem;
+        max-width: 450px;
+    }
+    .blogGrid {
+        gap: 30px;
+    }
+}
+
+/* For Portrait Tablets & Large Phones (iPhone Max, etc.) */
 @media (max-width: 768px) {
+    .heroBanner {
+       justify-content: center; /* Horizontally center the content block */
+       text-align: center; /* Center the text within the block */
+    }
+    
+    .heroTitle {
+        font-size: 36px;
+    }
+    .heroSubtitle {
+       margin-left: auto;
+       margin-right: auto;
+    }
+
     .blogGrid {
         grid-template-columns: 1fr;
     }
 }
 
+/* For Standard Mobile Phones */
 @media (max-width: 576px) {
+    .heroBanner {
+        height: 300px;
+    }
     .heroTitle {
-        font-size: 2.2rem;
+        font-size: 32px;
+    }
+    .heroSubtitle {
+        font-size: 0.95rem;
+    }
+    .mainContent {
+        padding: 30px 15px 50px;
+    }
+    .filterButton {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* For Small Mobile Phones */
+@media (max-width: 480px) {
+     .heroBanner {
+        height: 280px;
+    }
+    .heroTitle {
+        font-size: 28px;
+    }
+    .heroSubtitle {
+        font-size: 0.9rem;
     }
 }

@@ -17,7 +17,7 @@
     color: #ffffff;
     text-align: left;
     padding-left: 49px;
-    padding-top: 111px;
+    padding-top: 111px; /* Original padding */
 }
 
 .heroTitle {
@@ -30,32 +30,26 @@
     font-size: 1.1rem;
     margin-top: 10px;
     color: black;
-    margin-top: 10px;
 }
 
 /* --- Welcome Section --- */
 .welcomeSection {
     margin: 40px auto;
-    /* Slightly less margin */
     max-width: 900px;
-    /* Constrained width */
     text-align: center;
     padding: 0 20px;
 }
 
 .quoteIcon {
     height: 35px;
-    /* Slightly smaller */
     opacity: 0.6;
     margin-bottom: 15px;
-    /* Reduced margin */
 }
 
 .welcomeTitle {
     font-family: 'Lato', sans-serif;
     font-weight: 600;
     font-size: 22px;
-    /* Slightly larger */
     line-height: 1.4;
     color: #252424;
     margin-bottom: 15px;
@@ -63,20 +57,15 @@
 
 .welcomeText {
     font-family: 'Lato', sans-serif;
-    /* Changed to Lato */
     font-weight: 600;
     font-size: 16px;
-    /* Slightly smaller for readability */
     line-height: 1.7;
-    /* Improved line height */
     color: #4a4a4a;
-    /* Softer dark color */
     margin-bottom: 20px;
 }
 
 .founders {
     margin-top: 10px;
-    /* Adjusted margin */
     font-size: 1rem;
     color: #302f2f;
     font-family: 'Lato', Arial, Helvetica, sans-serif;
@@ -84,7 +73,6 @@
 
 .founders p {
     margin-bottom: 5px;
-    /* Added margin for separation */
     font-weight: 400;
     color: #666;
     font-size: 15px;
@@ -97,26 +85,22 @@
     color: #65a06d;
     font-style: italic;
     font-size: 19px;
-    /* Slightly smaller */
 }
 
 /* ===== Welcome ke niche mosaic section ===== */
 .missionMosaic {
-    max-width: 1200px;
+    max-width: 1200px; /* Base max-width */
     margin: 40px auto 0px;
     padding: 0 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    /* Consistent gap */
     /* EXACT layout like screenshot */
     grid-template-areas:
         "card1 img1 img2"
         "img3 logo card2"
         "img4 img5 card3"
-        "img6 img7 ."
-        /* Adjusted to align the last two images */
-    ;
+        "img6 img7 .";
 }
 
 /* --- common tiles --- */
@@ -124,15 +108,13 @@
 .card,
 .logoTile {
     border-radius: 10px;
-    /* Softer rounded corners */
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    /* Subtle shadow */
 }
 
 .tile {
-    aspect-ratio: 1 / 1;
-    /* Made tiles square for a more consistent look, adjust if needed */
+    /* Use aspect-ratio for flexible sizing in a grid */
+    aspect-ratio: 1 / 1; 
 }
 
 .tile img {
@@ -144,39 +126,34 @@
 
 /* --- green cards --- */
 .card {
-       background: #eef5ec;
+    background: #eef5ec;
     padding: 15px;
-    display: flex
-;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
-    height: 500px;
-
+    height: 500px; /* Base height, will be overridden by responsive styles */
 }
 
 .cardIcon {
     width: 30px;
-    /* Slightly larger icon */
     height: 30px;
     margin-bottom: 12px;
     object-fit: contain;
     opacity: 0.8;
-    /* Slightly more prominent icon */
 }
 
 .card h3 {
-    font-family: 'Playfair Display', serif; /* Ensure serif fallback */
-    font-weight: 700; /* Changed to 700 for semi-bold, as 600 is not explicitly imported for Playfair Display */
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
     font-size: 20px;
     color: #000000;
     margin: 0 0 10px;
-    
     line-height: 1.9;
 }
 
 .card p {
-     font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif;
     font-size: 13px;
     line-height: 20px;
     color: #444242;
@@ -189,190 +166,257 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: #fff; */
-    /* White background for the logo tile */
     aspect-ratio: 1 / 1;
-    position: relative;
-    top: -120px;
-    /* Square aspect ratio */
+    position: relative; /* Keep relative for base, but reset in media queries */
+    top: -120px; /* Base offset */
 }
 
 .logoTile img {
     max-width: 70%;
-    /* Increased max-width for the logo */
     height: auto;
     object-fit: contain;
 }
 
 /* --- area mapping (exact placement) --- */
-.areaCard1 {
-    grid-area: card1;
-}
+/* These grid-area assignments are crucial for the mosaic layout */
+.areaCard1 { grid-area: card1; }
+.areaImg1 { grid-area: img1; }
+.areaImg2 { grid-area: img2; }
+.areaImg3 { grid-area: img3; }
+.areaCard2 { grid-area: card2; }
+.areaImg4 { grid-area: img4; }
+.areaCard3 { grid-area: card3; }
+.areaImg5 { grid-area: img5; }
+.areaImg6 { grid-area: img6; }
+.areaImg7 { grid-area: img7; }
 
-.areaImg1 {
-    grid-area: img1;
-    height: 300px;
-    width: 400px;
-}
+/*
+   IMPORTANT: The following absolute/relative positioning with fixed widths/heights
+   will severely break responsiveness and conflict with grid layout.
+   These styles MUST be overridden by `position: static !important; width: auto !important; height: auto !important;`
+   in all responsive media queries where the grid should take control.
+   They are left here to show the original intent but will be neutralized.
+*/
+.areaImg1 { height: 300px; width: 400px; }
+.areaImg2 { height: 300px; width: 380px; } /* Adjusted in original comment */
+.areaImg3 { height: 300px; width: 390px; top: -11px; } /* Adjusted in original comment */
+.areaImg5 { height: 300px; width: 400px; }
+.areaImg7 { height: 300px; width: 300px; } /* Adjusted from original to fit grid */
 
-.areaImg2 {
-    grid-area: img2;
-    height: 300px;
-    width: 400px;
-}
+.logoTile { top: -290px; } /* Adjusted in original comment */
 
-.areaImg3 {
-    grid-area: img3;
-    height: 300px;
-    width: 500px;
+.areaCard2 { top: -210px; width: 350px; } /* Adjusted in original comment */
+.areaImg4 { top: -230px; width: 400px; height: 200px; } /* Adjusted in original comment */
+.areaImg5 { top: -540px; } /* Adjusted in original comment */
+.areaCard3 { top: -230px; right: 420px; width: 400px; height: 400px; } /* Adjusted in original comment */
+.areaImg6 { top: -440px; width: 400px; height: 200px; } /* Adjusted in original comment */
+.areaImg7 { top: -640px; left: 440px; } /* Adjusted in original comment */
 
-}
-
-.areaCard2 {
-    grid-area: card2;
-
-}
-
-.areaImg4 {
-    grid-area: img4;
-
-}
-
-.areaCard3 {
-    grid-area: card3;
-
-}
-
-.areaImg5 {
-    grid-area: img5;
-    height: 300px;
-    width: 400px;
-}
-
-.areaImg6 {
-    grid-area: img6;
+/*
+   End of highly specific absolute/relative positioning that needs overriding.
+*/
 
 
-}
+/* ===== Responsive Media Queries ===== */
 
-.areaImg7 {
-    grid-area: img7;
-    height: 300px;
-    width: 890px;
-
-}
-
-
-/* Position adjustments for exact screenshot match */
-/* These are highly specific and may need fine-tuning based on actual content */
-.areaCard1 {
-    position: relative;
-    top: 0px;
-}
-
-.areaImg1 {
-    position: relative;
-    top: 0px;
-}
-
-.areaImg2 {
-    position: relative;
-    top: 0px;
-    width: 380px;
-}
-
-.areaImg3 {
-    position: relative;
-    top: -11px;
-    width: 390px;
-    /* Adjusted based on visual alignment */
-}
-
-.logoTile {
-    position: relative;
-    top: -290px;
-    /* Adjusted to align with img3 and card2 */
-}
-
-.areaCard2 {
-    position: relative;
-    top: -210px;
-    width: 350px;
-
-    /* Adjusted based on visual alignment */
-}
-
-.areaImg4 {
-    position: relative;
-    top: -230px;
-    width: 400px;
-    height: 200px;
-    /* Adjusted */
-}
-
-.areaImg5 {
-    position: relative;
-    top: -540px;
-
-    /* Adjusted */
-}
-
-.areaCard3 {
-    position: relative;
-    top: -230px;
-    right: 420px;
-    width: 400px;
-    height: 400px;
-
-
-
-
-
-    /* Adjusted */
-}
-
-.areaImg6 {
-    position: relative;
-    top: -440px;
-    width: 400px;
-    height: 200px;
-    /* Adjusted */
-}
-
-.areaImg7 {
-    position: relative;
-    top: -640px;
-    height: 400px;
-    width: 300px;
-    left: 440px;
-
-    /* Adjusted */
-}
-
-
-/* wide card spans two columns (center + right) like screenshot */
-/* This will need to be re-evaluated if the layout is strictly 3-column with a gap */
-.cardWide {
-    /* If a card truly needs to span 2 columns, this needs explicit grid-column-span property */
-    /* grid-column: span 2; */
-    /* For the given screenshot, card3 seems to be in a single grid cell */
-}
-
-/* ===== Responsive ===== */
-/* ===== Responsive ===== */
-
-/* Tablet view */
-@media (max-width: 992px) {
-    .heroTitle {
-        font-size: 2.2rem;
+/* Large Laptops & Standard Desktops (e.g., Mac Computer Display, 1536*864, 1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .heroBanner {
+        height: 450px;
+        padding-left: 40px;
+        padding-top: 100px;
     }
-
+    .heroTitle {
+        font-size: 2.8rem;
+    }
     .heroSubtitle {
-        font-size: 1rem;
+        font-size: 1.05rem;
+    }
+    .welcomeSection {
+        margin: 35px auto;
+        max-width: 800px;
+        padding: 0 15px;
+    }
+    .quoteIcon {
+        height: 30px;
+        margin-bottom: 12px;
+    }
+    .welcomeTitle {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    .welcomeText {
+        font-size: 15px;
+        margin-bottom: 18px;
+    }
+    .founders h4 {
+        font-size: 18px;
+    }
+    .founders p {
+        font-size: 14px;
     }
 
     .missionMosaic {
-        grid-template-columns: repeat(2, 1fr);
+        max-width: 1100px; /* Slightly reduced max-width */
+        margin: 35px auto 0px;
+        padding: 0 15px;
+        gap: 18px;
+    }
+    /* IMPORTANT: Reset manual positioning to allow grid to work */
+    .missionMosaic > div {
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        width: auto !important;
+        height: auto !important;
+    }
+    .card {
+        padding: 18px;
+        height: auto; /* Let card height adjust to content */
+    }
+    .card h3 {
+        font-size: 19px;
+    }
+    .card p {
+        font-size: 12.5px;
+    }
+    .logoTile {
+        aspect-ratio: 1/1; /* Ensure logo tile stays square */
+    }
+    .tile {
+        aspect-ratio: 16/10; /* Slightly wider tiles for this range */
+    }
+}
+
+
+/* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, smaller Mac displays, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .heroBanner {
+        height: 380px;
+        padding-left: 30px;
+        padding-top: 80px;
+    }
+    .heroTitle {
+        font-size: 2.5rem;
+    }
+    .heroSubtitle {
+        font-size: 1rem;
+    }
+    .welcomeSection {
+        margin: 30px auto;
+        max-width: 700px;
+        padding: 0 15px;
+    }
+    .quoteIcon {
+        height: 28px;
+        margin-bottom: 10px;
+    }
+    .welcomeTitle {
+        font-size: 19px;
+        margin-bottom: 10px;
+    }
+    .welcomeText {
+        font-size: 14.5px;
+        margin-bottom: 15px;
+    }
+    .founders h4 {
+        font-size: 17px;
+    }
+    .founders p {
+        font-size: 13.5px;
+    }
+
+    .missionMosaic {
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        grid-template-areas:
+            "card1 img1"
+            "img2 card2"
+            "img3 logo"
+            "img4 card3"
+            "img5 img6"
+            "img7 img7"; /* `img7` spans full width */
+        gap: 15px;
+        max-width: 90%; /* Fluid width */
+        margin: 30px auto 0px;
+        padding: 0 10px;
+    }
+    /* IMPORTANT: Reset manual positioning to allow grid to work */
+    .missionMosaic > div {
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        width: auto !important;
+        height: auto !important;
+    }
+    .card {
+        padding: 15px;
+        height: auto;
+    }
+    .card h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    .card p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .cardIcon {
+        width: 28px;
+        height: 28px;
+        margin-bottom: 10px;
+    }
+    .tile,
+    .logoTile {
+        aspect-ratio: 16/11; /* Adjust aspect ratio for a more rectangular look */
+    }
+    .logoTile img {
+        max-width: 60%;
+    }
+}
+
+/* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .heroBanner {
+        height: 300px;
+        padding-left: 20px;
+        padding-top: 60px;
+    }
+    .heroTitle {
+        font-size: 2rem;
+    }
+    .heroSubtitle {
+        font-size: 0.95rem;
+    }
+    .welcomeSection {
+        margin: 25px auto;
+        max-width: 95%; /* Fluid width */
+        padding: 0 10px;
+    }
+    .quoteIcon {
+        height: 25px;
+        margin-bottom: 8px;
+    }
+    .welcomeTitle {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    .welcomeText {
+        font-size: 14px;
+        margin-bottom: 12px;
+        line-height: 1.6;
+    }
+    .founders {
+        margin-top: 8px;
+    }
+    .founders h4 {
+        font-size: 16px;
+    }
+    .founders p {
+        font-size: 13px;
+    }
+
+    .missionMosaic {
+        grid-template-columns: repeat(2, 1fr); /* Still two columns */
         grid-template-areas:
             "card1 img1"
             "img2 card2"
@@ -380,102 +424,187 @@
             "img4 card3"
             "img5 img6"
             "img7 img7";
-        /* full width */
-        gap: 15px;
+        gap: 12px;
+        max-width: 95%;
+        margin: 25px auto 0px;
+        padding: 0 8px;
     }
-
-    .cardWide {
-        grid-column: auto;
-    }
-
-    /* Reset manual positioning for tablet */
-    /* All elements in the mosaic grid need their positioning reset */
+    /* IMPORTANT: Reset manual positioning to allow grid to work */
     .missionMosaic > div {
         position: static !important;
         top: auto !important;
         left: auto !important;
-        width: auto !important; /* Set width to auto or 100% based on desired flow */
+        width: auto !important;
         height: auto !important;
     }
-
+    .card {
+        padding: 12px;
+        height: auto;
+    }
+    .card h3 {
+        font-size: 17px;
+        margin-bottom: 6px;
+        line-height: 1.6;
+    }
+    .card p {
+        font-size: 11.5px;
+        line-height: 17px;
+    }
+    .cardIcon {
+        width: 25px;
+        height: 25px;
+        margin-bottom: 8px;
+    }
     .tile,
     .logoTile {
         aspect-ratio: 16/11;
-        width: auto !important; /* Ensure tiles expand to fill grid cells */
-        height: auto !important;
+    }
+    .logoTile img {
+        max-width: 55%;
     }
 }
 
-/* Mobile view */
+/* Small Phones (e.g., iPhone normal/small, up to 576px) */
 @media (max-width: 576px) {
     .heroBanner {
         height: 220px;
         padding-left: 5%;
-        text-align: center;
-        align-items: center;
+        padding-top: 40px;
+        text-align: center; /* Center align text on small screens */
+        align-items: center; /* Center align content */
     }
-
     .heroTitle {
         font-size: 1.8rem;
     }
-
     .heroSubtitle {
         font-size: 0.9rem;
     }
-
     .welcomeSection {
         margin: 25px auto;
         padding: 0 15px;
     }
-
-    .welcomeTitle {
-        font-size: 18px;
+    .quoteIcon {
+        height: 22px;
+        margin-bottom: 8px;
     }
-
+    .welcomeTitle {
+        font-size: 17px;
+        margin-bottom: 8px;
+    }
     .welcomeText {
-        font-size: 14px;
+        font-size: 13.5px;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+    .founders {
+        margin-top: 5px;
+    }
+    .founders h4 {
+        font-size: 15px;
+    }
+    .founders p {
+        font-size: 12.5px;
     }
 
     .missionMosaic {
-        grid-template-columns: 1fr;
-        grid-template-areas: none;
-        /* Flow top-to-bottom */
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-areas: none; /* Remove specific areas, let items flow */
         gap: 12px;
         margin: 25px auto 40px;
+        max-width: 95%;
+        padding: 0 8px;
     }
-
-    /* Reset manual positioning for mobile */
-    /* All elements in the mosaic grid need their positioning reset */
+    /* IMPORTANT: Reset manual positioning to allow grid to work */
     .missionMosaic > div {
-        grid-area: auto !important;
+        grid-area: auto !important; /* Ensure grid-area is reset for flow */
         position: static !important;
         top: auto !important;
         left: auto !important;
-        width: auto !important; /* Set width to auto or 100% based on desired flow */
+        width: auto !important;
         height: auto !important;
     }
-
     .card {
-        padding: 18px;
-        height: auto; /* Allow card height to adjust to content */
+        padding: 10px;
+        height: auto;
     }
-
     .card h3 {
-        font-size: 18px;
+        font-size: 16px;
+        margin-bottom: 5px;
+        line-height: 1.5;
     }
-
     .card p {
-        font-size: 13px;
+        font-size: 11px;
+        line-height: 16px;
     }
-
+    .cardIcon {
+        width: 22px;
+        height: 22px;
+        margin-bottom: 6px;
+    }
+    .tile,
+    .logoTile {
+        aspect-ratio: 16/10; /* Slightly more landscape for better image visibility */
+    }
     .logoTile img {
         max-width: 65%;
     }
+}
 
+/* Extra Small Phones (e.g., older or very small devices, up to 375px) */
+@media (max-width: 375px) {
+    .heroBanner {
+        height: 200px;
+        padding-left: 3%;
+        padding-top: 30px;
+    }
+    .heroTitle {
+        font-size: 1.6rem;
+    }
+    .heroSubtitle {
+        font-size: 0.85rem;
+    }
+    .welcomeSection {
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+    .welcomeTitle {
+        font-size: 16px;
+    }
+    .welcomeText {
+        font-size: 13px;
+    }
+    .founders h4 {
+        font-size: 14px;
+    }
+    .founders p {
+        font-size: 12px;
+    }
+
+    .missionMosaic {
+        gap: 10px;
+        margin: 20px auto 30px;
+        padding: 0 5px;
+    }
+    .card {
+        padding: 8px;
+    }
+    .card h3 {
+        font-size: 15px;
+    }
+    .card p {
+        font-size: 10.5px;
+        line-height: 15px;
+    }
+    .cardIcon {
+        width: 20px;
+        height: 20px;
+        margin-bottom: 5px;
+    }
     .tile,
     .logoTile {
-        aspect-ratio: 16/11; /* Maintain aspect ratio or adjust as needed for mobile */
-        width: auto !important;
-        height: auto !important;
+        aspect-ratio: 4/3; /* Closer to square for very small screens */
+    }
+    .logoTile img {
+        max-width: 70%;
     }
 }

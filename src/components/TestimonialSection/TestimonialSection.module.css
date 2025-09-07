@@ -1,35 +1,36 @@
-/* src/components/TestimonialSection/TestimonialSection.module.css */
+/* src/components/TestimonialSection/TestimonialSection.module.css (FINAL, FULLY RESPONSIVE) */
 
 .section {
-  padding: 4rem 2rem;
+  padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem); /* Fluid padding */
   overflow: hidden;
-  /* Important for the slider */
 }
 
 .header {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: clamp(2rem, 6vw, 3.5rem); /* Fluid margin */
 }
 
 .header h2 {
   font-family: 'Playfair Display', serif;
   font-weight: 400;
-  font-size: 44px;
-  line-height: 100%;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  line-height: 1.2;
 }
 
 .header p {
-     color: #777;
-    font-family: 'Lato' !important;
-    font-weight: 500 !important;
-    font-style: italic;
-    font-size: 19px;
-    line-height: 50px;
+  color: #777;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0.5rem auto 0;
 }
 
 /* --- Slider Styles --- */
 .sliderWrapper {
-  max-width: 877px;
+  max-width: 877px; /* Base max-width */
   margin: 0 auto;
   overflow: hidden;
 }
@@ -42,7 +43,8 @@
 .slide {
   flex: 0 0 100%;
   display: flex;
-  gap: 1rem;
+  gap: clamp(1rem, 3vw, 2rem); /* Fluid gap */
+  align-items: stretch; /* Makes both child boxes stretch to the same height */
 }
 
 .imageContainer {
@@ -51,7 +53,10 @@
 
 .imageContainer img {
   width: 100%;
+  height: 100%; /* Ensure image fills the container height */
+  object-fit: cover; /* Prevents image distortion */
   border-radius: 16px;
+  display: block;
 }
 
 /* --- Testimonial Card Styling --- */
@@ -59,22 +64,23 @@
   flex: 1;
   background-color: #F1F3EE;
   border-radius: 16px;
-  padding: 3rem;
+  padding: clamp(1.5rem, 5vw, 3rem); /* Fluid padding */
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-image: url('../../assets/images/test-bg.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .quoteIcon {
   position: absolute;
-  top: 1rem;
+  top: 1.5rem; /* Adjusted for better spacing */
   left: 50%;
   transform: translateX(-50%);
-  height: 80px;
+  height: clamp(50px, 10vw, 70px); /* Slightly smaller icon */
   opacity: 0.1;
   z-index: 1;
 }
@@ -87,29 +93,28 @@
 }
 
 .stars {
-  top: 35px;
   color: #8E9E82;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-top: 4rem; /* Pushed down to appear below the quote icon */
   margin-bottom: 1rem;
 }
 
 .quoteText {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
   font-style: italic;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem; /* Increased margin to push the author block down */
   color: rgb(104, 99, 99);
   font-family: 'Lato', sans-serif;
-  font-weight: 100;
-  top: 16px;
+  font-weight: 300;
 }
 
 .author {
-  margin-top: 1rem;
+  margin-top: auto; /* Pushes author to the bottom of the card */
 }
 
 .avatar {
-  width: 60px;
-  height: 60px;
+  width: clamp(50px, 8vw, 60px);
+  height: clamp(50px, 8vw, 60px);
   border-radius: 50%;
   margin: 0 auto 0.5rem auto;
 }
@@ -128,7 +133,7 @@
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  margin-top: 2.5rem;
+  margin-top: clamp(1.5rem, 5vw, 2.5rem);
 }
 
 .dot {
@@ -146,118 +151,246 @@
   border-radius: 5px;
 }
 
-/* =============================
-   RESPONSIVE STYLES
-   ============================= */
+/* --- Media Queries for Responsiveness --- */
 
-/* Tablets (≤1024px) */
-@media (max-width: 1024px) {
-  .header h2 {
-    font-size: 36px;
-  }
-
-  .header p {
-    font-size: 16px;
-    line-height: 36px;
-  }
-
-  .slide {
-    gap: 1rem;
-  }
-
-  .testimonialCard {
-    padding: 2rem;
-  }
+/* Extra Large Desktops & Wide Screens (e.g., 1920*1080, 1920*958, large LCD/LED panels) */
+/* Clamp values handle this well, but minor tweaks can be made if needed */
+@media (min-width: 1441px) {
+    .sliderWrapper {
+        max-width: 950px; /* Allow slightly wider slider on very large screens */
+    }
 }
 
-/* Mobile (≤768px) */
+/* Large Laptops & Standard Desktops (e.g., Mac Computer Display, 1536*864, 1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .section {
+        padding: clamp(3rem, 7vw, 4.5rem) clamp(1rem, 3.5vw, 1.8rem);
+    }
+    .header h2 {
+        font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+    }
+    .header p {
+        font-size: clamp(0.85rem, 2.2vw, 1.1rem);
+        max-width: 700px;
+    }
+    .sliderWrapper {
+        max-width: 800px;
+    }
+    .slide {
+        gap: clamp(0.8rem, 2.5vw, 1.8rem);
+    }
+    .testimonialCard {
+        padding: clamp(1.2rem, 4.5vw, 2.5rem);
+    }
+    .quoteIcon {
+        height: clamp(45px, 9vw, 65px);
+        top: 1.2rem;
+    }
+    .stars {
+        margin-top: 3.5rem;
+        margin-bottom: 0.8rem;
+    }
+    .quoteText {
+        margin-bottom: 2.5rem;
+    }
+    .avatar {
+        width: clamp(45px, 7vw, 55px);
+        height: clamp(45px, 7vw, 55px);
+    }
+    .author span {
+        font-size: 0.85rem;
+    }
+}
+
+/* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, smaller Mac displays, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .section {
+        padding: clamp(2.5rem, 6vw, 4rem) clamp(0.8rem, 3vw, 1.5rem);
+    }
+    .header h2 {
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+    }
+    .header p {
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        max-width: 600px;
+    }
+    .sliderWrapper {
+        max-width: 90%; /* Fluid width for this range */
+    }
+    .slide {
+        gap: clamp(0.8rem, 2vw, 1.5rem);
+    }
+    .testimonialCard {
+        padding: clamp(1rem, 4vw, 2rem);
+    }
+    .quoteIcon {
+        height: clamp(40px, 8vw, 55px);
+        top: 1rem;
+    }
+    .stars {
+        margin-top: 3rem;
+        margin-bottom: 0.7rem;
+    }
+    .quoteText {
+        font-size: clamp(0.85rem, 2vw, 1rem);
+        margin-bottom: 2rem;
+    }
+    .avatar {
+        width: clamp(40px, 6vw, 50px);
+        height: clamp(40px, 6vw, 50px);
+    }
+    .author span {
+        font-size: 0.8rem;
+    }
+    .pagination {
+        margin-top: clamp(1.2rem, 4vw, 2rem);
+    }
+}
+
+/* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
 @media (max-width: 768px) {
-  .section {
-    padding: 3rem 1.5rem;
-  }
-
-  .header h2 {
-    font-size: 28px;
-  }
-
-  .header p {
-    font-size: 15px;
-    line-height: 28px;
-  }
-
   .slide {
-    flex-direction: column;
-    /* Stack image + card */
-    align-items: center;
-    text-align: center;
+    flex-direction: column; /* Stack image and testimonial card */
+    gap: 1.5rem;
+    align-items: center; /* Center items when stacked */
   }
 
   .imageContainer {
-    flex: none;
-    width: 80%;
-    margin-bottom: 1.5rem;
+    flex: none; /* Remove flex sizing */
+    width: 80%; /* Take a good portion of the width */
+    max-width: 400px;
+    height: auto; /* Allow height to be natural based on aspect ratio */
+  }
+  .imageContainer img {
+      aspect-ratio: 4/3; /* Adjust image aspect ratio for stacked view */
   }
 
   .testimonialCard {
-    padding: 1.5rem;
-    font-size: 0.9rem;
+    width: 100%; /* Take full width when stacked */
+    padding: clamp(1.2rem, 5vw, 2.2rem); /* Fluid padding for stacked card */
+    min-height: 280px; /* Ensure a minimum height for the card */
   }
-
+  .quoteIcon {
+      height: clamp(35px, 8vw, 50px);
+      top: 1rem;
+  }
+  .stars {
+      margin-top: 2.5rem;
+      font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  }
   .quoteText {
-    font-size: 1rem;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      margin-bottom: 1.5rem;
   }
-
-  .author h4 {
-    font-size: 1rem;
+  .avatar {
+      width: clamp(40px, 7vw, 50px);
+      height: clamp(40px, 7vw, 50px);
   }
-
   .author span {
-    font-size: 0.8rem;
+      font-size: 0.8rem;
   }
 }
 
-/* Small Mobile (≤480px) */
-@media (max-width: 480px) {
-  .section {
-    padding: 2rem 1rem;
-  }
+/* Small Phones (e.g., iPhone normal/small, 401px to 576px) */
+@media (min-width: 401px) and (max-width: 576px) {
+    .section {
+        padding: clamp(2rem, 5vw, 3rem) clamp(0.5rem, 2vw, 1rem);
+    }
+    .header h2 {
+        font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+    }
+    .header p {
+        font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+        max-width: 400px;
+    }
+    .sliderWrapper {
+        max-width: 95%; /* Wider fluid width */
+    }
+    .imageContainer {
+        width: 90%; /* Wider image on smaller screens */
+        max-width: 350px;
+    }
+    .imageContainer img {
+        aspect-ratio: 16/9; /* Widescreen aspect ratio */
+    }
+    .testimonialCard {
+        padding: clamp(1rem, 4vw, 1.8rem);
+        min-height: 250px;
+    }
+    .quoteIcon {
+        height: clamp(30px, 7vw, 45px);
+        top: 0.8rem;
+    }
+    .stars {
+        margin-top: 2rem;
+        font-size: clamp(0.85rem, 1.6vw, 1rem);
+    }
+    .quoteText {
+        font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+        margin-bottom: 1.2rem;
+    }
+    .avatar {
+        width: clamp(35px, 6vw, 45px);
+        height: clamp(35px, 6vw, 45px);
+    }
+    .author span {
+        font-size: 0.75rem;
+    }
+    .pagination {
+        margin-top: clamp(1rem, 3vw, 1.8rem);
+    }
+}
 
-  .header h2 {
-    font-size: 22px;
-  }
-
-  .header p {
-    font-size: 14px;
-    line-height: 24px;
-  }
-
-  .imageContainer {
-    width: 100%;
-  }
-
-  .testimonialCard {
-    padding: 1rem;
-  }
-
-  .quoteText {
-    font-size: 0.9rem;
-  }
-
-  .avatar {
-    width: 50px;
-    height: 50px;
-  }
-
-  .pagination {
-    margin-top: 1.5rem;
-  }
-
-  .dot {
-    width: 8px;
-    height: 8px;
-  }
-
-  .dot.active {
-    width: 20px;
-  }
+/* Extra Small Phones (e.g., older or very small devices, up to 400px) */
+@media (max-width: 400px) {
+    .section {
+        padding: clamp(1.5rem, 4vw, 2.5rem) clamp(0.3rem, 1.5vw, 0.8rem);
+    }
+    .header h2 {
+        font-size: clamp(1.2rem, 3vw, 1.6rem);
+    }
+    .header p {
+        font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+        max-width: 90%;
+    }
+    .sliderWrapper {
+        max-width: 98%;
+    }
+    .imageContainer {
+        width: 95%;
+        max-width: 300px;
+    }
+    .testimonialCard {
+        padding: clamp(0.8rem, 3vw, 1.5rem);
+        min-height: 220px;
+    }
+    .quoteIcon {
+        height: clamp(25px, 6vw, 40px);
+        top: 0.7rem;
+    }
+    .stars {
+        margin-top: 1.5rem;
+        font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    }
+    .quoteText {
+        font-size: clamp(0.75rem, 1.6vw, 0.9rem);
+        margin-bottom: 1rem;
+    }
+    .avatar {
+        width: clamp(30px, 5vw, 40px);
+        height: clamp(30px, 5vw, 40px);
+    }
+    .author span {
+        font-size: 0.7rem;
+    }
+    .pagination {
+        margin-top: clamp(0.8rem, 2vw, 1.5rem);
+    }
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+    .dot.active {
+        width: 24px;
+    }
 }

@@ -1,18 +1,18 @@
-/* src/components/FaqSection/FaqSection.module.css (पूरा और फ़ाइनल कोड) */
+/* src/components/FaqSection/FaqSection.module.css (Final & Fully Responsive) */
 
 .faqSection {
-    padding: 60px 20px;
+    padding: 80px 20px; /* Increased base padding for desktop */
     background-color: #fff;
 }
 
 .title {
-    font-family: 'Playfair Display';
+    font-family: 'Playfair Display', serif;
     font-size: 44px;
     font-weight: 400;
     color: #333;
     text-align: center;
     margin-bottom: 10px;
-    line-height: 100px;
+    line-height: 1.2; /* Made line-height relative for responsiveness */
 }
 
 .subtitle {
@@ -20,11 +20,13 @@
     line-height: 32px;
     color: #666565;
     text-align: center;
-    font-weight: 400px;
-    margin-bottom: 40px;
+    font-weight: 400; /* Corrected from 400px */
+    margin: 0 auto 50px auto; /* Increased bottom margin */
     font-style: oblique;
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif;
+    max-width: 700px; /* Prevents subtitle from being too wide */
 }
+
 .accordion {
     max-width: 800px;
     margin: 0 auto;
@@ -35,7 +37,11 @@
     border-radius: 8px;
     margin-bottom: 15px;
     padding: 10px 25px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-family: 'Lato', sans-serif; /* Set a consistent base font */
+    transition: box-shadow 0.2s ease;
+}
+.faqItem:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Subtle hover effect */
 }
 
 .questionButton {
@@ -54,7 +60,9 @@
     font-size: 1.1rem;
     color: #333;
     font-weight: 500;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    padding-right: 15px; /* Ensure text doesn't touch the icon */
+    /* Retaining system-ui stack is fine, but Lato is the fallback */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .answerPanel {
@@ -67,9 +75,8 @@
     margin: 15px 0 0 0;
     color: #464545;
     line-height: 1.6;
-    font-size: 1.1rem;
-    font-weight: 450;
-    font-family: 'Lato';
+    font-size: 1rem; /* Slightly adjusted for better readability */
+    font-weight: 400;
 }
 
 .icon {
@@ -79,8 +86,87 @@
     padding: 4px;
     transform: rotate(45deg);
     transition: transform 0.3s ease-in-out;
+    flex-shrink: 0; /* Prevents icon from shrinking */
 }
 
 .iconOpen {
     transform: rotate(-135deg);
+}
+
+/* === Responsive Design === */
+
+/* For Extra Large Desktops & TVs (1920px and up) */
+@media (min-width: 1441px) {
+    .faqSection {
+        padding: 100px 20px;
+    }
+    .accordion {
+        max-width: 900px;
+    }
+}
+
+/* For Tablets (iPad Pro, etc.) */
+@media (max-width: 992px) {
+    .accordion {
+        max-width: 720px;
+    }
+    .title {
+        font-size: 40px;
+    }
+    .subtitle {
+        font-size: 20px;
+    }
+}
+
+/* For Portrait Tablets & Mobile Phones (iPhone, Android, etc.) */
+@media (max-width: 768px) {
+    .faqSection {
+        padding: 50px 15px;
+    }
+    .title {
+        font-size: 34px;
+    }
+    .subtitle {
+        font-size: 18px;
+        line-height: 28px;
+        margin-bottom: 40px;
+    }
+    .accordion {
+        max-width: 100%; /* Let it take the full width with padding */
+    }
+    .faqItem {
+        padding: 5px 20px;
+    }
+    .questionText {
+        font-size: 1rem;
+    }
+    .answerPanel p {
+        font-size: 0.95rem;
+    }
+}
+
+/* For Small Mobile Phones */
+@media (max-width: 480px) {
+    .faqSection {
+        padding: 40px 10px;
+    }
+    .title {
+        font-size: 28px;
+    }
+    .subtitle {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .faqItem {
+        padding: 0 15px;
+    }
+    .questionButton {
+        padding: 12px 0;
+    }
+    .questionText {
+        font-size: 0.9rem;
+    }
+    .answerPanel p {
+        font-size: 0.9rem;
+    }
 }

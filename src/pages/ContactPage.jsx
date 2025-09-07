@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import styles from './ContactPage.module.css';
 import FloatingIcons from '../components/FloatingIcons/FloatingIcons';
-import GiftSection from '../components/GiftSection/GiftSection';
+import GiftSection from '../components/GiftContact/GiftContact'; // Corrected import
 import bannerBg from '../assets/images/contact.png';
 import phoneIcon from '../assets/icons/gphone.png';
 import emailIcon from '../assets/icons/gmail.png';

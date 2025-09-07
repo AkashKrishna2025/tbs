@@ -1,4 +1,4 @@
-/* src/components/BlogCard/BlogCard.module.css */
+/* src/components/BlogCard/BlogCard.module.css (FINAL, PERFECT and CORRECT CODE) */
 .card {
     background-color: #fff;
     border-radius: 12px;
@@ -8,7 +8,7 @@
 
 .imageContainer {
     width: 100%;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 10; /* Maintains aspect ratio for the image */
 }
 
 .imageContainer img {
@@ -18,39 +18,39 @@
 }
 
 .content {
-    padding: 20px;
+    padding: 20px; /* Base padding */
 }
 
 .meta {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Base margin */
 }
 
 .title {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Base font size */
     font-weight: 600;
     color: #333;
     margin: 0;
-    flex: 1;
-    padding-right: 10px;
+    flex: 1; /* Allows title to take available space */
+    padding-right: 10px; /* Space between title and read time */
     font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .readTime {
-    font-size: 0.8rem;
+    font-size: 0.8rem; /* Base font size */
     color: #888;
-    white-space: nowrap;
-    font-size: small;
+    white-space: nowrap; /* Prevents read time from wrapping */
+    font-size: small; /* Original inline style, keeping it but using rem for consistency below */
     font-family: inherit;
 }
 
 .excerpt {
-    font-size: 0.95rem;
+    font-size: 0.95rem; /* Base font size */
     color: #555;
     line-height: 1.6;
-    margin: 0 0 15px 0;
+    margin: 0 0 15px 0; /* Base margin */
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -58,5 +58,211 @@
     color: #8fad88;
     text-decoration: underline;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Base font size */
+}
+
+/* --- Responsive Media Queries --- */
+
+/* Extra Large Desktops (e.g., 1401px and up, including 1920x1080, 1920x958) */
+/* Base styles are generally suitable for these larger screens. */
+@media (min-width: 1401px) {
+    /* No specific changes needed, current base styles work well for these resolutions. */
+}
+
+/* Large Laptops / Desktops (1025px - 1400px), including 1536x864 */
+@media (min-width: 1025px) and (max-width: 1400px) {
+    .card {
+        border-radius: 10px;
+    }
+
+    .content {
+        padding: 18px;
+    }
+
+    .meta {
+        margin-bottom: 8px;
+    }
+
+    .title {
+        font-size: 1.15rem;
+        padding-right: 8px;
+    }
+
+    .readTime {
+        font-size: 0.75rem;
+    }
+
+    .excerpt {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+
+    .readMore {
+        font-size: 0.85rem;
+    }
+}
+
+/* Tablets Landscape (901px - 1024px) */
+@media (min-width: 901px) and (max-width: 1024px) {
+    .card {
+        border-radius: 10px;
+    }
+
+    .content {
+        padding: 16px;
+    }
+
+    .meta {
+        margin-bottom: 8px;
+    }
+
+    .title {
+        font-size: 1.1rem;
+        padding-right: 8px;
+    }
+
+    .readTime {
+        font-size: 0.7rem;
+    }
+
+    .excerpt {
+        font-size: 0.88rem;
+        margin-bottom: 10px;
+    }
+
+    .readMore {
+        font-size: 0.8rem;
+    }
+}
+
+/* Tablets Portrait (768px - 900px) */
+@media (max-width: 900px) {
+    .card {
+        border-radius: 8px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .meta {
+        margin-bottom: 7px;
+    }
+
+    .title {
+        font-size: 1.05rem;
+        padding-right: 7px;
+    }
+
+    .readTime {
+        font-size: 0.68rem;
+    }
+
+    .excerpt {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+
+    .readMore {
+        font-size: 0.78rem;
+    }
+}
+
+/* Small Tablets / Large Phones (481px - 767px) */
+@media (max-width: 767px) {
+    .card {
+        border-radius: 8px;
+    }
+
+    .content {
+        padding: 12px;
+    }
+
+    .meta {
+        margin-bottom: 6px;
+    }
+
+    .title {
+        font-size: 1rem;
+        padding-right: 6px;
+    }
+
+    .readTime {
+        font-size: 0.65rem;
+    }
+
+    .excerpt {
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+    }
+
+    .readMore {
+        font-size: 0.75rem;
+    }
+}
+
+/* Mobile Phones (up to 480px, including most iPhones and small Android phones) */
+@media (max-width: 480px) {
+    .card {
+        border-radius: 6px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .meta {
+        margin-bottom: 5px;
+    }
+
+    .title {
+        font-size: 0.95rem;
+        padding-right: 5px;
+    }
+
+    .readTime {
+        font-size: 0.6rem;
+    }
+
+    .excerpt {
+        font-size: 0.75rem;
+        margin-bottom: 7px;
+    }
+
+    .readMore {
+        font-size: 0.7rem;
+    }
+}
+
+/* Very Small Mobile Phones (e.g., up to 360px, iPhone SE 1st gen, older small Androids) */
+@media (max-width: 360px) {
+    .card {
+        border-radius: 5px;
+    }
+
+    .content {
+        padding: 8px;
+    }
+
+    .meta {
+        margin-bottom: 4px;
+    }
+
+    .title {
+        font-size: 0.9rem;
+        padding-right: 4px;
+    }
+
+    .readTime {
+        font-size: 0.55rem;
+    }
+
+    .excerpt {
+        font-size: 0.7rem;
+        margin-bottom: 6px;
+    }
+
+    .readMore {
+        font-size: 0.65rem;
+    }
 }

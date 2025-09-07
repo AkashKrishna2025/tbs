@@ -1,4 +1,7 @@
 /* src/pages/OrderSuccessPage.module.css */
+
+/* Base styles for larger screens (e.g., Desktops, Large Laptops, LCD & LED panels) */
+/* This covers resolutions like 1920 * 1080, 1920 * 958, 1536 * 864 */
 .successContainer {
     max-width: 700px;
     margin: 4rem auto;
@@ -35,4 +38,132 @@
     text-decoration: none;
     border-radius: 6px;
     font-weight: 600;
-}   
+    transition: background-color 0.3s ease; /* Added for subtle hover effect */
+}
+
+/* Optional: Add a subtle hover effect for the button */
+.actionButton:hover {
+    background-color: #7a9c72; /* Slightly darker shade of the button color */
+}
+
+
+/* -- Media Queries for Responsiveness -- */
+
+/* Large Laptops & Desktops (e.g., 1025px to 1440px) */
+/* This range covers many "big" Mac Computer displays and larger laptops */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .successContainer {
+        margin: 3.5rem auto;
+        padding: 2.8rem;
+    }
+}
+
+/* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, smaller Mac Computer displays, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .successContainer {
+        max-width: 650px; /* Slightly reduce max-width for better fit */
+        margin: 3rem auto;
+        padding: 2.5rem;
+    }
+
+    .successContainer p {
+        font-size: 1.05rem; /* Slight reduction for readability */
+    }
+
+    .arrival {
+        font-size: 1.15rem; /* Slight reduction */
+    }
+
+    .actionButton {
+        padding: 0.7rem 1.8rem; /* Slightly adjust button size */
+    }
+}
+
+/* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .successContainer {
+        max-width: 90%; /* Make it fluid, taking 90% of the viewport width */
+        margin: 2.5rem auto;
+        padding: 2rem;
+        border-radius: 6px; /* Slightly reduce border-radius */
+    }
+
+    .successContainer h2 {
+        font-size: 1.8rem; /* Adjust heading size */
+        margin-bottom: 0.8rem;
+    }
+
+    .successContainer p {
+        font-size: 1rem; /* Adjust paragraph font size */
+        line-height: 1.5;
+    }
+
+    .arrival {
+        font-size: 1.1rem; /* Adjust arrival text font size */
+        margin-top: 1.2rem;
+    }
+
+    .actionButton {
+        margin-top: 1.5rem;
+        padding: 0.6rem 1.5rem;
+        font-size: 0.95rem; /* Adjust button font size */
+    }
+}
+
+/* Small Phones (e.g., iPhone normal/small, up to 576px) */
+@media (max-width: 576px) {
+    .successContainer {
+        max-width: 95%; /* Take more width on very small screens */
+        margin: 1.5rem auto;
+        padding: 1.5rem 1rem; /* Adjust padding for tight spaces */
+        border-radius: 5px;
+    }
+
+    .successContainer h2 {
+        font-size: 1.6rem; /* Further adjust heading size */
+        margin-bottom: 0.7rem;
+    }
+
+    .successContainer p {
+        font-size: 0.95rem; /* Smaller font for paragraphs */
+        line-height: 1.4;
+    }
+
+    .arrival {
+        font-size: 1rem; /* Smaller font for arrival text */
+        margin-top: 1rem;
+    }
+
+    .actionButton {
+        display: block; /* Make button block level for better touch target */
+        width: 80%; /* Give it a more prominent width */
+        margin: 1.5rem auto 0; /* Center block button */
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra Small Phones (e.g., older or very small devices, 320px - 375px) */
+@media (max-width: 375px) {
+    .successContainer {
+        padding: 1.2rem 0.8rem;
+    }
+
+    .successContainer h2 {
+        font-size: 1.4rem;
+    }
+
+    .successContainer p {
+        font-size: 0.9rem;
+    }
+
+    .arrival {
+        font-size: 0.95rem;
+    }
+
+    .actionButton {
+        width: 90%; /* Max width for button on very small screens */
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}

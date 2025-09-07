@@ -1,4 +1,7 @@
 /* src/pages/LoginPage.module.css */
+
+/* Base styles for larger screens (e.g., Desktops, Large Laptops, LCD & LED panels) */
+/* This covers resolutions like 1920 * 1080, 1920 * 958, 1536 * 864 and larger Mac displays */
 .container {
   display: flex;
   align-items: center;
@@ -7,11 +10,12 @@
 }
 .loginBox {
   width: 100%;
-  max-width: 400px;
+  max-width: 400px; /* Keeps the login box centered and contained on larger screens */
   padding: 2rem;
   border: 1px solid #ddd;
   border-radius: 8px;
   text-align: center;
+  background-color: #fff; /* Ensure consistent background */
 }
 .loginBox h2 {
   margin-bottom: 1rem;
@@ -35,4 +39,108 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Added for a subtle hover effect */
+}
+
+/* Optional: Add a subtle hover effect for the button */
+.loginBox button:hover {
+    background-color: #7a8a70; /* Slightly darker shade */
+}
+
+/* -- Media Queries for Responsiveness -- */
+
+/* Large Laptops & Desktops (e.g., 1025px to 1440px) */
+/* This range covers many "big" Mac Computer displays and larger laptops */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    /* No major changes needed for the loginBox itself as max-width is already set */
+    /* The container's min-height remains effective */
+}
+
+/* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, smaller Mac Computer displays, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .loginBox {
+        max-width: 380px; /* Slightly reduce max-width for better fit */
+        padding: 1.8rem;
+    }
+}
+
+/* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .loginBox {
+        max-width: 85%; /* Allow it to take more width, but keep some margin */
+        padding: 1.5rem;
+        border-radius: 6px; /* Slightly reduce border-radius */
+    }
+
+    .loginBox h2 {
+        margin-bottom: 0.8rem;
+    }
+    .loginBox p {
+        margin-bottom: 1.2rem;
+    }
+    .loginBox input,
+    .loginBox button {
+        padding: 0.7rem;
+        margin-bottom: 0.8rem;
+    }
+}
+
+/* Small Phones (e.g., iPhone normal/small, up to 576px) */
+@media (max-width: 576px) {
+    .container {
+        /* Reduce min-height if content starts to get cramped vertically */
+        min-height: 70vh; /* Adjust if needed to fit content better */
+        align-items: flex-start; /* Start from top on small screens, or keep center */
+        padding-top: 2rem; /* Add some top padding when aligning to start */
+    }
+    .loginBox {
+        max-width: 90%; /* Take more width on very small screens */
+        margin: 0 auto; /* Ensure it's centered */
+        padding: 1.2rem; /* Adjust padding for tight spaces */
+        border: none; /* Often remove border on very small screens to save space */
+        border-radius: 0; /* Make it full width without border radius if desired */
+        box-shadow: none; /* Remove shadow if border is removed */
+    }
+    /* If you want to keep the card look on small screens, keep the border/radius: */
+    /*
+    .loginBox {
+        max-width: 90%;
+        margin: 1rem auto;
+        padding: 1.2rem;
+        border-radius: 5px;
+    }
+    */
+    .loginBox h2 {
+        margin-bottom: 0.7rem;
+    }
+    .loginBox p {
+        margin-bottom: 1rem;
+    }
+    .loginBox input,
+    .loginBox button {
+        padding: 0.6rem;
+        margin-bottom: 0.7rem;
+    }
+}
+
+/* Extra Small Phones (e.g., older or very small devices, 320px - 375px) */
+@media (max-width: 375px) {
+    .container {
+        padding-top: 1.5rem;
+    }
+    .loginBox {
+        max-width: 95%; /* Even more width utilization */
+        padding: 1rem 0.8rem; /* Further reduce padding */
+    }
+    .loginBox h2 {
+        margin-bottom: 0.6rem;
+    }
+    .loginBox p {
+        margin-bottom: 0.8rem;
+    }
+    .loginBox input,
+    .loginBox button {
+        padding: 0.5rem;
+        margin-bottom: 0.6rem;
+    }
 }

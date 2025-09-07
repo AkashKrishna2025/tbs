@@ -1,13 +1,16 @@
-/* src/components/WhyChooseUs/WhyChooseUs.module.css */
 .section {
-  height: 600px;
+  min-height: 600px; /* Changed from fixed height to min-height for flexibility */
   position: relative;
-  padding: 6rem 2rem;
+  padding: 6rem 2rem; /* Base padding for top/bottom and sides */
   background-size: cover;
   background-position: center;
-
   color: white;
   text-align: center;
+  /* Use flexbox to center content for better responsiveness */
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  flex-direction: column; /* Allows content to stack within flex */
 }
 
 .overlay {
@@ -17,22 +20,21 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  /* टेक्स्ट को पढ़ने लायक बनाने के लिए */
 }
 
 .content {
   position: relative;
   z-index: 2;
-  max-width: 600px;
-  margin: 0 auto;
-  margin-top: -54px;
+  max-width: 600px; /* Base max-width */
+  margin: 0 auto; /* Ensures content is centered horizontally within its parent */
+  margin-top: -54px; /* Preserving original negative margin for desired vertical offset */
 }
 
 .content h2 {
   font-family: 'Playfair Display', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 44px;
+  font-size: 44px; /* Base font size */
   line-height: 100%;
   letter-spacing: 0;
   text-align: center;
@@ -43,25 +45,155 @@
   line-height: 1.5;
   letter-spacing: 0;
   text-align: center;
-  padding-top: 20px;
-  font-size: 19px;
+  padding-top: 20px; /* Base padding-top */
+  font-size: 19px; /* Base font size */
   font-style: oblique;
   font-weight: 400;
   color: rgb(211, 214, 216);
-
 }
 
 .content button {
-  margin-top: 29px !important;
+  margin-top: 29px !important; /* Base margin-top */
   background-color: #95B79A;
   border: 1px solid white;
   color: white;
-  padding: 0.7rem 1.8rem;
+  padding: 0.7rem 1.8rem; /* Base padding */
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Added for subtle hover effect */
 }
 
-/* यह ग्लोइंग लाइनों के लिए एक प्लेसहोल्डर है */
-.glowingLines {
-  /* इसे बनाने का सबसे अच्छा तरीका एक SVG इमेज का इस्तेमाल करना है */
+.content button:hover {
+    background-color: #83a589; /* Slightly darker on hover */
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Extra Large Desktops & Wide Screens (e.g., 1920*1080, 1920*958) */
+/* The base styles already handle these larger screens well, minor tweaks for aesthetics */
+@media (min-width: 1441px) {
+    .section {
+        padding: 6rem 3rem; /* Slightly more side padding for very wide screens */
+    }
+    .content {
+        max-width: 650px; /* Allow content to be slightly wider */
+        margin-top: -60px; /* Adjust negative margin proportionally */
+    }
+}
+
+/* Large Laptops & Standard Desktops (e.g., Mac Computer Display, 1536*864, 1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .section {
+        min-height: 550px; /* Adjust minimum height */
+        padding: 5rem 2.5rem; /* Adjust padding */
+    }
+    .content {
+        max-width: 550px; /* Reduce max-width */
+        margin-top: -50px; /* Adjust negative margin */
+    }
+    .content h2 {
+        font-size: 40px; /* Adjust font size */
+    }
+    .content p {
+        font-size: 18px; /* Adjust font size */
+        padding-top: 18px; /* Adjust padding */
+    }
+    .content button {
+        margin-top: 25px !important; /* Adjust margin */
+        padding: 0.65rem 1.7rem; /* Adjust padding */
+    }
+}
+
+/* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, smaller Mac displays, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .section {
+        min-height: 480px;
+        padding: 4.5rem 2rem;
+    }
+    .content {
+        max-width: 500px;
+        margin-top: -40px;
+    }
+    .content h2 {
+        font-size: 36px;
+    }
+    .content p {
+        font-size: 17px;
+        padding-top: 15px;
+    }
+    .content button {
+        margin-top: 22px !important;
+        padding: 0.6rem 1.6rem;
+    }
+}
+
+/* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .section {
+        min-height: 400px;
+        padding: 4rem 1.5rem;
+    }
+    .content {
+        max-width: 90%; /* Fluid width for better fit on tablets/large phones */
+        margin-top: -30px;
+    }
+    .content h2 {
+        font-size: 30px;
+    }
+    .content p {
+        font-size: 16px;
+        padding-top: 12px;
+    }
+    .content button {
+        margin-top: 20px !important;
+        padding: 0.55rem 1.5rem;
+        font-size: 0.95rem; /* Adjust button font size for readability */
+    }
+}
+
+/* Small Phones (e.g., iPhone normal/small, up to 576px) */
+@media (max-width: 576px) {
+    .section {
+        min-height: 350px;
+        padding: 3rem 1rem;
+    }
+    .content {
+        max-width: 95%; /* Take almost full width on small phones */
+        margin-top: -20px;
+    }
+    .content h2 {
+        font-size: 26px;
+    }
+    .content p {
+        font-size: 15px;
+        padding-top: 10px;
+    }
+    .content button {
+        margin-top: 18px !important;
+        padding: 0.5rem 1.3rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra Small Phones (e.g., older or very small devices, 320px - 400px) */
+@media (max-width: 400px) {
+    .section {
+        min-height: 300px;
+        padding: 2.5rem 0.8rem;
+    }
+    .content {
+        margin-top: -15px;
+    }
+    .content h2 {
+        font-size: 22px;
+    }
+    .content p {
+        font-size: 14px;
+        padding-top: 8px;
+    }
+    .content button {
+        margin-top: 15px !important;
+        padding: 0.45rem 1.1rem;
+        font-size: 0.85rem;
+    }
 }

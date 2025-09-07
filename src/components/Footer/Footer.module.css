@@ -1,245 +1,298 @@
+/* --- Footer Base Styles (Desktop First) --- */
 .footer {
-  border-top: solid;
-  border-color: rgb(226, 225, 222);
-  padding-top: 4rem;
-  position: relative;
-  overflow: hidden;
+    padding-top: 4rem;
+    position: relative;
+    overflow: hidden;
+    background-color: #F8F9F4; /* Added a base background color */
 }
 
-/* ✅ Desktop layout (default) */
 .footerMain {
-  display: grid;
-  justify-items: end;
+    display: grid;
+    /* Grid layout for desktop */
     grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
-    gap: 1rem;
+    gap: 2rem; /* Increased gap for better spacing */
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 4rem;
     position: relative;
     z-index: 2;
+    /* Aligns items to the end of their grid cell on wide screens */
     justify-items: end;
 }
 
+.contactInfo {
+    justify-self: start; /* Override justify-items to align the first column left */
+}
+
 .contactInfo .logo {
-  margin-left: 32px;
-  height: 59px;
-  margin-bottom: 9px;
+    height: 59px;
+    margin-bottom: 9px;
 }
 
 .contactList {
-  color: #000;
-    font-family: 'Lato' !important;
+    color: #000;
+    font-family: 'Lato', sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
+    list-style: none; /* Ensure no bullets */
+    padding: 0;
+    margin: 0;
 }
 
 .contactList li {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start; /* Aligns icon with the top of the text */
 }
 
 .contactList img {
-  height: 14px;
-  margin-top: 7px;
+    height: 14px;
+    margin-top: 7px; /* Fine-tunes vertical alignment */
 }
 
 .linksColumn h4,
 .newsletter h4 {
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1.5rem; /* Increased margin */
+    font-size: 1.2rem; /* Slightly larger title */
+    color: #333;
 }
 
 .linksColumn ul {
-  list-style: none;
-  font-family: 'Lato', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 40px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+}
+
+.linksColumn li {
+    line-height: 40px;
 }
 
 .linksColumn li a {
-  text-decoration: none;
-  color: #555;
-  font-size: 0.9rem;
+    text-decoration: none;
+    color: #555;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.linksColumn li a:hover {
+    color: #8E9E82;
 }
 
 .newsletter p {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
 }
 
 .emailInput {
-  display: flex;
-  border-bottom: 1px solid #8E9E82;
+    display: flex;
+    border-bottom: 1px solid #8E9E82;
 }
 
 .emailInput input {
-  border: none;
-  background: transparent;
-  flex-grow: 1;
-  padding: 0.5rem 0;
+    border: none;
+    background: transparent;
+    flex-grow: 1;
+    padding: 0.5rem 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
 }
 
 .emailInput input:focus {
-  outline: none;
+    outline: none;
 }
 
 .emailInput button {
-  border: none;
-  background: transparent;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #555;
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.2s ease;
+}
+
+.emailInput button:hover {
+    color: #8E9E82;
 }
 
 .socialIcons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .socialIcons img {
-  height: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
+}
+
+.socialIcons a:hover img {
+    transform: scale(1.1);
 }
 
 .footerWatermark {
-  position: absolute;
-  bottom: 37px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  user-select: none;
-  pointer-events: none;
-  max-width: 95vw;
-  height: auto;
-  opacity: 0.8;
+    position: absolute;
+    bottom: 37px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    user-select: none;
+    pointer-events: none;
+    max-width: 95vw;
+    height: auto;
+    opacity: 0.8;
 }
 
 .footerBottom {
-  background-color: #8E9E82;
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-  font-size: 0.9rem;
-  margin-top: 4rem;
-  position: relative;
-  z-index: 2;
+    background-color: #8E9E82;
+    color: white;
+    text-align: center;
+    padding: 1rem 1rem;
+    font-size: 0.9rem;
+    margin-top: 4rem;
+    position: relative;
+    z-index: 2;
 }
 
 .successMessage {
-  margin-top: 10px;
-  color: green;
-  font-weight: bold;
-  animation: fadeIn 0.5s ease-in-out;
+    margin-top: 10px;
+    color: green;
+    font-weight: bold;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(5px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* ✅ Responsive Styles */
+/* === Responsive Design === */
 
-/* Tablets (≤1024px) */
+/* For Extra Large Desktops & TVs (1920px and up) */
+@media (min-width: 1441px) {
+    .footerMain {
+        max-width: 1600px; /* Widen the container for large screens */
+    }
+}
+
+/* For Standard Laptops (e.g., 1536px) & Small Desktops */
+@media (max-width: 1200px) {
+    .footerMain {
+        padding: 0 2rem;
+        /* Switch to left-alignment as screen narrows */
+        justify-items: start;
+    }
+}
+
+/* For Tablets (iPad Pro, etc.) */
 @media (max-width: 1024px) {
-  .footerMain {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.5rem;
-  }
+    .footerMain {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for links */
+        gap: 2rem 1.5rem; /* row-gap column-gap */
+        justify-items: start;
+    }
 
-  .contactInfo {
-    grid-column: span 3;
-    text-align: center;
-  }
+    .contactInfo {
+        grid-column: 1 / -1; /* Span all 3 columns */
+        text-align: center;
+        justify-self: center; /* Center the whole block */
+    }
 
-  .contactInfo .logo {
-    margin: 0 auto 1rem;
-  }
+    .contactInfo .logo {
+        margin: 0 auto 1rem;
+    }
 
-  .newsletter {
-    grid-column: span 3;
-    text-align: center;
-  }
+    .contactList li {
+        justify-content: center;
+        text-align: left; /* Keep text left-aligned for readability */
+        display: inline-flex; /* Allows multiple items per line if space allows */
+        margin: 0 1rem 1rem 1rem;
+    }
 
-  .emailInput {
-    justify-content: center;
-  }
+    .newsletter {
+        grid-column: 1 / -1; /* Span all 3 columns */
+        text-align: center;
+        margin-top: 2rem;
+    }
 
-  .socialIcons {
-    justify-content: center;
-  }
+    .emailInput {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+
+    .socialIcons {
+        justify-content: center;
+    }
+    
+    .footerWatermark {
+        bottom: 20px; /* Adjust watermark position for taller footer */
+        opacity: 0.6;
+    }
 }
 
-/* Mobile (≤768px) */
+/* For Portrait Tablets & Mobile Phones (iPhone, Android, etc.) */
 @media (max-width: 768px) {
-  .footerMain {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+    .footer {
+        padding-top: 3rem;
+    }
 
-  .linksColumn ul {
-    line-height: 30px;
-  }
+    .footerMain {
+        grid-template-columns: 1fr 1fr; /* 2 columns for links */
+        text-align: center;
+        padding: 0 1.5rem;
+    }
+    
+    .linksColumn {
+        text-align: left; /* Left-align link text */
+    }
 
-  .linksColumn li a {
-    font-size: 0.85rem;
-  }
-
-  .newsletter p {
-    font-size: 0.85rem;
-  }
-
-  .emailInput {
-    margin: 0 auto;
-    width: 80%;
-  }
-
-  .contactList {
-    font-size: 0.8rem;
-    line-height: 22px;
-  }
-
-  .contactList li {
-    justify-content: center;
-    text-align: left;
-  }
+    .newsletter {
+        margin-top: 1rem;
+    }
+    
+    .footerBottom {
+        margin-top: 3rem;
+    }
+    
+    .footerWatermark {
+        bottom: 10px;
+        opacity: 0.4;
+    }
 }
 
-/* Small Mobile (≤480px) */
-@media (max-width: 480px) {
-  .footerMain {
-    padding: 0 1rem;
-  }
+/* For Standard & Small Mobile Phones */
+@media (max-width: 576px) {
+    .footerMain {
+        grid-template-columns: 1fr; /* Switch to a single column */
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
 
-  .contactList {
-    font-size: 0.75rem;
-  }
+    .contactInfo, .linksColumn, .newsletter {
+        text-align: center;
+    }
+    
+    .linksColumn ul {
+        line-height: 35px;
+    }
 
-  .linksColumn h4,
-  .newsletter h4 {
-    font-size: 1rem;
-  }
+    .emailInput {
+        width: 100%;
+        max-width: 350px;
+    }
 
-  .linksColumn li a {
-    font-size: 0.8rem;
-  }
-
-  .footerBottom {
-    font-size: 0.75rem;
-  }
-
-  .emailInput {
-    width: 100%;
-  }
+    .footerWatermark {
+        opacity: 0.3;
+        bottom: 5px;
+    }
+    
+    .footerBottom {
+        font-size: 0.8rem;
+    }
 }

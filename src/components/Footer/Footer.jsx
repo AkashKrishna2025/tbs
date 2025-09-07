@@ -8,6 +8,8 @@ import locationIcon from '../../assets/icons/location.png';
 import facebookIcon from '../../assets/icons/facebook.png';
 import instagramIcon from '../../assets/icons/insta.png';
 import FooterImage from '../../assets/images/footer.png'
+import pintrest from '../../assets/icons/pinb.png'
+import youtube from '../../assets/icons/youtubeb.png'
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -98,6 +100,8 @@ const Footer = () => {
           <div className={styles.socialIcons}>
             <a href="#"><img src={facebookIcon} alt="Facebook" /></a>
             <a href="#"><img src={instagramIcon} alt="Instagram" /></a>
+                          <a href="#"><img src={youtube} alt="Youtube" /></a>
+                           <a href="#"><img src={pintrest} alt="Pintrest" /></a>
           </div>
         </div>
       </div>

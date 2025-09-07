@@ -1,4 +1,6 @@
-/* src/pages/ProductDetailPage.module.css */
+/* src/pages/ProductDetailPage.module.css - FINAL */
+
+/* --- Base Styles --- */
 * {
     box-sizing: border-box;
 }
@@ -7,7 +9,7 @@
     max-width: 1250px;
     font-family: 'Inter', sans-serif;
     color: #333;
-    margin: 0 auto;
+    margin: 40px auto;
     padding: 0 20px;
 }
 
@@ -20,8 +22,6 @@
     justify-content: flex-start;
     gap: 4px;
     flex-wrap: wrap;
-    padding-left: 20px;
-    /* ✅ left se thoda gap */
 }
 
 .breadcrumbs a {
@@ -38,77 +38,21 @@
     font-weight: 500;
 }
 
-
-.breadcrumbs a {
-    color: #555;
-    text-decoration: none;
-}
-
-.breadcrumbs a:hover {
-    text-decoration: underline;
-}
-
-.breadcrumbs span {
-    color: #111;
-    font-weight: 500;
-}
-
-
-
-/* Tablet (<=1024px) */
-@media (max-width: 1024px) {
-    .breadcrumbs {
-        justify-content: flex-start;
-        font-size: 0.85rem;
-        position: relative;
-
-    }
-
-    .paymentIcons img {
-        width: 55px;
-        padding: 5px;
-    }
-}
-
-/* Mobile (<=768px) */
-@media (max-width: 768px) {
-    .breadcrumbs {
-        justify-content: center;
-        font-size: 0.8rem;
-    }
-
-    .paymentIcons img {
-        width: 45px;
-        padding: 4px;
-    }
-}
-
-/* Extra Small Mobile (<=480px) */
-@media (max-width: 480px) {
-    .breadcrumbs {
-        font-size: 0.75rem;
-    }
-
-    .paymentIcons img {
-        width: 38px;
-        padding: 3px;
-    }
-}
-
+/* --- Product Layout --- */
 .productLayout {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    /* Image gallery takes slightly more space */
     gap: 50px;
+    align-items: flex-start;
 }
 
 /* --- Image Gallery Section --- */
 .imageGallery {
     display: flex;
     gap: 15px;
-    /* Spacing between thumbnail list and main image */
     align-items: flex-start;
-    /* Align items to the top */
+    position: sticky;
+    top: 20px;
 }
 
 .thumbnailWrapper {
@@ -116,16 +60,12 @@
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    /* Space between arrows and thumbnail list */
 }
 
 .scrollArrow {
     background: #F0F0F0;
-    /* Figma background */
     border: 1px solid #E5E5E5;
-    /* Figma border */
     border-radius: 4px;
-    /* Figma border radius */
     width: 30px;
     height: 30px;
     display: flex;
@@ -134,36 +74,29 @@
     cursor: pointer;
     transition: all 0.2s ease;
     padding: 0;
-    /* Remove padding to better control image size */
 }
 
 .scrollArrow:hover {
     background: #e0e0e0;
 }
 
-/* Up arrow icon */
 .scrollArrowIcon {
     width: 16px;
-    /* Adjust size of the icon as needed */
     height: 16px;
     object-fit: contain;
 }
 
-/* Down arrow styling for the text character */
 .scrollArrow.downArrow {
     font-size: 1.2rem;
     color: #555;
 }
-
 
 .thumbnailList {
     display: flex;
     flex-direction: column;
     gap: 10px;
     max-height: 480px;
-    /* Limit height to enable scrolling for thumbnails */
     overflow-y: hidden;
-    /* Hide scrollbar by default, rely on arrows */
 }
 
 .thumbnail {
@@ -173,10 +106,8 @@
     cursor: pointer;
     padding: 2px;
     border-radius: 4px;
-    /* Figma border radius */
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     background-color: #FFFFFF;
-    /* Figma thumbnail background is white */
 }
 
 .thumbnail img {
@@ -184,26 +115,21 @@
     height: 100%;
     object-fit: contain;
     border-radius: 2px;
-    /* Inner image rounded corners slightly smaller */
 }
 
 .activeThumbnail {
     border: 2px solid #8fad88;
-    /* Active thumbnail border */
     box-shadow: 0 0 5px rgba(143, 173, 136, 0.5);
 }
 
 .mainImage {
     flex-grow: 1;
     height: 500px;
-    /* Fixed height for main image */
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #F8F8F8;
-    /* Figma main image area background */
     border-radius: 8px;
-    /* Figma border radius */
     overflow: hidden;
 }
 
@@ -212,53 +138,37 @@
     height: 100%;
     object-fit: contain;
     border-radius: 8px;
-    /* Match container border-radius */
 }
 
 /* --- Product Details Section --- */
 .productDetails {
     display: flex;
     flex-direction: column;
-
-
 }
 
 .reviewInfo {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 10px;
-    /* Breadcrumbs se gap */
     margin-bottom: 19px;
-       font-size: 14px;
+    font-size: 14px;
     color: #000000;
-    position: static;
-    order: unset;
     font-weight: 600;
     font-family: 'Lato';
 }
 
-
 .stars {
     color: #ffc107;
-    /* Yellow stars */
     font-size: 1.1rem;
 }
 
 .productTitle {
     font-family: 'Playfair Display', serif;
-    /* Figma font family */
     font-weight: 400;
-    /* Figma font weight */
-    font-style: normal;
     font-size: 42px;
-    /* Figma font size */
-    line-height: 100%;
-    /* Figma line height */
-    letter-spacing: 0;
+    line-height: 1.2;
     margin-bottom: 20px;
     color: #333333;
-    /* Figma color */
 }
 
 .priceInfo {
@@ -273,52 +183,30 @@
 
 .specialPrice {
     font-family: 'Lato', sans-serif;
-    /* Figma font family */
-    font-weight: 450;
-    /* Figma font weight */
-    font-style: normal;
-    font-size: 24px;
-    /* Figma font size */
-    line-height: 100%;
-    /* Figma line height */
-    letter-spacing: 0;
+    font-weight: 500;
+    font-size: 26px;
     color: #8fad88;
-    /* Green color */
-    margin-right: 5px;
 }
 
 .mrp {
     font-family: 'Lato', sans-serif;
-    /* Figma font family */
     font-weight: 400;
-    /* Figma font weight */
-    font-style: normal;
     font-size: 18px;
-    /* Figma font size */
     color: #8D8D8D;
-    /* Figma color */
     text-decoration: line-through;
 }
 
 .savings {
     font-family: 'Lato', sans-serif;
-    /* Figma font family */
     font-weight: 500;
-    /* Figma font weight */
     font-size: 14px;
-    /* Figma font size */
     color: #D9534F;
-    /* Figma color */
-    margin-bottom: 20px;
-    display: inline-block;
-    /* To make it work with the "You save" text */
+    display: inline; /* Changed from inline-block */
     margin-left: 5px;
-    /* Spacing from "You save: ₹" */
 }
 
 .priceInfo+span {
     padding-top: 10px;
-    /* Targeting the "You save" text */
     display: flex;
     align-items: baseline;
     margin-bottom: 20px;
@@ -328,45 +216,35 @@
     color: #555;
 }
 
-
-/* Features Section */
+/* --- Features Section --- */
 .featuresSection {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    padding: 10px 0;
-    margin-top: -35px;
-    margin-bottom: 10px;
-    /* border-top: 1px solid #EAEAEA; */
-    /* Figma border color */
+    padding: 15px 0;
+    margin: 20px 0;
+    border-top: 1px solid #EAEAEA;
     border-bottom: 1px solid #EAEAEA;
-    /* Figma border color */
 }
 
 .featureItem {
     font-family: 'Lato', sans-serif;
-    /* Figma font family */
     font-weight: 300;
-    /* Figma font weight */
     font-size: 19px;
-    /* Figma font size */
     color: #8fad88;
-    /* Figma color */
-
     line-height: 1.3;
     flex: 1;
-    padding: 0 px;
+    padding: 0 10px;
 }
 
 .divider {
     height: 40px;
     width: 1px;
     background-color: #EAEAEA;
-    /* Figma divider color */
 }
 
-/* Options (Size, Finish) */
+/* --- Options (Size, Finish, Color) --- */
 .optionsContainer {
     display: flex;
     gap: 20px;
@@ -384,36 +262,23 @@
 .colorSelector label,
 .quantitySelector label {
     font-family: 'Lato', sans-serif;
-    /* Figma font family */
     font-weight: 600;
-    /* Figma font weight */
     font-size: 16px;
-    /* Figma font size */
     color: #333333;
-    /* Figma color */
     margin-bottom: 8px;
 }
 
 .optionTag {
     font-family: 'Lato', sans-serif;
-    /* Figma font family */
     font-weight: 400;
-    /* Figma font weight */
     font-size: 14px;
-    /* Figma font size */
     color: #313131;
-    /* Figma color */
     border: 1px solid #3d3b3b;
-    /* Figma border */
-    padding: 2px 10px;
+    padding: 4px 12px;
     border-radius: 4px;
-    /* Figma border radius */
-
-    /* Figma background */
     white-space: nowrap;
 }
 
-/* Color Selector */
 .colorSelector {
     margin-bottom: 20px;
 }
@@ -427,10 +292,8 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    /* Perfect circles */
     cursor: pointer;
     border: 1px solid #EAEAEA;
-    /* Default border color (Figma has thin grey border) */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: border-color 0.2s ease, transform 0.2s ease;
 }
@@ -441,11 +304,10 @@
 
 .selectedColor {
     border: 2px solid #8fad88;
-    /* Figma selected color border */
     transform: scale(1.1);
 }
 
-/* Quantity Selector */
+/* --- Quantity & Stock --- */
 .quantitySelector {
     margin-bottom: 15px;
 }
@@ -453,28 +315,20 @@
 .quantityInput {
     display: flex;
     border: 1px solid #CCCCCC;
-    /* Figma border color */
     width: 120px;
-    /* Figma width */
     height: 40px;
-    /* Figma height */
     border-radius: 10px;
-    /* Figma border radius */
     overflow: hidden;
     align-items: center;
 }
 
 .quantityInput button {
     width: 40px;
-    /* Figma button width */
     border: none;
     background: #F9F9F9;
-    /* Figma background */
     font-size: 24px;
-    /* Figma font size for +/- */
     cursor: pointer;
     color: #555555;
-    /* Figma color */
     height: 100%;
     display: flex;
     align-items: center;
@@ -488,51 +342,40 @@
 
 .quantityInput input {
     width: 40px;
-    /* Figma input width */
     text-align: center;
     border: none;
-
-    /* Figma divider color */
-
-    /* Figma divider color */
     font-size: 16px;
-    /* Figma font size */
     font-weight: 600;
-    /* Figma font weight */
     color: #333333;
-    /* Figma color */
     height: 100%;
+    -moz-appearance: textfield;
 }
 
-/* Stock Alert */
+.quantityInput input::-webkit-outer-spin-button,
+.quantityInput input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .stockAlert {
     font-family: 'Lato', sans-serif;
-    /* Figma font family */
     font-weight: 600;
-    /* Figma font weight */
     font-size: 14px;
-    /* Figma font size */
     color: #D9534F;
-    /* Figma color */
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 8px 12px;
-    /* Figma padding */
-    /* Figma background color */
-    /* Figma border color */
-    /* Figma border radius */
     width: fit-content;
 }
 
 .hourglass {
     font-size: 1.2rem;
     color: #D9534F;
-    /* Match text color */
 }
 
-/* Action Buttons */
+/* --- Action Buttons --- */
 .actionButtons {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -543,23 +386,21 @@
 .addToCartBtn,
 .customizationBtn {
     padding: 15px;
-    /* Figma padding */
     font-family: 'Lato', sans-serif;
     border-radius: 4px;
-    /* Figma border radius */
     font-size: 16px;
-    /* Figma font size */
     font-weight: 400;
-    /* Figma font weight */
     cursor: pointer;
     text-align: center;
     transition: all 0.2s ease;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .addToCartBtn {
-    height: 49px;
     background-color: #8fad88;
-    /* Green color */
     color: white;
     border: 1px solid #8fad88;
 }
@@ -573,35 +414,29 @@
     background-color: #fff;
     border: 1px solid #8fad88;
     color: #8fad88;
-    height: 49px;
 }
 
 .customizationBtn:hover {
-    background-color: #eaf1e9;
-    color: #7a9a72;
+    background-color: #f0f5ef;
 }
 
-/* Secure Checkout (Payment Icons) */
+/* --- Secure Checkout --- */
 .secureCheckout {
     position: relative;
     border: 1px solid #EAEAEA;
     border-radius: 4px;
     padding: 30px 15px 15px;
-    /* ऊपर extra space */
     text-align: center;
     background-color: #FCFCFC;
-    top: 20px;
+    margin-top: 20px;
 }
 
-/* --- Top label (100% Secure Checkout) --- */
 .secureCheckout p {
     position: absolute;
     top: -12px;
-    /* border से ऊपर उठाने के लिए */
     left: 50%;
     transform: translateX(-50%);
     background-color: #FCFCFC;
-    /* ताकि border के ऊपर box साफ दिखे */
     padding: 0 10px;
     font-family: 'Lato', sans-serif;
     font-weight: 600;
@@ -611,37 +446,39 @@
     white-space: nowrap;
 }
 
-/* --- Payment Icons --- */
 .paymentIcons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
 .paymentIcons img {
-    height: 26px;
-    object-fit: contain;
+    width: 60px; /* Adjusted for clarity */
+    height: auto;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
 }
 
+.paymentIcons img:hover {
+    transform: scale(1.1);
+}
 
-/* --- Accordion (Product Info Tabs) --- */
+/* --- Accordion --- */
 .productInfoTabs {
-    margin-top: 60px;
-    border-top: 1px solid #EAEAEA;
-    /* Figma border color */
-    max-width: 500px;
-    /* Centered max-width for readability */
-    margin-left: auto;
-    /* Center horizontally */
-    /* Center horizontally */
-    padding: 0 10px;
-    /* Small horizontal padding for very small screens */
+    margin-top: 40px; /* Space from checkout section */
 }
 
 .accordionItem {
     border-bottom: 1px solid #EAEAEA;
-    /* Figma border color */
+}
+
+.accordionItem:first-of-type {
+    border-top: 1px solid #EAEAEA;
 }
 
 .accordionHeader {
@@ -651,13 +488,9 @@
     background: none;
     border: none;
     font-family: 'Lato', sans-serif;
-    /* Figma font family */
     font-weight: 600;
-    /* Figma font weight */
     font-size: 18px;
-    /* Figma font size */
     color: #333333;
-    /* Figma color */
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -673,6 +506,11 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: #555;
+    transition: transform 0.3s ease;
+}
+
+.accordionHeader[aria-expanded="true"] .accordionIcon {
+    transform: rotate(45deg);
 }
 
 .accordionContent {
@@ -680,321 +518,70 @@
     color: #555;
     line-height: 1.6;
     font-size: 0.95rem;
-    white-space: pre-wrap;
 }
 
-/* --- Responsive Design --- */
-@media (max-width: 1024px) {
-    .pageContainer {
-        margin: 30px auto;
-        padding: 0 15px;
-    }
 
+/* === Responsive Media Queries === */
+@media (max-width: 1024px) {
     .productLayout {
         grid-template-columns: 1fr;
-        /* Single column layout on tablets */
         gap: 40px;
     }
 
     .imageGallery {
-        flex-direction: row;
-        /* Thumbnails on side, main image below on tablet */
-        gap: 15px;
+        position: static;
     }
-
-    .thumbnailWrapper {
-        flex-direction: column;
-        /* Keep vertical thumbnail scroll on side */
-        align-items: center;
-    }
-
-    .mainImage {
-        height: 450px;
-        /* Adjust height */
-    }
-
-    .productTitle {
-        font-size: 36px;
-        /* Adjust for tablet */
-    }
-
-    .specialPrice {
-        font-size: 24px;
-    }
-
-    .mrp {
-        font-size: 16px;
-    }
-
-    .featuresSection {
-        padding: 10px 0;
-        font-size: 13px;
-    }
-
-    .divider {
-        height: 30px;
-    }
-
-    .actionButtons {
-        grid-template-columns: 1fr;
-        /* Stack buttons */
-    }
-
-    .addToCartBtn,
-    .customizationBtn {
-        font-size: 15px;
-        padding: 12px;
-    }
-
+    
     .productInfoTabs {
-        max-width: 95%;
-        /* Adjust max width for tablets */
-        margin: 40px auto;
-    }
-
-    .accordionHeader {
-        font-size: 17px;
-    }
-
-    .accordionContent {
-        font-size: 14px;
-    }
-
-    .breadcrumbs {
-        margin-left: 0;
-        /* Adjust breadcrumbs for smaller screens */
-        text-align: left;
+       max-width: 100%;
     }
 }
 
-@media (max-width: 768px) {
-    .pageContainer {
-        margin: 20px auto;
-        padding: 0 10px;
-    }
-
-    .productLayout {
-        gap: 30px;
-    }
-
+@media (max-width: 991px) {
     .imageGallery {
         flex-direction: column-reverse;
-        /* Thumbnails below main image on mobile */
-        gap: 10px;
     }
 
     .thumbnailWrapper {
         flex-direction: row;
-        /* Thumbnails horizontal on mobile */
-        overflow-x: auto;
-        /* Horizontal scroll for thumbnails */
-        max-height: 100px;
-        /* Limit height for horizontal thumbnails */
         width: 100%;
-        /* Take full width */
-        padding-bottom: 5px;
-        /* Space for horizontal scrollbar */
-        justify-content: flex-start;
-        /* Align thumbnails to start */
-    }
-
-    .scrollArrow {
-        /* Hide arrows on mobile for horizontal scroll */
-        display: none;
     }
 
     .thumbnailList {
         flex-direction: row;
-        /* Horizontal layout for thumbnails */
-        max-height: none;
-        overflow-y: hidden;
-        padding-right: 0;
-        gap: 8px;
+        overflow-x: auto;
+        max-height: 100px;
+        padding-bottom: 10px;
     }
 
-    .thumbnailList::-webkit-scrollbar {
-        height: 4px;
-        /* Smaller scrollbar for horizontal */
+    .scrollArrow {
+        display: none;
     }
 
     .mainImage {
-        height: 350px;
-    }
-
-    .productTitle {
-        font-size: 28px;
-    }
-
-    .specialPrice {
-        font-size: 20px;
-    }
-
-    .mrp {
-        font-size: 14px;
-    }
-
-    .optionsContainer {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .optionGroup {
+        height: auto;
         width: 100%;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+@media (max-width: 767px) {
+    .actionButtons {
+        grid-template-columns: 1fr;
     }
 
-    .featuresSection {
+     .featuresSection {
         flex-wrap: wrap;
+        gap: 15px 0;
         justify-content: space-around;
-        /* Changed to space-around for better distribution */
-        gap: 10px;
-        padding: 10px 0;
     }
 
     .featureItem {
-        flex: none;
-        width: 45%;
-        /* Two items per row roughly */
+        flex: 1 1 45%;
+        font-size: 16px;
     }
 
     .divider {
         display: none;
-        /* Hide dividers when wrapped */
     }
-
-    .quantityInput {
-        width: 100px;
-        height: 35px;
-    }
-
-    .quantityInput button {
-        width: 35px;
-        font-size: 1.2rem;
-    }
-
-    .quantityInput input {
-        width: 30px;
-    }
-
-    .stockAlert {
-        font-size: 13px;
-        padding: 8px 10px;
-    }
-
-    .accordionHeader {
-        font-size: 16px;
-        padding: 15px 0;
-    }
-
-    .accordionContent {
-        font-size: 14px;
-        padding: 0 5px 15px;
-    }
-
-    .paymentIcons {
-        gap: 10px;
-    }
-
-    .paymentIcons img {
-        height: 18px;
-    }
-}
-
-@media (max-width: 480px) {
-    .productTitle {
-        font-size: 24px;
-    }
-
-    .specialPrice {
-        font-size: 18px;
-    }
-
-    .mrp {
-        font-size: 13px;
-    }
-
-    .mainImage {
-        height: 280px;
-    }
-
-    .thumbnail {
-        width: 60px;
-        /* Smaller thumbnails */
-        height: 60px;
-    }
-
-    .reviewInfo {
-        font-size: 12px;
-        gap: 5px;
-    }
-
-    .stars {
-        font-size: 0.9rem;
-    }
-
-    .optionGroup label,
-    .colorSelector label,
-    .quantitySelector label {
-        font-size: 14px;
-    }
-
-    .optionTag {
-        font-size: 13px;
-        padding: 6px 10px;
-    }
-
-    .swatch {
-        width: 28px;
-        height: 28px;
-    }
-
-    .stockAlert {
-        font-size: 12px;
-        padding: 6px 8px;
-    }
-
-    .hourglass {
-        font-size: 1.1rem;
-    }
-
-    .addToCartBtn,
-    .customizationBtn {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    .secureCheckout p {
-        font-size: 12px;
-    }
-
-    .paymentIcons img {
-        height: 16px;
-    }
-}
-
-/* 
-.paymentIcons {
-    display: flex;
-    gap: 10px;
-   
-} */
-
-.paymentIcons img {
-    width: 70px;
-    /* icon size */
-    height: auto;
-    padding: 6px;
-    border: 1px solid #ddd;
-    /* box banane ke liye */
-    border-radius: 8px;
-    /* rounded corner */
-    background: #fff;
-    /* white background */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    /* halka shadow */
-    transition: transform 0.2s ease;
-}
-
-.paymentIcons img:hover {
-    transform: scale(1.1);
-    /* hover par zoom effect */
 }

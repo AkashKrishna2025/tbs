@@ -1,4 +1,7 @@
 /* src/pages/MyOrdersPage.module.css */
+
+/* Base styles for larger screens (e.g., Desktops, Large Laptops, LCD & LED panels) */
+/* This covers resolutions like 1920 * 1080, 1920 * 958, 1536 * 864 and larger Macs */
 .ordersContainer {
     max-width: 900px;
     margin: 2rem auto;
@@ -55,4 +58,213 @@
 .orderItem div {
     display: flex;
     flex-direction: column;
+}
+
+
+/* -- Media Queries for Responsiveness -- */
+
+/* Large Laptops & Desktops (e.g., 1025px to 1440px) */
+/* This range covers many "big" Mac Computer displays and larger laptops */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .ordersContainer {
+        margin: 1.8rem auto;
+        padding: 0.8rem;
+    }
+}
+
+/* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, smaller Mac Computer displays, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .ordersContainer {
+        max-width: 800px; /* Slightly reduce max-width for better fit */
+        margin: 1.5rem auto;
+        padding: 0.8rem;
+    }
+
+    .noOrders {
+        padding: 3rem;
+        font-size: 1.4rem;
+    }
+
+    .orderHeader {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .orderDetails {
+        padding: 1.2rem;
+    }
+
+    .orderDetails h3 {
+        font-size: 1.2rem;
+    }
+
+    .orderItem img {
+        width: 60px; /* Slightly smaller image */
+        height: 60px;
+    }
+}
+
+/* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .ordersContainer {
+        max-width: 95%; /* Make it fluid, taking 95% of the viewport width */
+        margin: 1.2rem auto;
+        padding: 0.5rem;
+    }
+
+    .noOrders {
+        padding: 2.5rem;
+        font-size: 1.3rem;
+    }
+
+    .orderCard {
+        margin-bottom: 1.5rem;
+    }
+
+    .orderHeader {
+        flex-direction: column; /* Stack header items for better readability */
+        align-items: flex-start; /* Align stacked items to the left */
+        padding: 0.8rem 1rem;
+        font-size: 0.8rem;
+        gap: 0.5rem; /* Space between stacked header info */
+    }
+
+    .orderHeader div {
+        width: 100%; /* Ensure divs take full width when stacked */
+        flex-direction: row; /* Keep the label-value pairs in a row */
+        justify-content: space-between; /* Distribute label and value */
+    }
+    .orderHeader div:last-child {
+        margin-top: 0.5rem; /* Add some space between the two main header info blocks */
+    }
+
+    .orderDetails {
+        padding: 1rem;
+    }
+
+    .orderDetails h3 {
+        font-size: 1.1rem;
+    }
+
+    .orderItem {
+        padding-top: 0.8rem;
+        gap: 0.8rem;
+    }
+
+    .orderItem img {
+        width: 55px; /* Adjust image size */
+        height: 55px;
+    }
+
+    .orderItem div {
+        font-size: 0.95rem; /* Adjust item text font size */
+    }
+}
+
+/* Small Phones (e.g., iPhone normal/small, up to 576px) */
+@media (max-width: 576px) {
+    .ordersContainer {
+        max-width: 98%; /* Take almost full width */
+        margin: 0.8rem auto;
+        padding: 0.2rem;
+    }
+
+    .noOrders {
+        padding: 2rem;
+        font-size: 1.2rem;
+    }
+
+    .orderCard {
+        margin-bottom: 1rem;
+        border-radius: 6px;
+    }
+
+    .orderHeader {
+        flex-direction: column; /* Stack header items */
+        align-items: flex-start;
+        padding: 0.6rem 0.8rem;
+        font-size: 0.75rem;
+        gap: 0.4rem;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+    .orderHeader div {
+        flex-direction: row; /* Keep label-value in a row */
+        justify-content: space-between;
+    }
+    .orderHeader div:last-child {
+        margin-top: 0.4rem;
+    }
+
+    .orderDetails {
+        padding: 0.8rem;
+    }
+
+    .orderDetails h3 {
+        font-size: 1rem; /* Adjust heading size */
+    }
+
+    .orderItem {
+        flex-direction: column; /* Stack image and text for very small screens */
+        align-items: flex-start; /* Align stacked items to the left */
+        padding-top: 0.8rem;
+        gap: 0.5rem;
+    }
+
+    .orderItem img {
+        width: 50px; /* Smaller image */
+        height: 50px;
+    }
+
+    .orderItem div {
+        font-size: 0.9rem; /* Further adjust item text font size */
+    }
+}
+
+/* Extra Small Phones (e.g., older or very small devices, 320px - 375px) */
+@media (max-width: 375px) {
+    .ordersContainer {
+        margin: 0.5rem auto;
+        padding: 0; /* Remove padding from container to use full width */
+    }
+
+    .noOrders {
+        padding: 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    .orderCard {
+        margin-bottom: 0.8rem;
+    }
+
+    .orderHeader {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.7rem;
+        gap: 0.3rem;
+    }
+    .orderHeader div:last-child {
+        margin-top: 0.3rem;
+    }
+
+    .orderDetails {
+        padding: 0.6rem;
+    }
+
+    .orderDetails h3 {
+        font-size: 0.95rem;
+    }
+
+    .orderItem {
+        padding-top: 0.6rem;
+        gap: 0.4rem;
+    }
+
+    .orderItem img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .orderItem div {
+        font-size: 0.85rem;
+    }
 }

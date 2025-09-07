@@ -1,24 +1,26 @@
-/* src/pages/ContactPage.module.css (Final & Responsive) */
+/* src/pages/ContactPage.module.css (Final & Fully Responsive) */
 
 .contactPage {
     background-color: #fff;
+    overflow-x: hidden; /* Prevents horizontal scroll on small devices */
 }
 
-/* --- हीरो बैनर --- */
+/* --- Hero Banner --- */
 .heroBanner {
     height: 400px;
     background-size: cover;
+    background-position: center; /* Ensures the image is centered */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #333;
     text-align: center;
-    padding: 0 15px;
+    padding: 0 20px;
 }
 
 .heroTitle {
-    font-family: 'Playfair Display';
+    font-family: 'Playfair Display', serif;
     font-size: 3rem;
     color: black;
     font-weight: 500;
@@ -29,11 +31,12 @@
     margin-top: 10px;
     font-family: 'Lato', sans-serif;
     line-height: 1.65;
-    color: #3a3a3a;;
+    color: #3a3a3a;
     font-weight: 600;
+    max-width: 600px; /* Prevents subtitle from being too wide */
 }
 
-/* --- मुख्य कंटेंट --- */
+/* --- Main Content --- */
 .mainContent {
     max-width: 1100px;
     margin: 60px auto;
@@ -44,13 +47,13 @@
     align-items: start;
 }
 
-/* --- बाईं ओर का सेक्शन --- */
+/* --- Left Side Section --- */
 .getInTouch {
     padding-right: 20px;
 }
 
 .sectionTitle {
-    font-family: 'Playfair Display';
+    font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     font-weight: 500;
     margin-bottom: 20px;
@@ -76,12 +79,13 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Prevents wrapping on small screens */
 }
 
 .infoIcon {
     height: 24px;
     width: 24px;
+    flex-shrink: 0; /* Prevents icon from shrinking */
 }
 
 .infoItem p {
@@ -98,35 +102,33 @@
     margin: 0;
 }
 
-/* --- सोशल आइकॉन्स --- */
+/* --- Social Icons --- */
 .socialIcons {
     display: flex;
     flex-wrap: wrap;
-    /* 👈 अब icons लाइन ब्रेक करेंगे */
-    gap: 12px;
-    margin-top: 10px;
+    gap: 8px; /* Added gap for better spacing */
+    margin-top: 20px; /* Increased margin */
 }
 
 .socialIcons a {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     color: #555;
+    background-color: #f0f0f0; /* Added a subtle background */
     transition: all 0.2s ease-in-out;
 }
 
 .socialIcons a:hover {
     background-color: #8fad88;
-    border-color: #8fad88;
     color: #fff;
 }
 
-/* --- दाईं ओर का फॉर्म --- */
+/* --- Right Side Form --- */
 .contactFormContainer {
     background-color: #9bb197;
     padding: 40px;
@@ -147,7 +149,6 @@
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
- 
 }
 
 .contactForm input,
@@ -159,7 +160,15 @@
     border-radius: 8px;
     font-size: 1rem;
     background-color: #f4f7f4;
+    transition: box-shadow 0.2s ease;
 }
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #8fad88; /* Focus indicator */
+}
+
 
 .contactForm input::placeholder,
 .contactForm textarea::placeholder {
@@ -168,6 +177,7 @@
 
 .contactForm textarea {
     resize: vertical;
+    min-height: 120px; /* Set a minimum height */
     margin-bottom: 20px;
 }
 
@@ -175,19 +185,21 @@
     background-color: #f4f7f4;
     font-family: 'Lato', sans-serif;
     border: none;
-    padding: 12px 25px;
+    padding: 14px 30px; /* Slightly larger padding */
     border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
     color: #819e70;
-    font-weight: 500;
+    font-weight: 600; /* Increased font weight */
     display: block;
     margin: 0 auto;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .submitButton:hover {
     background-color: #fff;
+    transform: translateY(-2px); /* Subtle lift effect */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .successMessage {
@@ -214,53 +226,132 @@
     max-width: 320px;
 }
 
-/* --- रिस्पॉन्सिव डिज़ाइन --- */
-@media (max-width: 992px) {
+/* === Responsive Design === */
+
+/* For Extra Large Desktops & TVs (e.g., 1920px and up) */
+@media (min-width: 1400px) {
     .mainContent {
-        grid-template-columns: 1fr;
+        max-width: 1200px;
+        gap: 80px;
+    }
+}
+
+/* For Standard Laptops (e.g., 1536px) */
+@media (max-width: 1200px) {
+    .mainContent {
+        max-width: 992px;
         gap: 40px;
     }
 }
 
-@media (max-width: 768px) {
-    .heroBanner {
-        height: 300px;
+/* For Tablets (iPad Pro, etc.) */
+@media (max-width: 992px) {
+    .mainContent {
+        grid-template-columns: 1fr;
+        gap: 50px; /* Increased gap when stacked */
+        margin-top: 40px;
     }
 
-    .heroTitle {
-        font-size: 2.2rem;
+    .getInTouch {
+        padding-right: 0;
+        text-align: center; /* Center align text on tablet */
+    }
+
+    .infoItem {
+        justify-content: center; /* Center contact info items */
+    }
+
+    .socialIcons {
+        justify-content: center; /* Center social icons on tablet */
     }
 
     .sectionTitle {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 }
 
+/* For Portrait Tablets & Large Phones */
+@media (max-width: 768px) {
+    .heroBanner {
+        height: 350px;
+    }
+
+    .heroTitle {
+        font-size: 2.5rem;
+    }
+
+    .heroSubtitle {
+        font-size: 0.95rem;
+    }
+
+    .mainContent {
+        margin: 40px auto;
+        padding: 0 15px;
+    }
+    
+    .contactFormContainer {
+        padding: 30px 25px;
+    }
+
+    .formTitle {
+        font-size: 1.8rem;
+    }
+}
+
+/* For Standard Mobile Phones (iPhone, etc.) */
 @media (max-width: 576px) {
     .heroBanner {
-        height: 250px;
+        height: 300px;
         padding: 20px;
     }
 
     .heroTitle {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .heroSubtitle {
         font-size: 0.9rem;
     }
 
-    .contactFormContainer {
-        padding: 25px 15px;
+    .sectionTitle {
+        font-size: 1.8rem;
     }
 
     .contactForm .formRow {
-        flex-direction: column;
-        /* मोबाइल पर नाम और ईमेल नीचे नीचे */
+        flex-direction: column; /* Stack name and email fields */
+        gap: 0; /* Remove gap when stacked */
+        margin-bottom: 0;
     }
 
-    .socialIcons {
-        justify-content: center;
-        /* मोबाइल पर icons center */
+    /* Add margin back to individual inputs when stacked */
+    .contactForm .formRow input {
+        margin-bottom: 20px;
+    }
+
+    .contactFormContainer {
+        padding: 25px;
+    }
+}
+
+/* For Small Mobile Phones */
+@media (max-width: 480px) {
+    .heroBanner {
+        height: 280px;
+    }
+    .heroTitle {
+        font-size: 1.8rem;
+    }
+     .contactFormContainer {
+        padding: 25px 20px;
+    }
+
+    .contactForm input, .contactForm textarea {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+    .submitButton {
+        width: 100%; /* Make button full width */
+        padding: 14px 20px;
     }
 }

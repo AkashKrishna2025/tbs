@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './GiftSection.module.css';
+import styles from './GiftContact.module.css';
 
 // सुनिश्चित करें कि ये इमेज आपके बताए गए पाथ पर मौजूद हैं
-import leftGiftVisualImage from '../../assets/images/gift-card1.png';
+import leftGiftVisualImage from '../../assets/images/gift-contact.png';
 import rightGiftContentBgImage from '../../assets/images/gift-card2.png';
 import wavyTitleBackground from '../../assets/images/textbg.png';
 
-const GiftSection = () => {
+const GiftContact = () => {
   return (
     <section className={styles.section}>
       <div className={styles.giftContainer}>
@@ -43,4 +43,4 @@ const GiftSection = () => {
   );
 };
 
-export default GiftSection;
+export default GiftContact;

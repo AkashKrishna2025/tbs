@@ -1,5 +1,7 @@
 /* src/components/ProductSlider/ProductSlider.module.css */
 
+/* Base styles for larger screens (e.g., Desktops, Large Laptops, LCD & LED panels) */
+/* This covers resolutions like 1920 * 1080, 1920 * 958, 1536 * 864 and larger Mac Computer displays */
 .section {
   padding: 80px 0;
   background-color: #FCFBF9;
@@ -76,7 +78,7 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px 0 30px;
-  margin: 0 60px;
+  margin: 0 60px; /* Space for arrows */
   
   /* Hide scrollbar */
   scrollbar-width: none;
@@ -87,23 +89,29 @@
   display: none;
 }
 
+/* Adjusted arrow styles for consistent look and smooth hover */
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: transparent;   /* background hata diya */
-  border: none;              /* border hataya */
-  border-radius: 0;          /* circle remove */
+  background-color: transparent; /* Default transparent */
+  border: 1px solid transparent; /* Transparent border to allow transition */
+  border-radius: 50%; /* Circular button area */
+  width: 50px; /* Default size for arrows on large screens */
+  height: 50px; /* Default size */
+  display: flex; /* To center the icon inside */
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   padding: 0;
   z-index: 10;
+  transition: all 0.3s ease; /* Smooth transition for all properties */
 }
 
 .arrow:hover {
-  background: #8E9E82;
-  color: white;
-  border-color: #8E9E82;
-  transform: translateY(-50%) scale(1.1);
+  background-color: #8E9E82; /* Background on hover */
+  border-color: #8E9E82; /* Border on hover */
+  transform: translateY(-50%) scale(1.1); /* Scales the button area */
 }
 
 .leftArrow {
@@ -115,116 +123,229 @@
 }
 
 .arrowIcon {
-  width: 32px;
-  height: 32px;
+  width: 25px;
+  height: 25px;
   object-fit: contain;
+  /* If arrow icons need to change color on hover (e.g., to white),
+     you might add a filter here, e.g.:
+     .arrow:hover .arrowIcon { filter: brightness(0) invert(1); }
+     This is not included by default to strictly adhere to "no design change" unless specified.
+  */
 }
-/* Responsive Design */
-@media (max-width: 1200px) {
+
+/* --- Responsive Design --- */
+
+/* Extra Large Desktops & Wide Screens (e.g., 1441px and up) */
+/* Base styles already handle these well, minor adjustments for larger aesthetic */
+@media (min-width: 1441px) {
+    .section {
+        padding: 90px 0;
+    }
+    .container {
+        max-width: 1500px; /* Allow content to stretch slightly more */
+        padding: 0 30px;
+    }
+    .header h2 {
+        font-size: 46px;
+    }
+    .header p {
+        font-size: 17px;
+    }
+    .filters {
+        margin-bottom: 60px;
+        gap: 15px;
+    }
+    .filterBtn {
+        padding: 14px 28px;
+        font-size: 15px;
+    }
+    .slider {
+        margin: 0 70px;
+        gap: 25px;
+    }
+    .arrow {
+        width: 55px;
+        height: 55px;
+    }
+    .arrowIcon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Large Laptops & Standard Desktops (e.g., Mac Computer Display, 1536*864, 1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .section {
+    padding: 70px 0;
+  }
   .container {
-    padding: 0 16px;
+    max-width: 1200px;
+    padding: 0 20px;
   }
-  
+  .header h2 {
+    font-size: 40px;
+  }
+  .header p {
+    font-size: 15px;
+  }
+  .filters {
+    margin-bottom: 45px;
+    gap: 10px;
+  }
+  .filterBtn {
+    padding: 11px 22px;
+    font-size: 13.5px;
+  }
+  .sliderWrapper {
+    /* No change to max-width, rely on container max-width */
+  }
   .slider {
-    margin: 0 50px;
-    gap: 16px;
+    margin: 0 55px; /* Adjust margin to accommodate arrows */
+    gap: 18px;
   }
-  
   .arrow {
-    width: 45px;
-    height: 45px;
-    font-size: 16px;
+    width: 48px; /* Slightly smaller arrows */
+    height: 48px;
+  }
+  .arrowIcon {
+    width: 24px;
+    height: 24px;
   }
 }
 
-@media (max-width: 968px) {
+/* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, smaller Mac displays, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
   .section {
     padding: 60px 0;
   }
-  
+  .container {
+    padding: 0 16px;
+  }
   .header h2 {
     font-size: 36px;
   }
-  
-  .slider {
-    margin: 0 40px;
-    gap: 12px;
-  }
-  
-  .arrow {
-    width: 40px;
-    height: 40px;
+  .header p {
     font-size: 14px;
   }
-  
   .filters {
     margin-bottom: 40px;
+    gap: 10px;
   }
-  
   .filterBtn {
     padding: 10px 20px;
     font-size: 13px;
   }
+  .slider {
+    margin: 0 45px; /* Adjust margin for arrows */
+    gap: 15px;
+  }
+  .arrow {
+    width: 42px; /* Further adjust arrow size */
+    height: 42px;
+  }
+  .arrowIcon {
+    width: 22px;
+    height: 22px;
+  }
 }
 
-@media (max-width: 768px) {
+/* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
   .section {
     padding: 50px 0;
   }
-  
-  .header h2 {
-    font-size: 32px;
-  }
-  
-  .header p {
-    font-size: 14px;
-  }
-  
-  .slider {
-    margin: 0 20px;
-  }
-  
-  .arrow {
-    display: none;
-  }
-  
-  .filters {
-    padding: 0 10px;
-    gap: 8px;
-  }
-  
-  .filterBtn {
-    padding: 8px 16px;
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .section {
-    padding: 40px 0;
-  }
-  
   .container {
     padding: 0 12px;
   }
-  
+  .header h2 {
+    font-size: 32px;
+  }
+  .header p {
+    font-size: 13px;
+  }
+  .filters {
+    margin-bottom: 35px;
+    gap: 8px;
+  }
+  .filterBtn {
+    padding: 9px 18px;
+    font-size: 12.5px;
+  }
+  .slider {
+    margin: 0 10px; /* Arrows are hidden, so less margin needed */
+    gap: 12px;
+    padding: 8px 0 20px; /* Adjust padding if scrollbar appears */
+  }
+  .arrow {
+    display: none; /* Hide arrows on smaller screens */
+  }
+}
+
+/* Small Phones (e.g., iPhone normal/small, 401px to 576px) */
+@media (min-width: 401px) and (max-width: 576px) {
+  .section {
+    padding: 40px 0;
+  }
+  .container {
+    padding: 0 10px;
+  }
   .header h2 {
     font-size: 28px;
   }
-  
-  .slider {
-    margin: 0 10px;
+  .header p {
+    font-size: 12px;
+  }
+  .filters {
+    justify-content: flex-start; /* Align filters to start */
+    overflow-x: auto; /* Enable horizontal scrolling for filters */
+    flex-wrap: nowrap; /* Prevent filters from wrapping */
+    padding: 0 10px 15px; /* Add bottom padding for scrollbar visibility */
+    margin-bottom: 30px;
     gap: 8px;
   }
-  
-  .filters {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding: 0 10px 10px;
-    margin-bottom: 30px;
-  }
-  
   .filterBtn {
-    flex-shrink: 0;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+    padding: 8px 16px;
+    font-size: 12px;
   }
+  .slider {
+    margin: 0 5px; /* Reduce slider margin further */
+    gap: 10px;
+    padding: 5px 0 15px;
+  }
+  /* Arrows remain hidden */
+}
+
+/* Extra Small Phones (e.g., older or very small devices, up to 400px) */
+@media (max-width: 400px) {
+  .section {
+    padding: 30px 0;
+  }
+  .container {
+    padding: 0 8px;
+  }
+  .header {
+    margin-bottom: 25px;
+  }
+  .header h2 {
+    font-size: 24px;
+  }
+  .header p {
+    font-size: 11px;
+  }
+  .filters {
+    padding: 0 8px 12px; /* Adjust filter padding */
+    margin-bottom: 20px;
+    gap: 6px;
+  }
+  .filterBtn {
+    padding: 7px 14px;
+    font-size: 11px;
+  }
+  .slider {
+    margin: 0 2px;
+    gap: 8px;
+    padding: 5px 0 10px;
+  }
+  /* Arrows remain hidden */
 }
