@@ -10,7 +10,7 @@
 .giftContainer {
   justify-content: center;
   display: flex;
-  width: 100%;
+  width: 89%;
   max-width: 1400px; /* Limits content width on very large screens like 1920x1080 */
   min-height: 448px; /* A good minimum height for the desktop layout */
 }

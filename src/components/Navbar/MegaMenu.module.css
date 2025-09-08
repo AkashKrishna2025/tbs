@@ -7,12 +7,10 @@
     right: 0;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     z-index: 1000;
-    
     /* Responsive height management for the entire mega menu */
     /* Use a CSS variable for the navbar height for easy adjustment */
     max-height: calc(100vh - var(--navbar-height, 70px)); 
     overflow-y: auto; 
-    
     /* Hiding the scrollbar for a cleaner look */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -143,7 +141,7 @@
 
 .viewProductBtn {
     position: absolute;
-    bottom: 20px; /* Adjusted position */
+    bottom: 0px; /* Adjusted position */
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 25px;

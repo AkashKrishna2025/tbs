@@ -77,13 +77,8 @@
 }
 
 .logo {
-<<<<<<< HEAD
-    height: 45px;
-  margin-bottom: -7px;
-=======
     height: clamp(2rem, 6vw, 2.875rem); /* 32px to 46px */
     margin-bottom: -3px;
->>>>>>> ce18bce (update in all file with responsive)
 }
 
 .icons {
@@ -132,17 +127,10 @@
 
 /* --- NEW BADGE ICON STYLES --- */
 .newBadge {
-<<<<<<< HEAD
- position: absolute;
-    top: -10px;
-    right: 111px;
-    height: 27px;
-=======
     position: absolute;
     top: -11px;
     right: 111px;
     height: 26px;
->>>>>>> ce18bce (update in all file with responsive)
     width: auto;
 }
 
@@ -878,12 +866,10 @@
         gap: 0.4rem; /* Even smaller gap for icons */
     }
 
-<<<<<<< HEAD
-  .logoContainer {
-    /* If logo still pushes, consider making it smaller or hiding text */
-  }
-}
-=======
+    .logoContainer {
+        /* If logo still pushes, consider making it smaller or hiding text */
+    }
+
     .icon {
         height: 14px;
     }
@@ -977,4 +963,3 @@
         font-size: 0.9rem;
     }
 }
->>>>>>> ce18bce (update in all file with responsive)
