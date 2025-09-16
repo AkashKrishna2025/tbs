@@ -3,12 +3,13 @@
 /* Base styles for larger screens (e.g., Desktops, Large Laptops, LCD & LED panels) */
 /* This covers resolutions like 1920 * 1080, 1920 * 958, 1536 * 864 and larger Mac Computer displays */
 .section {
-  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 4rem;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 2.5rem;
 }
 
 .header h2 {
@@ -33,9 +34,6 @@
 
 .sliderContainer {
   position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 4rem; /* एरो के लिए साइड में जगह */
 }
 
 .slider {
@@ -46,7 +44,6 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   scroll-snap-type: x mandatory; /* ब्राउज़र को स्नैप करने में मदद करता है */
-  padding: 1rem; /* शैडो दिखने के लिए थोड़ी पैडिंग */
 }
 
 .slider::-webkit-scrollbar {
@@ -55,12 +52,12 @@
 
 .projectCard {
   flex: 0 0 calc(50% - 1rem); /* 2 कार्ड्स और गैप के लिए सही चौड़ाई */
-  border: 1px solid #EAE5DD;
+    border: 1px solid #95B79A;
   border-radius: 16px;
   overflow: hidden;
   scroll-snap-align: center; /* कार्ड्स को स्क्रॉल पर सेंटर में स्नैप करें */
   background-color: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  /* box-shadow: 0 4px 15px rgba(0,0,0,0.05); */
   display: flex; /* इमेज और कैप्शन को स्टैक करने के लिए */
   flex-direction: column;
 }
@@ -74,12 +71,13 @@
 
 .cardCaption {
   display: block;
-  padding: 1.5rem;
+  padding: 16px;
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  border-top: 1px solid #EAE5DD;
   margin-top: auto; /* कैप्शन को हमेशा नीचे रखने के लिए */
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
 }
 
 .arrow {
@@ -99,10 +97,10 @@
 }
 
 .leftArrow {
-  left: 1rem;
+  left: -3rem;
 }
 .rightArrow {
-  right: 1rem;
+  right: -3rem;
 }
 
 /* -- Media Queries for Responsiveness -- */
@@ -113,7 +111,7 @@
 /* Large Laptops & Desktops (e.g., Mac Computer Display, 1536*864, 1025px to 1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
     .section {
-        padding: 3.5rem 1.8rem;
+        margin-bottom: 4rem;
     }
     .header h2 {
         font-size: 40px;
@@ -123,7 +121,6 @@
         line-height: 58px;
     }
     .sliderContainer {
-        max-width: 1000px; /* Adjust max-width */
         padding: 0 3.5rem; /* Adjust padding for arrows */
     }
     .slider {
@@ -148,7 +145,7 @@
 /* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, smaller Mac displays, 769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .section {
-        padding: 3rem 1.5rem;
+        margin-bottom: 3rem;
     }
     .header {
         margin-bottom: 2rem;
@@ -161,7 +158,6 @@
         line-height: 50px;
     }
     .sliderContainer {
-        max-width: 90%; /* Fluid width */
         padding: 0 2.5rem;
     }
     .slider {
@@ -190,7 +186,7 @@
 /* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
 @media (min-width: 577px) and (max-width: 768px) {
     .section {
-        padding: 2.5rem 1rem;
+        margin-bottom: 2rem;
     }
     .header {
         margin-bottom: 1.8rem;
@@ -236,7 +232,7 @@
 /* Small Phones (e.g., iPhone normal/small, 401px to 576px) */
 @media (min-width: 401px) and (max-width: 576px) {
     .section {
-        padding: 2rem 0.8rem;
+        margin-bottom: 2rem;
     }
     .header {
         margin-bottom: 1.5rem;
@@ -278,6 +274,7 @@
 @media (max-width: 400px) {
     .section {
         padding: 1.5rem 0.5rem;
+        margin-bottom: 2rem;
     }
     .header {
         margin-bottom: 1rem;

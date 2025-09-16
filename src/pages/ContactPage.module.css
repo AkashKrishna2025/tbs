@@ -20,29 +20,28 @@
 }
 
 .heroTitle {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
+    font-family: 'Playfair Display', 'Lato', 'sans-serif';
+    font-size: 46px;
     color: black;
-    font-weight: 500;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
 .heroSubtitle {
-    font-size: 1rem;
-    margin-top: 10px;
-    font-family: 'Lato', sans-serif;
-    line-height: 1.65;
-    color: #3a3a3a;
-    font-weight: 600;
+    font-size: 22px;
+    font-family: 'Lato', 'sans-serif';
+    color: #000000;
+    font-weight: 400;
     max-width: 600px; /* Prevents subtitle from being too wide */
 }
 
 /* --- Main Content --- */
 .mainContent {
     max-width: 1100px;
-    margin: 60px auto;
+    margin: 80px auto;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1.8fr;
     gap: 60px;
     align-items: start;
 }
@@ -54,8 +53,8 @@
 
 .sectionTitle {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 500;
+    font-size: 44px;
+    font-weight: 400;
     margin-bottom: 20px;
 }
 
@@ -72,7 +71,7 @@
     font-family: 'Lato', sans-serif;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .infoItem {
@@ -107,12 +106,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px; /* Added gap for better spacing */
-    margin-top: 20px; /* Increased margin */
+    margin-top: 8px; /* Increased margin */
+    margin-left: 25px; /* Increased margin */
 }
 
 .socialIcons a {
-    width: 36px;
-    height: 36px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -131,14 +129,14 @@
 /* --- Right Side Form --- */
 .contactFormContainer {
     background-color: #9bb197;
-    padding: 40px;
+    padding: 30px 60px;
     border-radius: 16px;
 }
 
 .formTitle {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Playfair Display', 'Lato', serif;
     text-align: center;
-    font-size: 2rem;
+    font-size: 46px;
     color: #fff;
     font-weight: 400;
     margin-bottom: 30px;
@@ -156,11 +154,12 @@
     font-family: 'Lato', sans-serif;
     width: 100%;
     padding: 15px;
-    border: none;
+    border: 1px solid #AAAAAA;
     border-radius: 8px;
     font-size: 1rem;
-    background-color: #f4f7f4;
+    background-color: #FFFFFF;
     transition: box-shadow 0.2s ease;
+    color: #616161;
 }
 
 .contactForm input:focus,
@@ -172,7 +171,7 @@
 
 .contactForm input::placeholder,
 .contactForm textarea::placeholder {
-    color: #888;
+    color: #616161;
 }
 
 .contactForm textarea {
@@ -182,15 +181,15 @@
 }
 
 .submitButton {
-    background-color: #f4f7f4;
+    background-color: #FFFFFF;
     font-family: 'Lato', sans-serif;
-    border: none;
+    border: 2px solid #E8F4E5;
     padding: 14px 30px; /* Slightly larger padding */
     border-radius: 8px;
     cursor: pointer;
-    font-size: 1rem;
-    color: #819e70;
-    font-weight: 600; /* Increased font weight */
+    font-size: 16px;
+    color: #9EB7A2;
+    font-weight: 400; /* Increased font weight */
     display: block;
     margin: 0 auto;
     transition: all 0.2s ease;
@@ -200,6 +199,10 @@
     background-color: #fff;
     transform: translateY(-2px); /* Subtle lift effect */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.submitArrow{
+    margin-left: 10px;
 }
 
 .successMessage {

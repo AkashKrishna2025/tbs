@@ -7,20 +7,13 @@
   color: white;
   text-align: center;
   /* Use flexbox to center content for better responsiveness */
-  display: flex;
   align-items: center; /* Vertically center content */
   justify-content: center; /* Horizontally center content */
   flex-direction: column; /* Allows content to stack within flex */
+  margin-bottom: 4rem;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-}
+
 
 .content {
   position: relative;
@@ -34,7 +27,7 @@
   font-family: 'Playfair Display', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 44px; /* Base font size */
+  font-size: 44px !important; /* Base font size */
   line-height: 100%;
   letter-spacing: 0;
   text-align: center;
@@ -46,7 +39,7 @@
   letter-spacing: 0;
   text-align: center;
   padding-top: 20px; /* Base padding-top */
-  font-size: 19px; /* Base font size */
+  font-size: 13px !important; /* Base font size */
   font-style: oblique;
   font-weight: 400;
   color: rgb(211, 214, 216);
@@ -74,6 +67,7 @@
 @media (min-width: 1441px) {
     .section {
         padding: 6rem 3rem; /* Slightly more side padding for very wide screens */
+        margin-bottom: 4rem;
     }
     .content {
         max-width: 650px; /* Allow content to be slightly wider */
@@ -86,6 +80,7 @@
     .section {
         min-height: 550px; /* Adjust minimum height */
         padding: 5rem 2.5rem; /* Adjust padding */
+        margin-bottom: 4rem;
     }
     .content {
         max-width: 550px; /* Reduce max-width */
@@ -109,6 +104,7 @@
     .section {
         min-height: 480px;
         padding: 4.5rem 2rem;
+        margin-bottom: 4rem;
     }
     .content {
         max-width: 500px;
@@ -132,6 +128,7 @@
     .section {
         min-height: 400px;
         padding: 4rem 1.5rem;
+        margin-bottom: 3rem;
     }
     .content {
         max-width: 90%; /* Fluid width for better fit on tablets/large phones */
@@ -156,6 +153,7 @@
     .section {
         min-height: 350px;
         padding: 3rem 1rem;
+        margin-bottom: 2rem;
     }
     .content {
         max-width: 95%; /* Take almost full width on small phones */
@@ -180,6 +178,7 @@
     .section {
         min-height: 300px;
         padding: 2.5rem 0.8rem;
+        margin-bottom: 2rem;
     }
     .content {
         margin-top: -15px;

@@ -1,0 +1,309 @@
+/* GiftCard.module.css (Updated with complete responsive media queries) */
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  margin-bottom: 4rem;
+}
+
+.giftContainer {
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  max-width: 1400px; /* Limits content width on very large screens like 1920x1080 */
+  /* min-height: 448px; A good minimum height for the desktop layout */
+}
+
+/* Left side - Image part */
+.giftImageSide {
+  width: 52%;
+  background-size: cover;
+  background-position: right; /* Ensures the right part of the image is always visible */
+  position: relative;
+  z-index: 2;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+/* Right side - Content part */
+.giftContentSide {
+  width: 52%; /* Also set to 52% to allow for the intentional overlap/gap */
+  background-size: cover; /* Assuming a background image for the content side too */
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  /* Negative margin is reduced to create a small gap (less overlap) */
+ margin-left: -4.5% !important;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.contentWrapper {
+  text-align: center;
+  max-width: 450px;
+  width: 100%;
+}
+
+.giftTitleBackground {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0.75rem 2rem;
+  margin-bottom: 1.5rem;
+  min-height: 60px;
+}
+
+.giftTitle {
+  color: white;
+  font-family: 'Balthazar', serif;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.giftDescription {
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  line-height: 1.6;
+  color: #2e2e2e;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  font-style: oblique;
+}
+
+.shopNowButton {
+  display: inline-block;
+  background-color: #95B79A;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  padding: 0.8rem 2.5rem;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(142, 158, 130, 0.3);
+}
+
+.shopNowButton:hover {
+  background-color: #7a8c6f;
+  transform: translateY(-2px);
+}
+
+/* --- Responsive Layout Media Queries --- */
+
+/* Extra Large Desktops (e.g., 1401px and up), including 1920x1080 and 1920x958 */
+/* The default styles and fluid 'clamp' values handle these resolutions well. */
+@media (min-width: 1401px) {
+  /* No specific adjustments needed as max-width: 1400px and clamp handle scaling */
+  .giftContentSide {
+    margin-left: -4.5%; /* Maintain the base gap */
+  }
+}
+
+/* Large Laptops / Desktops (1025px - 1400px), including 1536x864 */
+@media (min-width: 1025px) and (max-width: 1400px) {
+  .section {
+      margin-bottom: 4rem;
+  }
+  .giftContainer {
+    min-height: 400px; /* Slightly reduce min-height for smaller desktop screens */
+  }
+
+  .giftContentSide {
+    margin-left: -4%; /* Adjust negative margin slightly to maintain visual gap proportion */
+    padding: clamp(1.2rem, 4.5vw, 3.5rem); /* Adjust padding range */
+  }
+
+  .giftTitleBackground {
+    padding: 0.6rem 1.8rem;
+    min-height: 55px;
+  }
+}
+
+/* Tablets Landscape (901px - 1024px) */
+/* Still maintaining the two-column overlapping layout, with adjustments. */
+@media (min-width: 901px) and (max-width: 1024px) {
+  .section {
+      margin-bottom: 3rem;
+  }
+  .giftContainer {
+    min-height: 380px; /* Further reduce min-height */
+  }
+
+  .giftImageSide,
+  .giftContentSide {
+    width: 55%; /* Adjust widths to give more definition on smaller landscape */
+  }
+
+  .giftContentSide {
+    margin-left: -4%; /* Adjust negative margin to maintain visual gap */
+    padding: clamp(1rem, 4vw, 3rem); /* More compact padding */
+  }
+
+  .giftTitleBackground {
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 1rem;
+    min-height: 50px;
+  }
+}
+
+/* Tablets Portrait and smaller (up to 900px) */
+/* This is the primary breakpoint for switching to a columnar layout */
+@media (max-width: 900px) {
+  .section {
+    margin-bottom: 3rem;
+}
+  .giftContainer {
+    flex-direction: column; /* Stack image and content vertically */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    max-width: 700px; /* Constrain overall width for better readability */
+    min-height: auto; /* Allow height to adjust naturally based on content */
+  }
+
+  .giftImageSide,
+  .giftContentSide {
+    width: 100%; /* Full width for both sections */
+    margin-left: 0; /* Reset negative margin for columnar layout */
+  }
+
+  .giftImageSide {
+    min-height: 280px; /* Adjusted min-height for tablet portrait */
+    background-size: cover;
+    background-position: center; /* Center image on mobile */
+  }
+
+  .giftContentSide {
+    padding: clamp(2rem, 6vw, 3rem); /* Adjusted padding for content below image */
+    min-height: auto; /* Allow height to adjust */
+  }
+
+  .giftTitleBackground {
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 1.2rem;
+    min-height: 55px;
+  }
+}
+
+/* Small Tablets / Large Phones (481px - 767px) */
+@media (max-width: 767px) {
+  .section {
+    margin-bottom: 3rem;
+}
+  .giftContainer {
+    max-width: 90%; /* Allow container to take more width on smaller screens */
+  }
+
+  .giftImageSide {
+    min-height: 220px; /* Further reduce min-height for phones */
+  }
+
+  .giftContentSide {
+    padding: clamp(1.5rem, 5vw, 2.5rem); /* Adjust padding for content */
+  }
+
+  .giftTitleBackground {
+    padding: 0.7rem 1.2rem;
+    margin-bottom: 1rem;
+    min-height: 50px;
+  }
+
+  /* Adjust clamp minimums for readability on smaller screens */
+  .giftTitle {
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+  }
+
+  .giftDescription {
+    font-size: clamp(0.85rem, 1.8vw, 1rem);
+  }
+
+  .shopNowButton {
+    font-size: clamp(0.85rem, 1.8vw, 1rem);
+    padding: 0.7rem 2rem;
+  }
+}
+
+/* Mobile Phones (up to 480px, including most iPhones and small Android phones) */
+@media (max-width: 480px) {
+  .section {
+    margin-bottom: 2rem;
+}
+  .giftContainer {
+    max-width: 95%; /* Allow container to be almost full width */
+    margin: 0 auto; /* Center the container */
+  }
+
+  .giftImageSide {
+    min-height: 180px; /* Minimum height for image on small phones */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .giftContentSide {
+    padding: clamp(1rem, 4vw, 2rem); /* More compact padding for small screens */
+  }
+
+  .giftTitleBackground {
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.8rem;
+    min-height: 45px;
+  }
+
+  /* Fine-tune font sizes for optimal readability on mobile */
+  .giftTitle {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+  }
+
+  .giftDescription {
+    font-size: clamp(0.8rem, 1.6vw, 0.95rem);
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+  }
+
+  .shopNowButton {
+    font-size: clamp(0.8rem, 1.6vw, 0.95rem);
+    padding: 0.6rem 1.8rem;
+  }
+}
+
+/* Very Small Mobile Phones (e.g., up to 360px, iPhone SE 1st gen, older small Androids) */
+@media (max-width: 360px) {
+  .section {
+    margin-bottom: 2rem;
+}
+  .giftImageSide {
+    min-height: 150px; /* Further reduced min-height for very small phones */
+  }
+
+  .giftContentSide {
+    padding: clamp(0.8rem, 3vw, 1.5rem);
+  }
+
+  .giftTitleBackground {
+    padding: 0.5rem 0.8rem;
+    min-height: 40px;
+  }
+
+  .giftTitle {
+    font-size: clamp(1rem, 2.8vw, 1.5rem);
+  }
+
+  .giftDescription {
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    margin-bottom: clamp(0.8rem, 2.5vw, 1.5rem);
+  }
+
+  .shopNowButton {
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    padding: 0.5rem 1.5rem;
+  }
+}

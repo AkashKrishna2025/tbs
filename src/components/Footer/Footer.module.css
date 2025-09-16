@@ -1,62 +1,71 @@
 /* --- Footer Base Styles (Desktop First) --- */
 .footer {
-    padding-top: 4rem;
+    border-top: 1px solid #E4E4E4;
+    padding-top: 3rem;
     position: relative;
     overflow: hidden;
-    background-color: #F8F9F4; /* Added a base background color */
+    background-color: #ffff; /* Added a base background color */
 }
 
 .footerMain {
     display: grid;
-    /* Grid layout for desktop */
-    grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
-    gap: 2rem; /* Increased gap for better spacing */
-    max-width: 1400px;
+    /* Grid layout for desktop - 5 equal columns */
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 4rem;
+    padding: 0 20px;
     position: relative;
     z-index: 2;
-    /* Aligns items to the end of their grid cell on wide screens */
-    justify-items: end;
+    align-items: start;
 }
 
 .contactInfo {
-    justify-self: start; /* Override justify-items to align the first column left */
+    justify-self: start;
 }
 
-.contactInfo .logo {
-    height: 59px;
-    margin-bottom: 9px;
+.logoContainer {
+    margin-bottom: 1rem;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    margin-bottom: 1rem;
+    display: block;
 }
 
 .contactList {
-    color: #000;
+    color: #333;
     font-family: 'Lato', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    list-style: none; /* Ensure no bullets */
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .contactList li {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    align-items: flex-start; /* Aligns icon with the top of the text */
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    align-items: flex-start;
 }
 
 .contactList img {
     height: 14px;
-    margin-top: 7px; /* Fine-tunes vertical alignment */
+    margin-top: 2px;
+    flex-shrink: 0;
+    opacity: 0.7;
 }
 
 .linksColumn h4,
 .newsletter h4 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 1.5rem; /* Increased margin */
-    font-size: 1.2rem; /* Slightly larger title */
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 1rem;
+    font-size: 16px;
+    font-weight: 600;
     color: #333;
 }
 
@@ -65,18 +74,20 @@
     padding: 0;
     margin: 0;
     font-family: 'Lato', sans-serif;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .linksColumn li {
-    line-height: 40px;
+    line-height: 1.8;
+    margin-bottom: 0.25rem;
 }
 
 .linksColumn li a {
     text-decoration: none;
     color: #555;
-    font-size: 0.9rem;
+    font-size: 14px;
     transition: color 0.2s ease;
+    display: block;
 }
 
 .linksColumn li a:hover {
@@ -84,15 +95,16 @@
 }
 
 .newsletter p {
-    font-size: 0.9rem;
+    font-size: 14px;
     color: #555;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+    margin-bottom: 1rem;
+    line-height: 1.5;
 }
 
 .emailInput {
     display: flex;
     border-bottom: 1px solid #8E9E82;
+    margin-bottom: 1rem;
 }
 
 .emailInput input {
@@ -101,7 +113,12 @@
     flex-grow: 1;
     padding: 0.5rem 0;
     font-family: 'Lato', sans-serif;
-    font-size: 0.9rem;
+    font-size: 14px;
+    color: #333;
+}
+
+.emailInput input::placeholder {
+    color: #999;
 }
 
 .emailInput input:focus {
@@ -111,10 +128,14 @@
 .emailInput button {
     border: none;
     background: transparent;
-    font-size: 1.5rem;
+    font-size: 18px;
     cursor: pointer;
     color: #555;
     transition: color 0.2s ease;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .emailInput button:hover {
@@ -123,17 +144,27 @@
 
 .socialIcons {
     display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 0.5rem;
+    margin-top: 0;
 }
 
-.socialIcons img {
-    height: 24px;
-    transition: transform 0.2s ease;
+.socialIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
 }
 
-.socialIcons a:hover img {
-    transform: scale(1.1);
+.socialIcon:hover {
+    background-color: #8E9E82;
+}
+
+.socialIcon img {
+    width: 30px;
+    height: 30px;
 }
 
 .footerWatermark {
@@ -150,14 +181,16 @@
 }
 
 .footerBottom {
-    background-color: #8E9E82;
+    background-color: #95B79A;
     color: white;
     text-align: center;
-    padding: 1rem 1rem;
-    font-size: 0.9rem;
-    margin-top: 4rem;
+    padding: 1rem 2rem;
+    font-size: 14px;
+    margin-top: 5rem;
     position: relative;
     z-index: 2;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
 }
 
 .successMessage {
@@ -177,7 +210,7 @@
 /* For Extra Large Desktops & TVs (1920px and up) */
 @media (min-width: 1441px) {
     .footerMain {
-        max-width: 1600px; /* Widen the container for large screens */
+        max-width: 1200px; /* Widen the container for large screens */
     }
 }
 
@@ -193,36 +226,38 @@
 /* For Tablets (iPad Pro, etc.) */
 @media (max-width: 1024px) {
     .footerMain {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns for links */
-        gap: 2rem 1.5rem; /* row-gap column-gap */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem 1.5rem;
         justify-items: start;
     }
 
     .contactInfo {
-        grid-column: 1 / -1; /* Span all 3 columns */
+        grid-column: 1 / -1;
         text-align: center;
-        justify-self: center; /* Center the whole block */
+        justify-self: center;
     }
 
-    .contactInfo .logo {
+    .logoContainer {
+        text-align: center;
+    }
+
+    .logo {
         margin: 0 auto 1rem;
     }
 
     .contactList li {
         justify-content: center;
-        text-align: left; /* Keep text left-aligned for readability */
-        display: inline-flex; /* Allows multiple items per line if space allows */
-        margin: 0 1rem 1rem 1rem;
+        text-align: center;
+        margin: 0 0.5rem 0.75rem 0.5rem;
     }
 
     .newsletter {
-        grid-column: 1 / -1; /* Span all 3 columns */
+        grid-column: 1 / -1;
         text-align: center;
         margin-top: 2rem;
     }
 
     .emailInput {
-        margin: 0 auto;
         max-width: 400px;
     }
 
@@ -231,7 +266,7 @@
     }
     
     .footerWatermark {
-        bottom: 20px; /* Adjust watermark position for taller footer */
+        bottom: 20px;
         opacity: 0.6;
     }
 }
@@ -239,60 +274,180 @@
 /* For Portrait Tablets & Mobile Phones (iPhone, Android, etc.) */
 @media (max-width: 768px) {
     .footer {
-        padding-top: 3rem;
+        padding-top: 2rem;
     }
 
     .footerMain {
-        grid-template-columns: 1fr 1fr; /* 2 columns for links */
+        grid-template-columns: 1fr;
         text-align: center;
         padding: 0 1.5rem;
+        gap: 2rem;
+        justify-items: center;
+    }
+    
+    .contactInfo {
+        text-align: center;
+        justify-self: center;
+    }
+
+    .logoContainer {
+        text-align: center;
+    }
+
+    .contactList {
+        text-align: center;
+    }
+
+    .contactList li {
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 0.75rem;
     }
     
     .linksColumn {
-        text-align: left; /* Left-align link text */
+        text-align: center;
+        justify-self: center;
+    }
+
+    .linksColumn ul {
+        text-align: center;
     }
 
     .newsletter {
         margin-top: 1rem;
+        grid-column: 1 / -1;
+        text-align: center;
+        justify-self: center;
     }
     
     .footerBottom {
-        margin-top: 3rem;
+        margin-top: 2rem;
+        font-size: 14px;
     }
     
     .footerWatermark {
         bottom: 10px;
         opacity: 0.4;
+        max-width: 90vw;
     }
 }
 
 /* For Standard & Small Mobile Phones */
 @media (max-width: 576px) {
+    .footer {
+        padding-top: 1.5rem;
+    }
+
     .footerMain {
-        grid-template-columns: 1fr; /* Switch to a single column */
-        gap: 2rem;
-        padding: 0 1.5rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+        justify-items: center;
     }
 
     .contactInfo, .linksColumn, .newsletter {
         text-align: center;
+        justify-self: center;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .logoContainer {
+        text-align: center;
+    }
+
+    .contactList {
+        text-align: center;
+    }
+
+    .contactList li {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
     }
     
     .linksColumn ul {
-        line-height: 35px;
+        line-height: 1.8;
+        text-align: center;
+    }
+
+    .linksColumn li {
+        text-align: center;
     }
 
     .emailInput {
         width: 100%;
-        max-width: 350px;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .socialIcons {
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
     }
 
     .footerWatermark {
         opacity: 0.3;
         bottom: 5px;
+        max-width: 95vw;
     }
     
     .footerBottom {
-        font-size: 0.8rem;
+        font-size: 12px;
+        padding: 0.8rem 1rem;
+        text-align: center;
+    }
+}
+
+/* For Very Small Mobile Phones (below 400px) */
+@media (max-width: 400px) {
+    .footer {
+        padding-top: 1rem;
+    }
+
+    .footerMain {
+        padding: 0 0.5rem;
+        gap: 1rem;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    .contactList li {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.25rem;
+    }
+
+    .contactList img {
+        margin-top: 0;
+    }
+
+    .emailInput {
+        max-width: 280px;
+    }
+
+    .socialIcons {
+        gap: 0.25rem;
+    }
+
+    .socialIcon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .socialIcon img {
+        width: 14px;
+        height: 14px;
+    }
+
+    .footerBottom {
+        padding: 0.6rem 0.5rem;
+        font-size: 11px;
     }
 }

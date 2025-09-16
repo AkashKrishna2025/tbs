@@ -4,11 +4,13 @@ import HeroSection from '../components/HeroSection/HeroSection';
 import ProductSlider from '../components/ProductSlider/ProductSlider';
 import SignatureProjects from '../components/SignatureProjects/SignatureProjects';
 import DesignProcess from '../components/DesignProcess/DesignProcess';
-import RealStories from '../components/RealStories/RealStories'; // इम्पोर्ट
-import CTASection from '../components/CTASection/CTASection';   // इम्पोर्ट
+import RealStories from '../components/RealStories/RealStories';
+import CTASection from '../components/CTASection/CTASection';   
 import WhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
-import GiftSection from '../components/GiftSection/GiftSection';
+import GiftCard from '../components/GiftCard/GiftCard';
 import TestimonialSection from '../components/TestimonialSection/TestimonialSection';
+import giftCard1Image from '../assets/images/gift-card1.png';
+import FloatingIcons from '../components/FloatingIcons/FloatingIcons';
 
 
 
@@ -21,13 +23,13 @@ const HomePage = () => {
       <WhyChooseUs />
       <SignatureProjects />
       <DesignProcess />
-       <RealStories />
+      <RealStories />
       <CTASection />
-        <GiftSection/>
-    
+      <GiftCard leftImage={giftCard1Image} />
       <TestimonialSection/>
-
      
+      <FloatingIcons/>
+
     </div>
   );
 };

@@ -3,13 +3,14 @@
 /* Base styles for larger screens (e.g., Desktops, Large Laptops, LCD & LED panels) */
 /* This covers resolutions like 1920 * 1080, 1920 * 958, 1536 * 864 and larger Mac Computer displays */
 .section {
-    margin-top: 4rem; /* FIX: Changed from -29rem to a positive margin to prevent overlap */
-    padding: 4rem 2rem;
+    max-width: 1200px; /* Must match .heroContent max-width */
+    margin: 0 auto;
+    padding: 0 20px; /* Must match .heroContent padding */
+    margin-bottom: 4rem;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 2.5rem;
 }
 
 .header h2 {
@@ -36,13 +37,12 @@
   position: relative;
   max-width: 1200px; /* Base max-width */
   margin: 0 auto;
-  padding: 0 4rem; /* Space for arrows */
 }
 
 .slider {
   display: flex;
   overflow-x: auto;
-  gap: 2rem;
+  gap: 2.2rem;
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -56,12 +56,12 @@
 
 .projectCard {
   flex: 0 0 calc(50% - 1rem); /* Base: 2 cards with 2rem gap. (100% - 2rem) / 2 = 50% - 1rem */
-  border: 1px solid #EAE5DD;
+  border: 1px solid #95B79A;
   border-radius: 16px;
   overflow: hidden;
   scroll-snap-align: start; /* Changed from 'center' to 'start' for consistent snapping */
   background-color: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  /* box-shadow: 0 4px 15px rgba(0,0,0,0.05); */
   display: flex;
   flex-direction: column;
 }
@@ -75,12 +75,13 @@
 
 .cardCaption {
   display: block;
-  padding: 1.5rem;
+  padding: 16px;
   text-decoration: none;
   color: #333;
   font-weight: 500;
   border-top: 1px solid #EAE5DD;
   margin-top: auto;
+  font-family: 'Lato', sans-serif;
 }
 
 .arrow {
@@ -100,10 +101,10 @@
 }
 
 .leftArrow {
-  left: 1rem;
+  left: -2rem;
 }
 .rightArrow {
-  right: 1rem;
+  right: -2rem;
 }
 
 /* -- Media Queries for Responsiveness -- */
@@ -111,8 +112,7 @@
 /* Large Laptops & Desktops (e.g., 1025px to 1440px, 1536*864, smaller Mac displays) */
 @media (min-width: 1025px) and (max-width: 1440px) {
     .section {
-        padding: 3.5rem 1.5rem;
-        margin-top: 3.5rem;
+        margin-bottom: 4rem;
     }
     .header h2 {
         font-size: 40px;
@@ -146,8 +146,7 @@
 /* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, 769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .section {
-        padding: 3rem 1rem;
-        margin-top: 3rem;
+        margin-bottom: 3rem;
     }
     .header {
         margin-bottom: 2rem;
@@ -189,8 +188,7 @@
 /* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
 @media (min-width: 577px) and (max-width: 768px) {
     .section {
-        padding: 2.5rem 0.8rem;
-        margin-top: 2.5rem;
+        margin-bottom: 3rem;
     }
     .header {
         margin-bottom: 1.8rem;
@@ -234,8 +232,7 @@
 /* Small Phones (e.g., iPhone normal/small, 401px to 576px) */
 @media (min-width: 401px) and (max-width: 576px) {
     .section {
-        padding: 2rem 0.5rem;
-        margin-top: 2rem;
+        margin-bottom: 3rem;
     }
     .header {
         margin-bottom: 1.5rem;
@@ -275,8 +272,7 @@
 /* Extra Small Phones (e.g., older or very small devices, up to 400px) */
 @media (max-width: 400px) {
     .section {
-        padding: 1.5rem 0.2rem;
-        margin-top: 1.5rem;
+        margin-bottom: 2rem;
     }
     .header {
         margin-bottom: 1rem;

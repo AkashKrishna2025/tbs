@@ -1,0 +1,259 @@
+/* src/components/MissionMosaic/MissionMosaic.module.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Playfair+Display:wght@400;700&display=swap');
+
+/* ===== Mission Mosaic Section ===== */
+.missionMosaic {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    margin-bottom: 4rem;
+}
+
+/* --- common tiles --- */
+.tile,
+.card,
+.logoTile {
+    border-radius: 10px;
+    /* Softer rounded corners */
+    overflow: hidden;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); */
+    /* Subtle shadow */
+}
+
+.tile {
+    aspect-ratio: 1 / 1;
+    /* Made tiles square for a more consistent look, adjust if needed */
+}
+
+.tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- green cards --- */
+.card {
+    background: #eef5ec;
+    /* light pastel green */
+    padding: 25px;
+    /* More padding for better spacing */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    /* Full height of container */
+    border-radius: 8px;
+}
+
+.cardIcon {
+    width: 30px;
+    /* Slightly larger icon */
+    height: 30px;
+    margin-bottom: 12px;
+    object-fit: contain;
+    opacity: 0.8;
+    /* Slightly more prominent icon */
+}
+
+.card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #000000;
+    font-weight: 500;
+    margin: 0 0 10px;
+    /* line-height: 1.9; */
+}
+
+.card p {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    /* Slightly smaller for longer text */
+    line-height: 1.8;
+    /* Improved line height */
+    color: #000000;
+    font-weight: 400;
+    /* Softer dark color */
+}
+
+/* --- center logo tile --- */
+.logoTile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    /* White background for the logo tile */
+    height: 100%;
+    /* Full height of container */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logoTile img {
+    max-width: 70%;
+    /* Adjusted for better proportions */
+    height: auto;
+    object-fit: contain;
+}
+
+/* --- New Grid Layout Containers --- */
+.topRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 15px;
+    row-gap: 15px;
+    align-items: stretch;
+    grid-auto-rows: 360px;
+}
+
+.bottomRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    align-items: stretch;
+    grid-auto-rows: 360px;
+}
+
+/* First column of top row: inline row of [card | image] */
+.topColOne {
+    display: block;
+    grid-row: span 2;
+}
+
+.inlineRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    height: 100%;
+    align-items: stretch;
+}
+
+/* Right span (covers 2 columns) with two stacked rows */
+.topRightSpan {
+    grid-column: span 2;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 15px;
+}
+
+.topRightRowA {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    align-items: stretch;
+}
+
+.topRightRowB {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    align-items: stretch;
+}
+
+.stackedImages {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Ensure tiles/cards inside the grid stretch fully and remove fixed square ratio */
+.topRow .card,
+.bottomRow .card {
+    height: 100%;
+}
+
+.topRow .tile,
+.bottomRow .tile {
+    aspect-ratio: auto;
+    height: 175px;
+}
+
+/* Make left big column's inner children fill the full two-row height */
+.topColOne .tile,
+.topColOne .card {
+    height: 100%;
+}
+
+/* Old sizing classes removed */
+
+/* wide card spans multiple columns like in the image */
+.cardWide { display: block; }
+
+/* ===== Responsive Design ===== */
+
+/* Tablet view */
+@media (max-width: 992px) {
+    .topRow,
+    .bottomRow {
+        grid-template-columns: 1fr;
+    }
+    .topRightSpan {
+        grid-column: auto;
+        grid-template-rows: auto auto;
+    }
+    .inlineRow,
+    .topRightRowA,
+    .topRightRowB {
+        grid-template-columns: 1fr 1fr;
+    }
+    .tile,
+    .logoTile {
+        aspect-ratio: 16/11;
+    }
+}
+
+/* Mobile view */
+@media (max-width: 576px) {
+    .missionMosaic {
+        gap: 12px;
+        padding: 0 20px;
+    }
+
+    .topRow,
+    .bottomRow,
+    .inlineRow,
+    .topRightRowA,
+    .topRightRowB,
+    .stackedImages {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 12px;
+    }
+
+    .card {
+        padding: 20px;
+        min-height: 250px;
+    }
+
+    .card h3 {
+        font-size: 18px;
+    }
+
+    .card p {
+        font-size: 13px;
+    }
+
+    .logoTile img {
+        max-width: 65%;
+    }
+}
+
+.logoImage{
+    object-fit: contain !important;
+    padding: 2rem;
+}
+
+.fixHeight{
+    height: 100% !important;
+}

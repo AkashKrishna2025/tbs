@@ -1,16 +1,19 @@
 /* src/components/ProductFeatures/ProductFeatures.module.css (पूरा और फ़ाइनल कोड) */
 
 .featuresSection {
-    padding: 60px 20px; /* Base padding */
+    max-width: 1200px;
+    margin: 0 auto;
     background-color: #fff;
     text-align: center;
+    margin-bottom: 4rem;
+    padding: 0 20px;
 }
 
 .sectionTitle {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 2.5rem; /* Base font size */
-    font-weight: 500;
-    color: #333;
+    font-family: 'Playfair Display', serif;
+    font-size: 44px; /* Base font size */
+    font-weight: 400;
+    color: #313131;
     margin-bottom: 40px; /* Base margin */
 }
 
@@ -69,12 +72,8 @@
 
 /* Extra Large Desktops & Wide Screens (e.g., 1920*1080, 1920*958, large LCD/LED panels) */
 @media (min-width: 1441px) {
-    .featuresSection {
-        padding: 70px 30px;
-    }
-    .sectionTitle {
-        font-size: 2.8rem;
-        margin-bottom: 50px;
+    .featuresSection{
+        margin-bottom: 4rem;
     }
     .featuresGrid {
         max-width: 1300px; /* Allow grid to be slightly wider */
@@ -100,8 +99,8 @@
 
 /* Large Laptops & Standard Desktops (e.g., Mac Computer Display, 1536*864, 1025px to 1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
-    .featuresSection {
-        padding: 60px 25px;
+    .featuresSection{
+        margin-bottom: 4rem;
     }
     .sectionTitle {
         font-size: 2.3rem;
@@ -132,8 +131,8 @@
 
 /* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, smaller Mac displays, 769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
-    .featuresSection {
-        padding: 50px 20px;
+    .featuresSection{
+        margin-bottom: 4rem;
     }
     .sectionTitle {
         font-size: 2.1rem;
@@ -165,8 +164,8 @@
 
 /* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
 @media (min-width: 577px) and (max-width: 768px) {
-    .featuresSection {
-        padding: 40px 15px;
+    .featuresSection{
+        margin-bottom: 3rem;
     }
     .sectionTitle {
         font-size: 1.8rem;
@@ -198,8 +197,8 @@
 
 /* Small Phones (e.g., iPhone normal/small, 401px to 576px) */
 @media (min-width: 401px) and (max-width: 576px) {
-    .featuresSection {
-        padding: 30px 10px;
+    .featuresSection{
+        margin-bottom: 3rem;
     }
     .sectionTitle {
         font-size: 1.6rem;
@@ -231,8 +230,8 @@
 
 /* Extra Small Phones (e.g., older or very small devices, up to 400px) */
 @media (max-width: 400px) {
-    .featuresSection {
-        padding: 25px 8px;
+    .featuresSection{
+        margin-bottom: 1rem;
     }
     .sectionTitle {
         font-size: 1.4rem;

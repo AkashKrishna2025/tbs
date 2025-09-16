@@ -1,23 +1,21 @@
 /* src/components/ProductCard/ProductCard.module.css */
 
-/* Google Font को अपनी main CSS या index.css में import करें: 
+/* Google Font Import 
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Poppins:wght@400;500;600;700&display=swap');
 */
 
-/* Base styles for larger screens (e.g., Desktops, Large Laptops, LCD & LED panels) */
-/* This covers resolutions like 1920 * 1080, 1920 * 958, 1536 * 864 and larger Mac Computer displays */
 .productCard {
   background: #FFFFFF;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Lato', sans-serif;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  width: 280px; /* Base width */
-  min-width: 280px; /* Base min-width */
+  width: 280px;
+  min-width: 280px;
   flex-shrink: 0;
-  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Added subtle shadow for visual consistency with other components */
+  border-radius: 0; /* No radius on card */
+  margin-bottom: 20px;
 }
 
 .productLink {
@@ -33,6 +31,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  border-radius: 10px; /* Rounded on all sides */
 }
 
 .productImage {
@@ -40,24 +40,25 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 10px; /* Ensure image follows same rounding */
 }
 
 .productInfo {
-  padding: 16px; /* Base padding */
+  padding: 16px 0px;
   text-align: left;
 }
 
 .rating {
   display: flex;
   align-items: center;
-  font-size: 14px; /* Base font size */
+  font-size: 14px;
   color: #000000;
-  margin-bottom: 8px; /* Base margin */
+  margin-bottom: 8px;
   font-family: 'Poppins', sans-serif;
 }
 
 .buttonContainer {
-  min-height: 49px; /* Base height */
+  min-height: 49px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,19 +69,20 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 49px; /* Base height */
-  background-color: #7FB685; /* Changed to match Add to Cart button color */
+  height: 49px;
+  background-color: #7FB685;
   color: white;
+  border-radius: 10px; /* Rounded on all sides */
 }
 
 .quantitySelector button {
   background: none;
   border: none;
   color: white;
-  font-size: 1.8rem; /* Base font size */
+  font-size: 1.8rem;
   font-weight: 300;
   cursor: pointer;
-  padding: 0 20px; /* Base padding */
+  padding: 0 20px;
   height: 100%;
   transition: background-color 0.2s ease;
 }
@@ -90,7 +92,7 @@
 }
 
 .quantitySelector span {
-  font-size: 1.1rem; /* Base font size */
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
@@ -111,33 +113,32 @@
 
 .productName {
   font-family: 'Libre Baskerville', serif;
-  font-size: 20px; /* Base font size */
+  font-size: 20px;
   font-weight: 400;
   color: #222;
-  margin: 0 0 10px 0; /* Base margin */
+  margin: 0 0 10px 0;
   line-height: 1.4;
 }
 
 .priceContainer {
   display: flex;
   align-items: baseline;
-  gap: 10px; /* Base gap */
+  gap: 10px;
 }
 
 .originalPrice {
   color: #888;
   text-decoration: line-through;
-  font-size: 16px; /* Base font size */
+  font-size: 16px;
   font-weight: 400;
 }
 
 .currentPrice {
   font-family: 'Lato', sans-serif;
   font-weight: 600;
-  font-size: 20px; /* Base font size */
+  font-size: 20px;
   font-style: normal;
   line-height: 100%;
-  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -145,273 +146,97 @@
   background: #7FB685;
   color: #FFFFFF;
   border: none;
-  padding: 14px 20px; /* Base padding */
-  font-size: 16px; /* Base font size */
+  padding: 14px 20px;
+  font-size: 16px;
   font-weight: 500;
   cursor: pointer;
   width: 100%;
   margin-top: auto;
   transition: background-color 0.2s ease;
-  /* Removed border-radius here as it's typically applied to the card itself if the button fills the bottom */
+  border-radius: 10px; /* Rounded on all sides */
 }
 
 .addToCartBtn:hover {
   background: #98aa84;
 }
 
-/* --- Responsive Design --- */
+/* Responsive breakpoints (only card sizes and text sizes change, radii remain same everywhere) */
 
-/* Extra Large Desktops & Wide Screens (e.g., 1441px and up) */
-/* Base styles already handle these larger screens well */
 @media (min-width: 1441px) {
-    .productCard {
-        width: 300px; /* Slightly wider cards for very large screens */
-        min-width: 300px;
-        border-radius: 10px;
-    }
-    .productInfo {
-        padding: 18px;
-    }
-    .rating {
-        font-size: 15px;
-        margin-bottom: 10px;
-    }
-    .productName {
-        font-size: 22px;
-        margin-bottom: 12px;
-    }
-    .originalPrice {
-        font-size: 17px;
-    }
-    .currentPrice {
-        font-size: 22px;
-    }
-    .addToCartBtn, .quantitySelector {
-        height: 52px;
-        padding: 15px 22px;
-        font-size: 17px;
-    }
-    .quantitySelector button {
-        font-size: 2rem;
-        padding: 0 22px;
-    }
-    .quantitySelector span {
-        font-size: 1.2rem;
-    }
+  .productCard { width: 300px; min-width: 300px; }
+  .productInfo { padding: 18px 0px; }
+  .rating { font-size: 15px; margin-bottom: 8px; }
+  .productName { font-size: 22px; margin-bottom: 8px; }
+  .originalPrice { font-size: 17px; }
+  .currentPrice { font-size: 22px; }
+  .addToCartBtn, .quantitySelector { padding: 10px 22px; font-size: 17px; }
+  .quantitySelector button { font-size: 2rem; padding: 0 22px; }
+  .quantitySelector span { font-size: 1.2rem; }
 }
 
-
-/* Large Laptops & Standard Desktops (e.g., Mac Computer Display, 1536*864, 1025px to 1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
-    .productCard {
-        width: 260px; /* Adjust card width */
-        min-width: 260px;
-        border-radius: 7px;
-    }
-    .productInfo {
-        padding: 14px;
-    }
-    .rating {
-        font-size: 13px;
-        margin-bottom: 7px;
-    }
-    .productName {
-        font-size: 18px;
-        margin-bottom: 9px;
-    }
-    .originalPrice {
-        font-size: 15px;
-    }
-    .currentPrice {
-        font-size: 18px;
-    }
-    .addToCartBtn, .quantitySelector {
-        height: 46px;
-        padding: 13px 18px;
-        font-size: 15px;
-    }
-    .quantitySelector button {
-        font-size: 1.6rem;
-        padding: 0 18px;
-    }
-    .quantitySelector span {
-        font-size: 1.05rem;
-    }
-    .priceContainer {
-        gap: 8px;
-    }
+  .productCard { width: 260px; min-width: 260px; }
+  .productInfo { padding: 14px 0px; }
+  .rating { font-size: 13px; margin-bottom: 6px; }
+  .productName { font-size: 18px; margin-bottom: 8px; }
+  .originalPrice { font-size: 15px; }
+  .currentPrice { font-size: 18px; }
+  .addToCartBtn, .quantitySelector { padding: 10px 18px; font-size: 15px; }
+  .quantitySelector button { font-size: 1.6rem; padding: 0 18px; }
+  .quantitySelector span { font-size: 1.05rem; }
+  .priceContainer { gap: 8px; }
 }
 
-
-/* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, smaller Mac displays, 769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
-    .productCard {
-        width: 220px; /* Further reduce card width */
-        min-width: 220px;
-        border-radius: 6px;
-    }
-    .productInfo {
-        padding: 12px;
-    }
-    .rating {
-        font-size: 12px;
-        margin-bottom: 6px;
-    }
-    .productName {
-        font-size: 17px;
-        margin-bottom: 8px;
-    }
-    .originalPrice {
-        font-size: 14px;
-    }
-    .currentPrice {
-        font-size: 17px;
-    }
-    .addToCartBtn, .quantitySelector {
-        height: 42px;
-        padding: 12px 16px;
-        font-size: 14px;
-    }
-    .quantitySelector button {
-        font-size: 1.5rem;
-        padding: 0 16px;
-    }
-    .quantitySelector span {
-        font-size: 1rem;
-    }
-    .priceContainer {
-        gap: 7px;
-    }
+  .productCard { width: 220px; min-width: 220px; }
+  .productInfo { padding: 12px 0px; }
+  .rating { font-size: 12px; margin-bottom: 6px; }
+  .productName { font-size: 17px; margin-bottom: 8px; }
+  .originalPrice { font-size: 14px; }
+  .currentPrice { font-size: 17px; }
+  .addToCartBtn, .quantitySelector { padding: 10px 16px; font-size: 14px; }
+  .quantitySelector button { font-size: 1.5rem; padding: 0 16px; }
+  .quantitySelector span { font-size: 1rem; }
+  .priceContainer { gap: 7px; }
 }
 
-
-/* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
 @media (min-width: 577px) and (max-width: 768px) {
-    .productCard {
-        width: 200px; /* Match your existing breakpoint, further reduced */
-        min-width: 200px;
-        border-radius: 5px;
-    }
-    .productInfo {
-        padding: 10px;
-    }
-    .rating {
-        font-size: 11px;
-        margin-bottom: 5px;
-    }
-    .productName {
-        font-size: 16px;
-        margin-bottom: 7px;
-    }
-    .originalPrice {
-        font-size: 13px;
-    }
-    .currentPrice {
-        font-size: 16px;
-    }
-    .addToCartBtn, .quantitySelector {
-        height: 38px;
-        padding: 10px 14px;
-        font-size: 13px;
-    }
-    .quantitySelector button {
-        font-size: 1.3rem;
-        padding: 0 14px;
-    }
-    .quantitySelector span {
-        font-size: 0.9rem;
-    }
-    .priceContainer {
-        gap: 6px;
-    }
+  .productCard { width: 200px; min-width: 200px; }
+  .productInfo { padding: 10px 0px; }
+  .rating { font-size: 11px; margin-bottom: 6px; }
+  .productName { font-size: 16px; margin-bottom: 8px; }
+  .originalPrice { font-size: 13px; }
+  .currentPrice { font-size: 16px; }
+  .addToCartBtn, .quantitySelector { padding: 10px 14px; font-size: 13px; }
+  .quantitySelector button { font-size: 1.3rem; padding: 0 14px; }
+  .quantitySelector span { font-size: 0.9rem; }
+  .priceContainer { gap: 6px; }
 }
 
-
-/* Small Phones (e.g., iPhone normal/small, 401px to 576px) */
 @media (min-width: 401px) and (max-width: 576px) {
-    .productCard {
-        width: 180px; /* Further adjust for smaller phone sizes */
-        min-width: 180px;
-        border-radius: 5px;
-    }
-    .productInfo {
-        padding: 8px;
-    }
-    .rating {
-        font-size: 10px;
-        margin-bottom: 4px;
-    }
-    .productName {
-        font-size: 15px;
-        margin-bottom: 6px;
-    }
-    .originalPrice {
-        font-size: 12px;
-    }
-    .currentPrice {
-        font-size: 15px;
-    }
-    .addToCartBtn, .quantitySelector {
-        height: 35px;
-        padding: 9px 12px;
-        font-size: 12px;
-    }
-    .quantitySelector button {
-        font-size: 1.2rem;
-        padding: 0 12px;
-    }
-    .quantitySelector span {
-        font-size: 0.85rem;
-    }
-    .priceContainer {
-        gap: 5px;
-    }
+  .productCard { width: 180px; min-width: 180px; }
+  .productInfo { padding: 8px 0px; }
+  .rating { font-size: 10px; margin-bottom: 6px; }
+  .productName { font-size: 15px; margin-bottom: 8px; }
+  .originalPrice { font-size: 12px; }
+  .currentPrice { font-size: 15px; }
+  .addToCartBtn, .quantitySelector { padding: 9px 12px; font-size: 12px; }
+  .quantitySelector button { font-size: 1.2rem; padding: 0 12px; }
+  .quantitySelector span { font-size: 0.85rem; }
+  .priceContainer { gap: 5px; }
 }
 
-
-/* Extra Small Phones (e.g., older or very small devices, up to 400px) */
 @media (max-width: 400px) {
-    .productCard {
-        width: 160px; /* Smallest card width */
-        min-width: 160px;
-        border-radius: 4px;
-    }
-    .productInfo {
-        padding: 6px;
-    }
-    .rating {
-        font-size: 9px;
-        margin-bottom: 3px;
-    }
-    .ratingStars {
-        margin-right: 3px;
-    }
-    .separator {
-        margin: 0 6px;
-    }
-    .productName {
-        font-size: 14px;
-        margin-bottom: 5px;
-    }
-    .originalPrice {
-        font-size: 11px;
-    }
-    .currentPrice {
-        font-size: 14px;
-    }
-    .addToCartBtn, .quantitySelector {
-        height: 32px;
-        padding: 8px 10px;
-        font-size: 11px;
-    }
-    .quantitySelector button {
-        font-size: 1.1rem;
-        padding: 0 10px;
-    }
-    .quantitySelector span {
-        font-size: 0.8rem;
-    }
-    .priceContainer {
-        gap: 4px;
-    }
+  .productCard { width: 160px; min-width: 160px; }
+  .productInfo { padding: 6px 0px; }
+  .rating { font-size: 9px; margin-bottom: 3px; }
+  .ratingStars { margin-right: 3px; }
+  .separator { margin: 0 6px; }
+  .productName { font-size: 14px; margin-bottom: 5px; }
+  .originalPrice { font-size: 11px; }
+  .currentPrice { font-size: 14px; }
+  .addToCartBtn, .quantitySelector { padding: 8px 10px; font-size: 11px; }
+  .quantitySelector button { font-size: 1.1rem; padding: 0 10px; }
+  .quantitySelector span { font-size: 0.8rem; }
+  .priceContainer { gap: 4px; }
 }

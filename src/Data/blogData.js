@@ -11,7 +11,7 @@ import blogImg6 from '../assets/images/blog/blog3.png';
 export const BLOG_POSTS = [
   {
     id: 1,
-    title: 'Here Are Some Fun Activities To Keep Your Kids...',
+    title: 'Here Are Some Fun Activities To Keep Your Kids..',
     excerpt: 'Winter can be a tough time for kids. Our little children may feel confined inside due to the gloomy conditions and chilly winds outside. That’s not what we want, right?',
     image: blogImg1,
     category: 'doctors', // 'doctors', 'moms', 'dads'

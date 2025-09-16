@@ -1,7 +1,7 @@
 /* --- Mega Menu Base Styles (Desktop First) --- */
 
 .megaMenu {
-    position: absolute;
+   position: absolute;
     top: 100%; /* Positions it directly below the navbar */
     left: 0;
     right: 0;
@@ -14,7 +14,17 @@
     /* Hiding the scrollbar for a cleaner look */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    /* === NEW BACKGROUND IMAGE STYLES === */
+    background-image: url('../../assets/images/megabg.jpg'); /* Replace with the actual path to your background image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    /* You might also want to add a background-color as a fallback or overlay */
 }
+.megaMenu::-webkit-scrollbar {
+    display: none; /* Webkit browsers */
+}
+
 .megaMenu::-webkit-scrollbar {
     display: none; /* Webkit browsers */
 }
@@ -30,7 +40,7 @@
     flex: 0 0 300px; /* Fixed width for category sidebar */
     background: #F8F9F4;
     padding: 40px 30px;
-    border-right: 1px solid #E8E8E8;
+    /* border-right: 1px solid #E8E8E8; */
     
     /* Ensures the sidebar itself can scroll if its content is too long */
     max-height: calc(100vh - var(--navbar-height, 70px) - 80px); /* Adjust 80px for megaMenu's vertical padding */
@@ -44,14 +54,16 @@
 
 .categorySection {
     margin-bottom: 30px;
+    
 }
 
 .categoryTitle {
     font-family: 'Balthazar', serif;
-    margin: 0 0 20px 0;
-    font-size: 36px;
+    margin: 0 0 15px 0;
+    font-size: 21px;
     font-weight: 400;
     color: #708F74;
+    line-height: 1.2;
 }
 
 .categoryTitle a {
@@ -76,7 +88,7 @@
 
 .subCategoryList a {
     text-decoration: none;
-    color: #666;
+    color: #000000;
     font-size: 15px;
     font-weight: 400;
     line-height: 1.4;
@@ -87,7 +99,7 @@
 }
 
 .subCategoryList a::before {
-    content: '>';
+    /* content: '>'; */
     margin-right: 8px;
     color: #8E9E82;
     font-weight: 600;
@@ -171,6 +183,9 @@
     }
     .leftSection {
         flex: 0 0 340px; /* Slightly wider sidebar */
+    }
+    .categoryTitle {
+        font-size: 36px;
     }
 }
 
@@ -265,4 +280,14 @@
      .categoryTitle {
         font-size: 26px;
     }
+}
+
+.longCategoryTitle a {
+  font-size: 18px !important;
+}
+
+.subCategoryIcon {
+  font-size: 0.8em; /* Adjust size as needed */
+  margin-right: 5px;
+  /* Match the color of the original '>' */
 }

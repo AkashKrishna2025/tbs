@@ -12,10 +12,10 @@ import newBadgeIcon from '../../assets/icons/new.png'; // <--- NEW: Import your 
 import { useAuth } from '../../context/AuthContext';
 
 // --- Mock Authentication (for demonstration, replace with actual context) ---
-const mockAuth = {
-  isAuthenticated: () => !!localStorage.getItem('isUserLoggedIn'),
-  logout: () => localStorage.removeItem('isUserLoggedIn'),
-};
+// const mockAuth = {
+//   isAuthenticated: () => !!localStorage.getItem('isUserLoggedIn'),
+//   logout: () => localStorage.removeItem('isUserLoggedIn'),
+// };
 // --- End Mock Authentication ---
 
 // --- NEW: Mobile Menu Overlay Component ---

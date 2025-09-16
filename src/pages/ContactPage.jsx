@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import styles from './ContactPage.module.css';
 import FloatingIcons from '../components/FloatingIcons/FloatingIcons';
-import GiftSection from '../components/GiftContact/GiftContact'; // Corrected import
+import GiftCard from '../components/GiftCard/GiftCard';
 import bannerBg from '../assets/images/contact.png';
+import giftContactImage from '../assets/images/gift-contact.png';
 import phoneIcon from '../assets/icons/gphone.png';
 import emailIcon from '../assets/icons/gmail.png';
 import socialIcon from '../assets/icons/gnotification.png';
@@ -100,7 +101,12 @@ const ContactPage = () => {
                   </div>
                   <textarea name="message" placeholder="Message*" rows="6" required></textarea>
                   <button type="submit" className={styles.submitButton}>
-                    Send Message →
+                    Send Message 
+                    <svg className={styles.submitArrow} width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1.22461 5.71753H12.3791" stroke="#9EB7A2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M8.89355 1.18579L13.7737 5.71747L8.89355 10.2491" stroke="#9EB7A2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+
                   </button>
                 </form>
               </>
@@ -108,10 +114,14 @@ const ContactPage = () => {
           </div>
         </main>
       </div>
+
       <FloatingIcons />
-      <GiftSection />
+      <GiftCard 
+        leftImage={giftContactImage}
+      />
       <FaqSection />
       <ReferEarn />
+      
     </>
   );
 };

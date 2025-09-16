@@ -3,13 +3,16 @@
 /* Base styles for larger screens (e.g., Desktops, Large Laptops, LCD & LED panels) */
 /* This covers resolutions like 1920 * 1080, 1920 * 958, 1536 * 864 and larger Mac Computer displays */
 .section {
-  padding: 80px 0;
-  background-color: #FCFBF9;
-  width: 100%;
+  padding: 0 20px;
+  background-color: #fff;
+  width: 100%; /* Added for consistent spacing */
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 4rem;
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -21,7 +24,7 @@
 
 .header h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 42px;
+  font-size: 44px !important;
   font-weight: 400;
   color: #2C2C2C;
   margin: 0 0 12px 0;
@@ -29,7 +32,7 @@
 }
 
 .header p {
-  font-size: 16px;
+  font-size: 18px;
   color: #666;
   margin: 0;
   font-style: italic;
@@ -45,10 +48,10 @@
 
 .filterBtn {
   background: transparent;
-  border: 1px solid #E0E0E0;
+  border: 2px solid #95B79A;
   border-radius: 25px;
-  padding: 12px 24px;
-  font-size: 14px;
+  padding: clamp(10px, 2vw, 12px) clamp(20px, 4vw, 24px); /* Responsive padding */
+  font-size: clamp(12px, 2.5vw, 14px); /* Responsive font size */
   font-weight: 500;
   color: #666;
   cursor: pointer;
@@ -57,13 +60,13 @@
 }
 
 .filterBtn:hover {
-  border-color: #8E9E82;
-  color: #8E9E82;
+  border-color: #95B79A;
+  color: #95B79A;
 }
 
 .filterBtn.active {
-  background: #8E9E82;
-  border-color: #8E9E82;
+  background: #95B79A;
+  border-color: #E8F4E5;
   color: white;
 }
 
@@ -83,6 +86,11 @@
   /* Hide scrollbar */
   scrollbar-width: none;
   -ms-overflow-style: none;
+  
+  /* Enhanced touch scrolling */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
 }
 
 .slider::-webkit-scrollbar {
@@ -97,8 +105,8 @@
   background-color: transparent; /* Default transparent */
   border: 1px solid transparent; /* Transparent border to allow transition */
   border-radius: 50%; /* Circular button area */
-  width: 50px; /* Default size for arrows on large screens */
-  height: 50px; /* Default size */
+  width: 60px; /* Default size for arrows on large screens */
+  height: 60px; /* Default size */
   display: flex; /* To center the icon inside */
   align-items: center;
   justify-content: center;
@@ -108,10 +116,8 @@
   transition: all 0.3s ease; /* Smooth transition for all properties */
 }
 
-.arrow:hover {
-  background-color: #8E9E82; /* Background on hover */
-  border-color: #8E9E82; /* Border on hover */
-  transform: translateY(-50%) scale(1.1); /* Scales the button area */
+.arrow svg {
+  font-size: 1rem;
 }
 
 .leftArrow {
@@ -122,16 +128,7 @@
   right: 0;
 }
 
-.arrowIcon {
-  width: 25px;
-  height: 25px;
-  object-fit: contain;
-  /* If arrow icons need to change color on hover (e.g., to white),
-     you might add a filter here, e.g.:
-     .arrow:hover .arrowIcon { filter: brightness(0) invert(1); }
-     This is not included by default to strictly adhere to "no design change" unless specified.
-  */
-}
+
 
 /* --- Responsive Design --- */
 
@@ -139,7 +136,7 @@
 /* Base styles already handle these well, minor adjustments for larger aesthetic */
 @media (min-width: 1441px) {
     .section {
-        padding: 90px 0;
+        margin-bottom: 4rem;
     }
     .container {
         max-width: 1500px; /* Allow content to stretch slightly more */
@@ -152,7 +149,6 @@
         font-size: 17px;
     }
     .filters {
-        margin-bottom: 60px;
         gap: 15px;
     }
     .filterBtn {
@@ -176,7 +172,7 @@
 /* Large Laptops & Standard Desktops (e.g., Mac Computer Display, 1536*864, 1025px to 1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
   .section {
-    padding: 70px 0;
+    margin-bottom: 4rem;
   }
   .container {
     max-width: 1200px;
@@ -216,7 +212,7 @@
 /* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, smaller Mac displays, 769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   .section {
-    padding: 60px 0;
+    margin-bottom: 3rem;
   }
   .container {
     padding: 0 16px;
@@ -252,7 +248,7 @@
 /* Tablets Portrait & Large Phones (e.g., iPads in portrait, iPhone Max/Plus sizes, 577px to 768px) */
 @media (min-width: 577px) and (max-width: 768px) {
   .section {
-    padding: 50px 0;
+    margin-bottom: 2rem;
   }
   .container {
     padding: 0 12px;
@@ -266,15 +262,20 @@
   .filters {
     margin-bottom: 35px;
     gap: 8px;
+    overflow-x: auto; /* Enable horizontal scrolling for filters */
+    padding: 0 0 10px 0; /* Add space for scrollbar */
+    -webkit-overflow-scrolling: touch;
   }
   .filterBtn {
     padding: 9px 18px;
     font-size: 12.5px;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
   }
   .slider {
     margin: 0 10px; /* Arrows are hidden, so less margin needed */
     gap: 12px;
     padding: 8px 0 20px; /* Adjust padding if scrollbar appears */
+    scroll-snap-type: x mandatory; /* Snap to items */
   }
   .arrow {
     display: none; /* Hide arrows on smaller screens */
@@ -284,7 +285,7 @@
 /* Small Phones (e.g., iPhone normal/small, 401px to 576px) */
 @media (min-width: 401px) and (max-width: 576px) {
   .section {
-    padding: 40px 0;
+    margin-bottom: 2rem;
   }
   .container {
     padding: 0 10px;
@@ -302,6 +303,7 @@
     padding: 0 10px 15px; /* Add bottom padding for scrollbar visibility */
     margin-bottom: 30px;
     gap: 8px;
+    -webkit-overflow-scrolling: touch;
   }
   .filterBtn {
     flex-shrink: 0; /* Prevent buttons from shrinking */
@@ -312,6 +314,7 @@
     margin: 0 5px; /* Reduce slider margin further */
     gap: 10px;
     padding: 5px 0 15px;
+    scroll-snap-type: x mandatory; /* Snap to items */
   }
   /* Arrows remain hidden */
 }
@@ -319,7 +322,7 @@
 /* Extra Small Phones (e.g., older or very small devices, up to 400px) */
 @media (max-width: 400px) {
   .section {
-    padding: 30px 0;
+    margin-bottom: 1rem;
   }
   .container {
     padding: 0 8px;
@@ -337,15 +340,19 @@
     padding: 0 8px 12px; /* Adjust filter padding */
     margin-bottom: 20px;
     gap: 6px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .filterBtn {
     padding: 7px 14px;
     font-size: 11px;
+    flex-shrink: 0;
   }
   .slider {
     margin: 0 2px;
     gap: 8px;
     padding: 5px 0 10px;
+    scroll-snap-type: x mandatory;
   }
   /* Arrows remain hidden */
 }

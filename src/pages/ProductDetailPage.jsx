@@ -120,10 +120,13 @@ const ProductDetailPage = () => {
             </div>
 
             {youSave > 0 &&
-              <span> You save: ₹ <p className={styles.savings}>
-                {youSave.toLocaleString()} ({discountPercentage}% off)
-              </p>
+              <p> You save: <span>
+                ₹{youSave.toLocaleString()} 
               </span>
+                <span className={styles.savings}>
+                ({discountPercentage}% off)
+              </span>
+              </p>
             }
 
             <div className={styles.featuresSection}>

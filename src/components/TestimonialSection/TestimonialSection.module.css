@@ -1,13 +1,18 @@
 /* src/components/TestimonialSection/TestimonialSection.module.css (FINAL, FULLY RESPONSIVE) */
 
 .section {
-  padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem); /* Fluid padding */
-  overflow: hidden;
+    max-width: 1200px;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    padding: 0 20px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: 4rem;
 }
 
 .header {
   text-align: center;
-  margin-bottom: clamp(2rem, 6vw, 3.5rem); /* Fluid margin */
+  margin-bottom: clamp(2rem, 6vw, 2.5rem); /* Fluid margin */
 }
 
 .header h2 {
@@ -121,11 +126,13 @@
 
 .author h4 {
   font-weight: bold;
+  font-style: italic;
 }
 
 .author span {
   color: #777;
   font-size: 0.9rem;
+  font-style: italic;
 }
 
 /* --- Pagination Styles --- */
@@ -164,7 +171,7 @@
 /* Large Laptops & Standard Desktops (e.g., Mac Computer Display, 1536*864, 1025px to 1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
     .section {
-        padding: clamp(3rem, 7vw, 4.5rem) clamp(1rem, 3.5vw, 1.8rem);
+        margin-bottom: 4rem;
     }
     .header h2 {
         font-size: clamp(1.7rem, 4.5vw, 2.5rem);
@@ -205,7 +212,7 @@
 /* Medium Laptops & Tablets Landscape (e.g., iPads in landscape, smaller Mac displays, 769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .section {
-        padding: clamp(2.5rem, 6vw, 4rem) clamp(0.8rem, 3vw, 1.5rem);
+        margin-bottom: 3rem;
     }
     .header h2 {
         font-size: clamp(1.6rem, 4vw, 2.2rem);
@@ -294,7 +301,7 @@
 /* Small Phones (e.g., iPhone normal/small, 401px to 576px) */
 @media (min-width: 401px) and (max-width: 576px) {
     .section {
-        padding: clamp(2rem, 5vw, 3rem) clamp(0.5rem, 2vw, 1rem);
+        margin-bottom: 2rem;
     }
     .header h2 {
         font-size: clamp(1.4rem, 3.5vw, 1.9rem);
@@ -344,7 +351,7 @@
 /* Extra Small Phones (e.g., older or very small devices, up to 400px) */
 @media (max-width: 400px) {
     .section {
-        padding: clamp(1.5rem, 4vw, 2.5rem) clamp(0.3rem, 1.5vw, 0.8rem);
+        margin-bottom: 2rem;
     }
     .header h2 {
         font-size: clamp(1.2rem, 3vw, 1.6rem);

@@ -15,6 +15,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden; /* Prevents any potential overflow issues */
+    margin-bottom: 4rem;
 }
 
 .overlay {
@@ -36,7 +37,7 @@
 
 .content h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 42px;
+    font-size: 44px !important;
     font-weight: 600;
     margin-bottom: 1.5rem; /* Increased margin */
     line-height: 1.2;
@@ -46,7 +47,7 @@
     line-height: 1.6; /* Increased line-height for readability */
     margin-bottom: 2.5rem; /* Increased margin */
     font-family: 'Lato', sans-serif;
-    font-size: 18px;
+    font-size: 18px !important;
     font-style: oblique;
     font-weight: 400;
     color: rgba(238, 242, 245, 0.95); /* Slightly increased opacity for better readability */
@@ -55,7 +56,7 @@
 .consultationButton {
     background-color: #7faa81;
     /* Consolidating border properties for clarity - visual style is unchanged */
-    border: 4px double #ffffff;
+    border: 1px solid #ffffff;
     color: white;
     padding: 0.9rem 2.2rem;
     border-radius: 6px;
@@ -99,6 +100,7 @@
 @media (max-width: 1024px) {
     .section {
         min-height: 550px;
+        margin-bottom: 4rem;
     }
     .content h2 {
         font-size: 38px;
@@ -118,6 +120,7 @@
         height: auto; /* Allow section to grow with content */
         min-height: 70vh; /* Still takes up significant screen space */
         padding: 6rem 1.5rem; /* Increase vertical padding for mobile */
+        margin-bottom: 3rem;
     }
     .content h2 {
         font-size: 32px;

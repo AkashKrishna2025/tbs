@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaChevronRight } from 'react-icons/fa';
 import styles from './MegaMenu.module.css';
 
 const MegaMenu = ({ category }) => {
@@ -11,7 +12,7 @@ const MegaMenu = ({ category }) => {
         {/* Left Section - No Changes Here */}
         <div className={styles.leftSection}>
           <div className={styles.categorySection}>
-            <h3 className={styles.categoryTitle}>
+            <h3 className={`${styles.categoryTitle} ${category.name === 'Nursery, Bedding & Accessories' ? styles.longCategoryTitle : ''}`}>
               <Link to={`/collection/${category.id}`}>
                 {category.name}
               </Link>
@@ -21,7 +22,7 @@ const MegaMenu = ({ category }) => {
               {category.subCategories?.map(sub => (
                 <li key={sub.id}>
                   <Link to={`/collection/${category.id}?sub=${sub.id}`}>
-                    {sub.name}
+                    <FaChevronRight className={styles.subCategoryIcon} style={{ color: 'black' }} /> {sub.name}
                   </Link>
                 </li>
               ))}

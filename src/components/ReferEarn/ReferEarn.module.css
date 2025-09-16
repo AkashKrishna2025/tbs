@@ -1,190 +1,309 @@
-/* src/components/ReferEarn/ReferEarn.module.css (Corrected & Fully Responsive) */
+/* src/components/ReferEarn/ReferEarn.module.css */
 
-.referSection {
-    position: relative;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1920px;
-    line-height: 1.5; /* Set a base line-height for all text */
-}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Playfair+Display:wght@400;700&display=swap');
 
-.backgroundImage {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.contentOverlay {
+.line{
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    z-index: 3;
 }
 
-/* --- Header Text --- */
-.header {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    width: 100%;
-    padding: 0 20px;
+.referEarnSection {
+  max-width: 1200px;
+  margin: 70px auto 0 auto;
+  padding: 0 20px;
 }
 
 .title {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 2.5rem;
-    font-weight: 500;
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 400;
     color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+    line-height: 1.2;
 }
 
 .subtitle {
-    font-size: 1rem;
-    color: #777;
-    margin-top: 10px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* --- Step Content --- */
-.step {
-    position: absolute;
+    font-size: 18px;
+    line-height: 32px;
+    color: #666565;
     text-align: center;
-    width: 20%;
-    padding: 0 10px;
+    font-weight: 400;
+    margin: 0 auto 30px auto;
+    font-style: oblique;
+    font-family: 'Lato', sans-serif;
+    max-width: 700px;
 }
 
-.stepNumber {
-    font-size: 6rem;
-    font-weight: bold;
-    color: #d8e4d7;
+.contactText {
+    position: absolute;
+    left: 4rem;
+    bottom: -1rem;
+    width: auto;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 14px;
     line-height: 1;
-    background: -webkit-linear-gradient(#e6ede5, #c8d8c7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    padding: 10px 15px;
+    z-index: 4;
 }
 
-.stepTitle {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
-    margin: -15px 0 10px 0;
+.stepSection {
+  height: 400px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 4rem;
 }
 
-.stepDescription {
-    color: #555;
-    line-height: 1.6;
-    font-size: 0.95rem;
+.backgroundImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Positioning of each step */
-.step1 { top: 48%; left: 16%; transform: translate(-50%, -50%); }
-.step2 { top: 68%; left: 50%; transform: translate(-50%, -50%); }
-.step3 { top: 48%; left: 84%; transform: translate(-50%, -50%); }
-
-/* --- Footer Bar --- */
-.footer {
-    position: absolute;
-    bottom: 4%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    text-align: center;
-    background-color: rgba(240, 245, 239, 0.9);
-    padding: 15px;
+.backgroundImage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(0deg, #E8F4E5 61.54%, #FFFFFF 100%);
+  z-index: 2;
+  pointer-events: none;
 }
 
-.footer p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #555;
-    font-weight: 500;
+.bgImage {
+  width: 100%;
+  height: 40%;
+  object-fit: cover;
+  object-position: bottom;
+  z-index: 2;
+  bottom: 0;
+  position: absolute;
+  /* Create a fade-out effect from bottom (opaque) to top (transparent) */
+  mask-image: linear-gradient(to top, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 80%, transparent 100%);
+  opacity: 0.2;
 }
 
+.leftImage,
+.rightImage {
+  position: absolute;
+  bottom: 15px;
+  height: 80%;
+  max-height: 220px;
+  width: auto;
+  z-index: 3;
+}
+
+.leftImage {
+  left: 0;
+}
+
+.rightImage {
+  right: 0;
+}
+
+/* Steps layout */
+.stepsContent{
+  position: absolute;
+  top: 0;
+  left: 14%;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 12px 0 12px;
+  text-align: center;
+}
+
+.stepItem{
+  padding: 52px 12px 24px 12px;
+}
+
+.stepNumber{
+  font-size: 80px;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  /* color: #A6C3A0; */
+  line-height: 1;
+  letter-spacing: -4px;
+  margin-bottom: -18px;
+  margin-top: -10px;
+  user-select: none;
+  background: linear-gradient(180deg, #95B79A 0%, rgba(149, 183, 154, 0.3) 62%, rgba(248, 250, 250, 0) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stepTitle{
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: #222222;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.stepDesc{
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: #444444;
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.secondStepItem{
+  margin-top: 60px;
+}
 
 /* === Responsive Design === */
 
-/* For Extra Large Desktops & TVs (1920px and up) */
-@media (min-width: 1441px) {
-    .title { font-size: 2.8rem; }
-    .subtitle { font-size: 1.1rem; }
-    .stepNumber { font-size: 7rem; }
-    .stepTitle { font-size: 1.3rem; }
-    .stepDescription { font-size: 1rem; }
+/* Large desktops */
+@media (max-width: 1200px) {
+  .stepsContent{
+    left: 10%;
+    gap: 4rem;
+  }
+  .stepNumber{ font-size: 72px; }
+  .stepTitle{ font-size: 22px; }
+  .stepDesc{ font-size: 15px; }
 }
 
-/* For Standard Laptops (e.g., 1536px) */
-@media (max-width: 1200px) {
-    .stepNumber { font-size: 5rem; }
-    .stepTitle { font-size: 1.1rem; }
-    .stepDescription { font-size: 0.9rem; }
+/* For Extra Large Desktops & TVs (1920px and up) */
+@media (min-width: 1441px) {
+    .referEarnSection {
+        max-width: 1200px;
+    }
 }
 
 /* For Tablets (iPad Pro, etc.) */
 @media (max-width: 992px) {
-    .title { font-size: 2.2rem; }
-    .stepNumber { font-size: 4rem; }
-    .stepTitle { font-size: 1rem; margin-top: -10px; }
-    .stepDescription { font-size: 0.85rem; }
-    .step1 { left: 18%; }
-    .step3 { left: 82%; }
+    .title {
+        font-size: 40px;
+    }
+    .subtitle {
+        font-size: 20px;
+    }
+    .stepSection {
+        height: 250px;
+    }
+    .leftImage,
+    .rightImage {
+        max-height: 180px;
+    }
+    .contactText {
+        font-size: 14px;
+        padding: 10px 15px;
+        left: 4rem;
+        bottom: 0;
+    }
+    .stepsContent{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; left: 8%; padding-top: 8px; }
+    .stepItem{ padding: 36px 8px 16px 8px; }
+    .stepNumber{ font-size: 64px; }
+    .stepTitle{ font-size: 20px; }
+    .stepDesc{ font-size: 15px; }
 }
 
 /* For Portrait Tablets & Mobile Phones (iPhone, Android, etc.) */
 @media (max-width: 768px) {
-    /* THIS IS THE CORRECTED MOBILE LAYOUT */
-    .referSection {
-        display: block; /* Ensures the section is visible */
-        position: static;
-        padding: 50px 20px; /* Adjusted padding */
-        background-color: #f9f8f6; /* Sets a background for the mobile view */
+    .referEarnSection {
+        padding: 50px 15px;
     }
-
-    /* Hide the elements that are part of the desktop image overlay */
-    .backgroundImage, .footer, .contentOverlay {
-        display: none;
+    .title {
+        font-size: 34px;
     }
-
-    /* We will now re-create the content outside of the overlay for mobile.
-       This requires a small change in the JSX to duplicate the content.
-       However, if changing JSX is not possible, we need to show the overlay.
-       The following CSS assumes JSX cannot be changed. */
-    
-    .contentOverlay {
-        display: block; /* Make the overlay visible */
-        position: static; /* Let it sit in the normal document flow */
+    .subtitle {
+        font-size: 18px;
+        line-height: 28px;
+        margin-bottom: 25px;
     }
-
-    .header {
-        position: static;
-        transform: none;
-        padding: 0;
-        margin-bottom: 50px;
+    .stepSection {
+        height: 200px;
     }
-    
-    .title { font-size: 2rem; }
-
-    .step {
-        position: static;
-        transform: none;
-        width: 90%;
-        margin: 0 auto 40px auto; /* Center steps and add space between them */
+    .leftImage,
+    .rightImage {
+        max-height: 150px;
     }
-
-    /* Since the footer is hidden, the content inside it is also hidden */
+    .contactText {
+        font-size: 13px;
+        padding: 8px 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+    }
+    .stepsContent{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 0.75rem;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 520px;
+        width: 100%;
+        padding-top: 0;
+    }
+    .stepItem{ flex: 0 0 33.333%; max-width: 33.333%; padding: 28px 8px 12px 8px; }
+    .stepNumber{ font-size: 56px; }
+    .stepTitle{ font-size: 20px; }
+    .stepDesc{ font-size: 16px; }
+    .secondStepItem{ margin-top: 24px; }
 }
 
 /* For Small Mobile Phones */
 @media (max-width: 480px) {
-    .referSection {
-        padding: 40px 15px;
+    .referEarnSection {
+        padding: 40px 10px;
     }
-    .title { font-size: 1.8rem; }
-    .subtitle { font-size: 0.9rem; }
-    .stepNumber { font-size: 3.5rem; }
-    .stepTitle { font-size: 1rem; }
-    .stepDescription { font-size: 0.8rem; }
+    .title {
+        font-size: 28px;
+    }
+    .subtitle {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .stepSection {
+        height: 180px;
+    }
+    .leftImage,
+    .rightImage {
+        max-height: 120px;
+    }
+    .contactText {
+        font-size: 12px;
+        padding: 6px 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+    }
+    .stepsContent{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 0.5rem;
+        max-width: 420px;
+    }
+    .stepItem{ flex: 0 0 33.333%; max-width: 33.333%; padding: 24px 6px 10px 6px; }
+    .stepNumber{ font-size: 48px; }
+    .stepTitle{ font-size: 18px; }
+    .stepDesc{ font-size: 15px; }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+    .title { font-size: 24px; }
+    .subtitle { font-size: 14px; line-height: 22px; }
+    .leftImage, .rightImage { max-height: 100px; }
+    .stepNumber{ font-size: 42px; }
+    .stepTitle{ font-size: 17px; }
+    .stepDesc{ font-size: 14px; }
 }

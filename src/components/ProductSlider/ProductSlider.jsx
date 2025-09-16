@@ -3,8 +3,7 @@ import React, { useState, useRef } from 'react';
 import styles from './ProductSlider.module.css';
 import ProductCard from '../ProductCard/ProductCard';
 import { CATEGORIES, PRODUCTS } from '../../Data/products';
-import leftArrow from '../../assets/icons/right.png';
-import rightArrow from '../../assets/icons/left.png';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 
 const ProductSlider = () => {
@@ -48,7 +47,7 @@ const ProductSlider = () => {
     onClick={() => scroll('left')}
     aria-label="Previous products"
   >
-    <img src={leftArrow} alt="Previous" className={styles.arrowIcon} />
+    <FaChevronLeft />
   </button>
   
   <div className={styles.slider} ref={sliderRef}>
@@ -62,7 +61,7 @@ const ProductSlider = () => {
     onClick={() => scroll('right')}
     aria-label="Next products"
   >
-    <img src={rightArrow} alt="Next" className={styles.arrowIcon} />
+    <FaChevronRight />
   </button>
 </div>
       </div>

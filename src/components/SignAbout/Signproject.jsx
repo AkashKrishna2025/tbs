@@ -37,7 +37,7 @@ const Signproject = () => {
   };
 
   return (
-    <section className={`${styles.section} ${styles.sectionMarginTop}`}>
+    <section className={styles.section}>
       <div className={styles.header}>
         <h2>Signature Projects</h2>
         <p>little spaces, big love</p>

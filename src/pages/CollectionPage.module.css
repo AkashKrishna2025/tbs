@@ -1,365 +1,391 @@
 /* src/pages/CollectionPage.module.css */
 
 .collectionPage {
-  background-color: #fff;
+    background-color: #fff;
 }
 
 /* --- Banner Section --- */
 .banner {
-  width: 100%;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px 20px;
-  color: #000000;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: #000000;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .banner h1 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 46px;
-  line-height: 1.4;
-  color: black;
-  margin-bottom: 0px;
+    font-family: 'Playfair Display', 'Lato', 'sans-serif';
+    font-size: 46px;
+    color: #000000;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
 .banner p {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 1.4;
-  color: rgb(39, 37, 37);
+    font-size: 22px;
+    font-family: 'Lato', 'sans-serif';
+    line-height: 1.65;
+    color: #000000;
+    font-weight: 400;
+    max-width: 600px;
 }
 
 /* --- Container --- */
 .container {
-  max-width: 1280px; /* Base max-width for large screens */
-  margin: 0 auto;
-  padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
 /* --- Breadcrumb --- */
 .breadcrumbs {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 25px;
-  padding-left: 5px;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 40px;
+    padding-left: 5px;
 }
 
 /* --- Filter/Sort Bar --- */
 .filterBar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
-  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-  gap: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .leftFilters,
 .rightSort {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap; /* Allows filter/sort items to wrap within their group */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 /* --- CUSTOM SELECT STYLES START --- */
-/* Wrapper to position the custom arrow */
 .selectWrapper {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
-/* The custom arrow */
 .selectWrapper::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 12px; /* तीर की दाईं ओर से दूरी */
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 6px solid #555; /* तीर का रंग */
-  pointer-events: none; /* ताकि तीर पर क्लिक करने पर भी ड्रॉपडाउन खुले */
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #555;
+    pointer-events: none;
 }
 
-/* Styling the <select> element itself */
 .filterBar select {
-  border: 1px solid #c6d1c5;
-  border-radius: 5px;
-  background-color: #F7FFF5;
-  font-size: 0.9rem;
-  cursor: pointer;
-  font-family: 'Lato';
-  
-  padding: 8px 32px 8px 12px; /* दाईं ओर पैडिंग बढ़ाई गई है */
-  
-  /* ब्राउज़र का डिफ़ॉल्ट तीर छिपाएँ */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+    border: 1px solid #c6d1c5;
+    border-radius: 5px;
+    background-color: #F7FFF5;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: 'Lato';
+    padding: 8px 32px 8px 12px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 /* --- CUSTOM SELECT STYLES END --- */
 
-
 .productCount {
-  font-size: 0.95rem;
-  color: #363535;
-  margin-right: 10px;
-  font-family: 'Poppins';
+    font-size: 0.95rem;
+    color: #363535;
+    margin-right: 10px;
+    font-family: 'Poppins';
 }
 
-/* --- Product Grid --- */
+/* --- Product Grid (4 → 3 → 2 → 1 cards system) --- */
 .productGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Base: ~3 columns */
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) !important; /* Default: 4 cards */
+    gap: 20px;
+    justify-content: center; /* ✅ Centers the grid items */
+
 }
 
 /* -------------------- RESPONSIVENESS -------------------- */
 
-/* Extra Large Desktops & Wide Screens (e.g., 1920*1080, 1920*958, large LCD/LED panels) */
-/* Base styles already largely cover this, ensuring content doesn't stretch too wide */
-@media (min-width: 1441px) {
-    .container {
-        /* Maintain max-width 1280px, centered */
+/* Large Laptops & Desktops (MD: 1025px - 1440px → 3 cards) */
+@media (max-width: 1440px) {
+    .productGrid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Large Laptops & Desktops (e.g., Mac Computer Display, 1536*864, 1025px to 1440px) */
+/* Tablets Landscape & Medium Devices (SM: 769px - 1024px → 2 cards) */
+@media (max-width: 1024px) {
+    .productGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small Phones & Extra Small Devices (XSM: up to 768px → 1 card) */
+@media (max-width: 768px) {
+    .productGrid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* --- Banner Adjustments for Responsive --- */
 @media (min-width: 1025px) and (max-width: 1440px) {
-    .banner { 
-        min-height: 380px; 
-        padding: 35px 20px; 
+    .banner {
+        min-height: 380px;
+        padding: 35px 20px;
     }
-    .banner h1 { 
-        font-size: 40px; 
+
+    .banner h1 {
+        font-size: 40px;
     }
-    .banner p { 
-        font-size: 20px; 
+
+    .banner p {
+        font-size: 20px;
     }
+
     .container {
-        max-width: 1100px; /* Slightly reduce container max-width */
+        max-width: 1100px;
         padding: 18px;
     }
+
     .breadcrumbs {
         margin-bottom: 20px;
     }
+
     .filterBar {
         margin-bottom: 35px;
         gap: 15px;
     }
-    .productGrid { 
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Adjust min product width */
-        gap: 18px; 
-    }
 }
 
-/* Medium Laptops & Tablets Landscape (e.g., iPad Landscape, smaller Mac displays, 769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
-    .banner { 
-        min-height: 320px; 
-        padding: 30px 15px; 
+    .banner {
+        min-height: 320px;
+        padding: 30px 15px;
     }
-    .banner h1 { 
-        font-size: 36px; 
+
+    .banner h1 {
+        font-size: 36px;
     }
-    .banner p { 
-        font-size: 18px; 
+
+    .banner p {
+        font-size: 18px;
     }
+
     .container {
-        max-width: 90%; /* Fluid width */
+        max-width: 90%;
         padding: 15px;
     }
+
     .breadcrumbs {
         margin-bottom: 18px;
         font-size: 0.85rem;
     }
+
     .filterBar {
         margin-bottom: 30px;
         gap: 15px;
     }
+
     .leftFilters,
     .rightSort {
         gap: 10px;
     }
+
     .filterBar select {
-        padding: 7px 30px 7px 10px; /* Adjust padding, keep arrow aligned */
+        padding: 7px 30px 7px 10px;
         font-size: 0.85rem;
     }
+
     .selectWrapper::after {
-        right: 10px; /* Adjust arrow position for smaller padding */
+        right: 10px;
     }
+
     .productCount {
         font-size: 0.9rem;
         margin-right: 5px;
     }
-    .productGrid { 
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* ~3 columns, slightly smaller */
-        gap: 15px; 
-    }
 }
 
-/* Tablets Portrait & Large Phones (e.g., iPad Portrait, iPhone 15 Pro Max, 577px to 768px) */
 @media (min-width: 577px) and (max-width: 768px) {
-    .banner { 
-        min-height: 280px; 
-        padding: 25px 15px; 
+    .banner {
+        min-height: 280px;
+        padding: 25px 15px;
     }
-    .banner h1 { 
-        font-size: 30px; 
+
+    .banner h1 {
+        font-size: 30px;
     }
-    .banner p { 
-        font-size: 16px; 
+
+    .banner p {
+        font-size: 16px;
     }
+
     .container {
-        max-width: 95%; /* Wider fluid width */
+        max-width: 95%;
         padding: 15px 10px;
     }
+
     .breadcrumbs {
         margin-bottom: 15px;
         font-size: 0.8rem;
     }
-    .filterBar { 
-        flex-direction: column; /* Stack filters vertically */
-        align-items: flex-start; /* Align stacked items to the left */
+
+    .filterBar {
+        flex-direction: column;
+        align-items: flex-start;
         margin-bottom: 25px;
-        gap: 15px; /* Gap between stacked filter/sort groups */
+        gap: 15px;
     }
+
     .leftFilters,
     .rightSort {
-        width: 100%; /* Make filter/sort groups take full width */
-        justify-content: space-between; /* Distribute items within the group */
+        width: 100%;
+        justify-content: space-between;
         gap: 10px;
     }
+
     .filterBar select {
         padding: 6px 28px 6px 10px;
         font-size: 0.8rem;
     }
+
     .selectWrapper::after {
-        right: 8px; /* Further adjust arrow position */
+        right: 8px;
     }
+
     .productCount {
         font-size: 0.85rem;
-        margin-right: 0; /* Remove right margin */
-    }
-    .productGrid { 
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* ~2-3 columns depending on exact width */
-        gap: 15px; 
+        margin-right: 0;
     }
 }
 
-/* Small Phones (e.g., iPhone 15, Google Pixel, 401px to 576px) */
 @media (min-width: 401px) and (max-width: 576px) {
-    .banner { 
-        min-height: 220px; 
-        padding: 20px 10px; 
+    .banner {
+        min-height: 220px;
+        padding: 20px 10px;
     }
-    .banner h1 { 
-        font-size: 26px; 
-        line-height: 1.3; 
+
+    .banner h1 {
+        font-size: 26px;
+        line-height: 1.3;
     }
-    .banner p { 
-        font-size: 14px; 
-        line-height: 1.3; 
+
+    .banner p {
+        font-size: 14px;
+        line-height: 1.3;
     }
+
     .container {
         padding: 10px;
     }
+
     .breadcrumbs {
         margin-bottom: 12px;
         padding-left: 0;
         font-size: 0.75rem;
     }
-    .filterBar { 
+
+    .filterBar {
         margin-bottom: 20px;
         gap: 10px;
     }
+
     .leftFilters,
     .rightSort {
         width: 100%;
         gap: 8px;
-        justify-content: space-around; /* Spread out filter/sort items */
+        justify-content: space-around;
     }
+
     .filterBar select {
         padding: 5px 25px 5px 8px;
         font-size: 0.75rem;
     }
+
     .selectWrapper::after {
         right: 7px;
-        border-top: 5px solid #555; /* Slightly smaller arrow */
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-    }
-    .productCount {
-        font-size: 0.8rem;
-    }
-    .productGrid { 
-        grid-template-columns: repeat(2, 1fr); /* Force 2 columns */
-        gap: 12px; 
-    }
-}
-
-/* Extra Small Phones (e.g., iPhone SE, older small devices, up to 400px) */
-@media (max-width: 400px) {
-    .banner { 
-        min-height: 180px; 
-        padding: 15px 10px; 
-    }
-    .banner h1 { 
-        font-size: 22px; 
-        line-height: 1.2; 
-    }
-    .banner p { 
-        font-size: 12px; 
-        line-height: 1.2; 
-    }
-    .container {
-        padding: 8px;
-    }
-    .breadcrumbs {
-        margin-bottom: 10px;
-        font-size: 0.7rem;
-    }
-    .filterBar { 
-        margin-bottom: 15px;
-        gap: 8px;
-    }
-    .leftFilters,
-    .rightSort {
-        width: 100%;
-        gap: 5px;
-        flex-direction: column; /* Stack filter items for very small screens */
-        align-items: flex-start;
-    }
-    .filterBar select {
-        width: 100%; /* Make select full width when stacked */
-        padding: 5px 20px 5px 8px;
-        font-size: 0.7rem;
-    }
-    .selectWrapper {
-        width: 100%; /* Ensure wrapper also takes full width */
-    }
-    .selectWrapper::after {
-        right: 8px; /* Keep arrow on the right */
         border-top: 5px solid #555;
         border-left: 4px solid transparent;
         border-right: 4px solid transparent;
     }
+
+    .productCount {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .banner {
+        min-height: 180px;
+        padding: 15px 10px;
+    }
+
+    .banner h1 {
+        font-size: 22px;
+        line-height: 1.2;
+    }
+
+    .banner p {
+        font-size: 12px;
+        line-height: 1.2;
+    }
+
+    .container {
+        padding: 8px;
+    }
+
+    .breadcrumbs {
+        margin-bottom: 10px;
+        font-size: 0.7rem;
+    }
+
+    .filterBar {
+        margin-bottom: 15px;
+        gap: 8px;
+    }
+
+    .leftFilters,
+    .rightSort {
+        width: 100%;
+        gap: 5px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filterBar select {
+        width: 100%;
+        padding: 5px 20px 5px 8px;
+        font-size: 0.7rem;
+    }
+
+    .selectWrapper {
+        width: 100%;
+    }
+
+    .selectWrapper::after {
+        right: 8px;
+        border-top: 5px solid #555;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+    }
+
     .productCount {
         font-size: 0.75rem;
-    }
-    .productGrid { 
-        grid-template-columns: 1fr; /* Single column layout for very small screens */
-        gap: 10px; 
     }
 }

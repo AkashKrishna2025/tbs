@@ -10,6 +10,7 @@ import instagramIcon from '../../assets/icons/insta.png';
 import FooterImage from '../../assets/images/footer.png'
 import pintrest from '../../assets/icons/pinb.png'
 import youtube from '../../assets/icons/youtubeb.png'
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -37,11 +38,15 @@ const Footer = () => {
       <div className={styles.footerMain}>
         {/* Column 1: Contact Info */}
         <div className={styles.contactInfo}>
-          <img src={logo} alt="TBS Studio" className={styles.logo} />
+          <div className={styles.logoContainer}>
+            <img src={logo} alt="TBS Studio" className={styles.logo} />
+          </div>
           <ul className={styles.contactList}>
             <li><img src={emailIcon} alt="email"/>admin@tbs.studio</li>
-            <li><img src={phoneIcon} alt="phone"/>(+91) 9811130502, 8929381402, 011-45591254</li>
-            <li><img src={locationIcon} alt="location"/>The Studio Unit no.201 & 202, 2nd Floor, opp. Metro pillar no.9, The Marquee Building, M. G. Road, Sultanpur, New Delhi - 110030</li>
+            <li><img src={phoneIcon} alt="phone"/>(+91) 9811130502,<br />
+            8929385402,011-45509254
+            </li>
+            <li><img src={locationIcon} alt="location"/>Tbs Studio Unit no.201 & 202, 2nd Floor, opp. Metro pillar no.9, The Marquee Building, M. G. Road, Sultanpur, New Delhi - 110030</li>
           </ul>
         </div>
         
@@ -49,9 +54,9 @@ const Footer = () => {
         <div className={styles.linksColumn}>
           <h4>About Us</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Our Story</a></li>
-            <li><a href="#">Blogs & News</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">Our Story</Link></li>
+            <li><Link to="/blog">Blogs & News</Link></li>
           </ul>
         </div>
         <div className={styles.linksColumn}>
@@ -98,10 +103,10 @@ const Footer = () => {
           )}
 
           <div className={styles.socialIcons}>
-            <a href="#"><img src={facebookIcon} alt="Facebook" /></a>
-            <a href="#"><img src={instagramIcon} alt="Instagram" /></a>
-                          <a href="#"><img src={youtube} alt="Youtube" /></a>
-                           <a href="#"><img src={pintrest} alt="Pintrest" /></a>
+            <a href="#" className={styles.socialIcon}><img src={facebookIcon} alt="Facebook" /></a>
+            <a href="#" className={styles.socialIcon}><img src={instagramIcon} alt="Instagram" /></a>
+            <a href="#" className={styles.socialIcon}><img src={youtube} alt="YouTube" /></a>
+            <a href="#" className={styles.socialIcon}><img src={pintrest} alt="Pinterest" /></a>
           </div>
         </div>
       </div>
@@ -109,7 +114,7 @@ const Footer = () => {
       <img src={FooterImage} alt="Little Spaces Big Love" className={styles.footerWatermark} />
       
       <div className={styles.footerBottom}>
-        <p>© 2025 Tbs.studio, Powered by Shopify</p>
+        <span>© 2025 Tbs.studio, Powered by Shopify</span>
       </div>
     </footer>
   );
